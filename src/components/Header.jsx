@@ -4,7 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Bars3Icon, 
   XMarkIcon,
-  ChevronDownIcon 
+  ChevronDownIcon,
+  GlobeAltIcon,
+  CheckIcon
 } from '@heroicons/react/24/outline';
 import Button from './Button';
 import { useTheme } from './ThemeProvider';
@@ -14,13 +16,28 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
   const { prefersReducedMotion } = useTheme();
   const { t, i18n } = useTranslation();
+
+  // Idiomas disponibles
+  const languages = [
+    { code: 'es', name: 'Español', flag: '🇪🇸' },
+    { code: 'en', name: 'English', flag: '🇬🇧' }
+  ];
+
+  // Obtener idioma actual
+  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+
+  // Cambiar idioma
+  const changeLanguage = (code) => {
+    i18n.changeLanguage(code);
+    setLanguageMenuOpen(false);
+  };
 
   // Detectar scroll para cambiar estilo del header
   useEffect(() => {
     const handleScroll = () => {
-      // Cambia a scrolled después de 50px
       setIsScrolled(window.scrollY > 50);
     };
 
@@ -28,7 +45,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Links de navegación
+  // Links de navegación (sin "Casos de Uso" para mejor espaciado)
   const navLinks = [
     { 
       name: t('nav.home'), 
@@ -43,10 +60,6 @@ const Header = () => {
         { name: t('nav.analytics'), href: '/#caracteristicas', icon: '📊' },
         { name: t('nav.integrations'), href: '/#caracteristicas', icon: '🔗' },
       ]
-    },
-    { 
-      name: t('nav.usecases'), 
-      href: '/#casos' 
     },
     { 
       name: t('nav.pricing'), 
@@ -74,7 +87,7 @@ const Header = () => {
 
   return (
     <>
-      {/* Header Principal - TRANSPARENTE Y ADAPTATIVO */}
+      {/* Header Principal */}
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
@@ -112,8 +125,8 @@ const Header = () => {
               </span>
             </Link>
 
-            {/* Navegación Desktop */}
-            <div className="hidden lg:flex items-center space-x-1">
+            {/* Navegación Desktop - Mejor espaciado */}
+            <div className="hidden lg:flex items-center space-x-2">
               {navLinks.map((link) => (
                 <div key={link.name} className="relative">
                   {link.dropdown ? (
@@ -123,7 +136,7 @@ const Header = () => {
                       onMouseEnter={() => !prefersReducedMotion && setActiveDropdown(link.name)}
                       onMouseLeave={() => setActiveDropdown(null)}
                     >
-                      <button className={`px-4 py-2 font-medium transition-colors duration-200 flex items-center gap-1 ${
+                      <button className={`px-4 py-2 font-medium transition-colors duration-200 flex items-center gap-1.5 ${
                         isScrolled 
                           ? 'text-gray-300 hover:text-white' 
                           : 'text-white/90 hover:text-white'
@@ -178,10 +191,10 @@ const Header = () => {
               ))}
             </div>
 
-            {/* CTA Buttons Desktop */}
-            <div className="hidden lg:flex items-center gap-3">
+            {/* CTA Buttons y Selector de Idioma Desktop - Mejor espaciado */}
+            <div className="hidden lg:flex items-center gap-4">
               <button
-                className={`px-4 py-2 font-medium transition-colors duration-200 rounded-lg ${
+                className={`px-5 py-2 font-medium transition-colors duration-200 rounded-lg ${
                   isScrolled
                     ? 'text-gray-300 hover:text-white hover:bg-white/5'
                     : 'text-white/90 hover:text-white hover:bg-white/10'
@@ -190,16 +203,72 @@ const Header = () => {
               >
                 {t('nav.contact')}
               </button>
+              
               <button
                 className="px-6 py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow-lg hover:shadow-xl"
                 onClick={() => window.location.href = '/#precios'}
               >
                 {t('nav.tryfree')}
               </button>
-              {/* Botones para cambiar idioma */}
-              <div className="ml-4 flex gap-2">
-                <button onClick={() => i18n.changeLanguage('es')} className="px-2 py-1 text-xs rounded bg-gray-800 text-white">ES</button>
-                <button onClick={() => i18n.changeLanguage('en')} className="px-2 py-1 text-xs rounded bg-gray-800 text-white">EN</button>
+
+              {/* Selector de Idioma Mejorado */}
+              <div className="relative ml-2">
+                <button
+                  onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
+                  className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 ${
+                    isScrolled
+                      ? 'text-gray-300 hover:text-white hover:bg-white/5'
+                      : 'text-white/90 hover:text-white hover:bg-white/10'
+                  }`}
+                  aria-label="Cambiar idioma"
+                >
+                  <GlobeAltIcon className="w-5 h-5" />
+                  <span className="font-medium">{currentLanguage.code.toUpperCase()}</span>
+                  <ChevronDownIcon className={`w-4 h-4 transition-transform ${languageMenuOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {/* Dropdown de Idiomas */}
+                <AnimatePresence>
+                  {languageMenuOpen && (
+                    <>
+                      {/* Backdrop invisible para cerrar al hacer clic fuera */}
+                      <div 
+                        className="fixed inset-0 z-10" 
+                        onClick={() => setLanguageMenuOpen(false)}
+                      />
+
+                      {/* Menu de idiomas */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full right-0 mt-2 w-48 bg-black/95 backdrop-blur-xl rounded-xl shadow-2xl border border-white/10 overflow-hidden z-20"
+                      >
+                        <div className="py-2">
+                          {languages.map((language) => (
+                            <button
+                              key={language.code}
+                              onClick={() => changeLanguage(language.code)}
+                              className={`w-full px-4 py-2.5 flex items-center justify-between hover:bg-white/5 transition-colors text-left ${
+                                i18n.language === language.code ? 'bg-white/5' : ''
+                              }`}
+                            >
+                              <div className="flex items-center gap-3">
+                                <span className="text-xl">{language.flag}</span>
+                                <span className="font-medium text-white">{language.name}</span>
+                              </div>
+                              
+                              {i18n.language === language.code && (
+                                <CheckIcon className="w-5 h-5 text-purple-400" />
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      </motion.div>
+                    </>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
 
@@ -258,7 +327,7 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Nav Links */}
-                <div className="space-y-2">
+                <div className="space-y-2 mb-6">
                   {navLinks.map((link) => (
                     <div key={link.name}>
                       {link.dropdown ? (
@@ -276,19 +345,20 @@ const Header = () => {
                               }`}
                             />
                           </button>
+                          
                           <AnimatePresence>
                             {activeDropdown === link.name && (
                               <motion.div
-                                className="pl-4 mt-2 space-y-2"
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: 'auto', opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
+                                className="ml-4 mt-2 space-y-1"
                               >
                                 {link.dropdown.map((item) => (
                                   <Link
                                     key={item.name}
                                     to={item.href}
-                                    className="flex items-center gap-3 px-4 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                                    className="flex items-center gap-3 px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
                                     onClick={handleLinkClick}
                                   >
                                     <span className="text-xl">{item.icon}</span>
@@ -312,25 +382,57 @@ const Header = () => {
                   ))}
                 </div>
 
+                {/* Selector de Idioma Móvil */}
+                <div className="border-t border-white/10 pt-6 mb-6">
+                  <div className="px-4 mb-3 text-sm text-gray-400 font-medium">
+                    Idioma / Language
+                  </div>
+                  <div className="space-y-2">
+                    {languages.map((language) => (
+                      <button
+                        key={language.code}
+                        onClick={() => {
+                          changeLanguage(language.code);
+                          handleLinkClick();
+                        }}
+                        className={`w-full px-4 py-3 flex items-center justify-between rounded-lg transition-colors ${
+                          i18n.language === language.code 
+                            ? 'bg-white/10 text-white' 
+                            : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="text-xl">{language.flag}</span>
+                          <span className="font-medium">{language.name}</span>
+                        </div>
+                        
+                        {i18n.language === language.code && (
+                          <CheckIcon className="w-5 h-5 text-purple-400" />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Mobile CTA Buttons */}
-                <div className="mt-8 space-y-3">
+                <div className="space-y-3">
                   <button
-                    className="w-full px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 font-medium rounded-lg transition-colors border border-white/10"
+                    className="w-full px-4 py-3 text-white font-medium hover:bg-white/5 rounded-lg transition-colors border border-white/10"
                     onClick={() => {
                       window.location.href = '/#contacto';
                       handleLinkClick();
                     }}
                   >
-                    Contacto
+                    {t('nav.contact')}
                   </button>
                   <button
-                    className="w-full px-4 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all shadow-lg"
                     onClick={() => {
                       window.location.href = '/#precios';
                       handleLinkClick();
                     }}
                   >
-                    Prueba Gratis
+                    {t('nav.tryfree')}
                   </button>
                 </div>
               </div>
