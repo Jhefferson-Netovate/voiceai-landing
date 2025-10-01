@@ -31,7 +31,7 @@ export default function Blog() {
 
           {/* Post destacado */}
           <div className="space-y-12">
-            <article className="bg-dark-100 rounded-2xl shadow-sm p-8 md:p-12">
+            <article className="bg-dark-100 rounded-2xl shadow-sm p-8 md:p-12 relative z-20">
               <div className="flex items-center gap-3 mb-4">
                 <span className="px-3 py-1 bg-scale-purple text-white rounded-full text-xs font-bold">Post</span>
                 <span className="text-gray-400 text-sm">01/10/2025</span>
@@ -47,7 +47,7 @@ export default function Blog() {
               </ul>
               <Link
                 to="/blogpost"
-                  className="inline-block mt-4 px-6 py-2 bg-scale-purple text-white rounded-lg font-semibold hover:bg-scale-blue transition-colors z-10"
+                className="inline-block mt-4 px-6 py-2 bg-scale-purple text-white rounded-lg font-semibold hover:bg-scale-blue transition-colors z-30 relative"
               >
                 Leer artículo completo
               </Link>

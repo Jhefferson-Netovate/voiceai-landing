@@ -109,6 +109,8 @@ export default function ExitIntentPopup() {
       event_category: 'engagement',
       event_label: 'User Closed Popup'
     });
+      // Asegurar que no vuelva a mostrarse en esta sesión
+      sessionStorage.setItem('exit-popup-shown', 'true');
   };
 
   return (
