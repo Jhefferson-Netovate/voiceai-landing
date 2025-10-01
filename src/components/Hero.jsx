@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { PlayIcon, ChevronRightIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
+import FloatingOrbs from './visual/FloatingOrbs';
+
 
 export default function Hero() {
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -55,7 +57,13 @@ export default function Hero() {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+  <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-600/30 rounded-full blur-3xl animate-float" />
+  <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl animate-float" 
+       style={{animationDelay: '2s', animationDuration: '12s'}} />
+  <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl animate-float"
+       style={{animationDelay: '4s', animationDuration: '10s'}} />
+</div>
       {/* Background animado estilo Scale.com */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient base animado */}
@@ -214,7 +222,7 @@ export default function Hero() {
           className="text-xl md:text-2xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed"
           {...fadeInUp}
         >
-          VoiceFlow AI utiliza inteligencia artificial conversacional avanzada para realizar y recibir llamadas automáticamente,
+          Netovate OÜ utiliza inteligencia artificial conversacional avanzada para realizar y recibir llamadas automáticamente,
           aumentando tus ventas un 300% y mejorando la atención al cliente 24/7.
         </motion.p>
 

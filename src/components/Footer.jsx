@@ -59,7 +59,7 @@ export default function Footer() {
                   <PhoneIcon className="w-6 h-6 text-white" />
                 </div>
                 <span className="text-2xl font-bold">
-                  VoiceFlow<span className="text-gradient">.ai</span>
+                  Netovate<span className="text-gradient">OÜ</span>
                 </span>
               </Link>
               
@@ -158,7 +158,7 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <p className="text-gray-400 text-center sm:text-left">
-              © {new Date().getFullYear()} VoiceFlow AI by Netovate OU. Todos los derechos reservados.
+              © {new Date().getFullYear()} Netovate OÜ by Netovate OU. Todos los derechos reservados.
             </p>
             
             <div className="flex items-center space-x-6">

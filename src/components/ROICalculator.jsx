@@ -78,7 +78,7 @@ export default function ROICalculator() {
     <div className="bg-gradient-to-br from-[#F7F9FC] to-white rounded-2xl shadow-lg p-8 border border-gray-200">
       <div className="text-center mb-8">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-          Calcula tu <span className="text-[#0F52BA]">ROI</span>
+          Calcula tu <span className="text-scale-purple">ROI</span>
         </h2>
         <p className="text-gray-600">
           Descubre cuánto puedes ahorrar con Netovate OU
@@ -93,7 +93,7 @@ export default function ROICalculator() {
           {/* Número de empleados */}
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
-              <UserGroupIcon className="w-5 h-5 mr-2 text-[#0F52BA]" />
+              <UserGroupIcon className="w-5 h-5 mr-2 text-scale-purple" />
               Número de empleados en tareas manuales
             </label>
             <div className="relative">
@@ -107,7 +107,7 @@ export default function ROICalculator() {
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
                 <span>1</span>
-                <span className="font-semibold text-[#0F52BA] text-base">{employees}</span>
+                <span className="font-semibold text-scale-purple text-base">{employees}</span>
                 <span>100</span>
               </div>
             </div>
@@ -116,7 +116,7 @@ export default function ROICalculator() {
           {/* Coste por hora */}
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
-              <CurrencyEuroIcon className="w-5 h-5 mr-2 text-[#0F52BA]" />
+              <CurrencyEuroIcon className="w-5 h-5 mr-2 text-scale-purple" />
               Coste por hora del empleado (€)
             </label>
             <div className="relative">
@@ -130,7 +130,7 @@ export default function ROICalculator() {
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
                 <span>10€</span>
-                <span className="font-semibold text-[#0F52BA] text-base">{hourlyRate}€</span>
+                <span className="font-semibold text-scale-purple text-base">{hourlyRate}€</span>
                 <span>100€</span>
               </div>
             </div>
@@ -139,7 +139,7 @@ export default function ROICalculator() {
           {/* Horas por día */}
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
-              <ClockIcon className="w-5 h-5 mr-2 text-[#0F52BA]" />
+              <ClockIcon className="w-5 h-5 mr-2 text-scale-purple" />
               Horas diarias en tareas automatizables
             </label>
             <div className="relative">
@@ -153,7 +153,7 @@ export default function ROICalculator() {
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
                 <span>1h</span>
-                <span className="font-semibold text-[#0F52BA] text-base">{hoursPerDay}h</span>
+                <span className="font-semibold text-scale-purple text-base">{hoursPerDay}h</span>
                 <span>8h</span>
               </div>
             </div>
@@ -162,7 +162,7 @@ export default function ROICalculator() {
           {/* Días laborables */}
           <div>
             <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
-              <ChartBarIcon className="w-5 h-5 mr-2 text-[#0F52BA]" />
+              <ChartBarIcon className="w-5 h-5 mr-2 text-scale-purple" />
               Días laborables al mes
             </label>
             <div className="relative">
@@ -176,7 +176,7 @@ export default function ROICalculator() {
               />
               <div className="flex justify-between text-xs text-gray-500 mt-1">
                 <span>15</span>
-                <span className="font-semibold text-[#0F52BA] text-base">{workDays}</span>
+                <span className="font-semibold text-scale-purple text-base">{workDays}</span>
                 <span>30</span>
               </div>
             </div>
@@ -233,13 +233,13 @@ export default function ROICalculator() {
             {/* Métricas adicionales */}
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-200">
               <div className="text-center">
-                <p className="text-2xl font-bold text-[#0F52BA]">
+                <p className="text-2xl font-bold text-scale-purple">
                   {results.roi}%
                 </p>
                 <p className="text-xs text-gray-600 mt-1">ROI</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-[#0F52BA]">
+                <p className="text-2xl font-bold text-scale-purple">
                   {results.paybackMonths}
                 </p>
                 <p className="text-xs text-gray-600 mt-1">Meses recuperación</p>

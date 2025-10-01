@@ -48,6 +48,8 @@ export default {
         'shimmer': 'shimmer 2s linear infinite',
         'float': 'float 3s ease-in-out infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
+        'float-slow': 'float 8s ease-in-out infinite',
+        'float-slower': 'float 12s ease-in-out infinite',
       },
       
       // Definición de las animaciones

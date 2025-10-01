@@ -23,7 +23,7 @@ export default function Terms() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Aceptación de los Términos</h2>
             <p className="text-gray-600 leading-relaxed">
-              Al acceder y utilizar el sitio web de VoiceFlow AI (operado por Netovate OU), aceptas
+              Al acceder y utilizar el sitio web de Netovate OÜ (operado por Netovate OU), aceptas
               estar sujeto a estos Términos y Condiciones. Si no estás de acuerdo con alguna parte
               de estos términos, no debes utilizar nuestro sitio web o servicios.
             </p>
@@ -32,7 +32,7 @@ export default function Terms() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Descripción del Servicio</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              VoiceFlow AI proporciona soluciones de inteligencia artificial conversacional para
+              Netovate OÜ proporciona soluciones de inteligencia artificial conversacional para
               automatización de llamadas telefónicas empresariales. Nuestros servicios incluyen:
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-600 ml-4">
@@ -104,7 +104,7 @@ export default function Terms() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Propiedad Intelectual</h2>
             <p className="text-gray-600 leading-relaxed">
-              Todo el contenido, software, marcas comerciales y tecnología de VoiceFlow AI son
+              Todo el contenido, software, marcas comerciales y tecnología de Netovate OÜ son
               propiedad de Netovate OU y están protegidos por leyes de propiedad intelectual.
               Te otorgamos una licencia limitada, no exclusiva y revocable para usar el servicio
               según estos términos.
