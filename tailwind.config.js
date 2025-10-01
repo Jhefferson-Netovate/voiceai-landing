@@ -1,132 +1,79 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,mdx}"],
-  
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       // ============================================
-      // 🌑 PALETA OSCURA - INSPIRADA EN SCALE.COM
+      // 🎨 COLORES - Sistema de Diseño Netovate OU
       // ============================================
       colors: {
-        // Fondos Oscuros (El alma de Scale.com)
-        'dark': {
-          DEFAULT: '#000000',     // Negro puro
-          50: '#0a0a0a',          // Casi negro
-          100: '#111111',         // Negro con un toque de gris
-          200: '#1a1a1a',         // Gris muy oscuro
-          300: '#262626',         // Gris oscuro
-          400: '#333333',         // Gris medio-oscuro
-          500: '#404040',         // Gris medio
-          600: '#525252',         // Gris
-          700: '#666666',         // Gris claro
-          800: '#808080',         // Gris más claro
-          900: '#999999',         // Gris muy claro
-        },
-
-        // Acentos Brillantes (Los que hacen POP sobre negro)
-        'neon': {
-          blue: '#0EA5E9',        // Azul eléctrico
-          purple: '#8B5CF6',      // Púrpura vibrante
-          pink: '#EC4899',        // Rosa neón
-          cyan: '#06B6D4',        // Cian brillante
-          green: '#10B981',       // Verde neón
-          yellow: '#F59E0B',      // Amarillo brillante
-          orange: '#F97316',      // Naranja vibrante
-        },
-
-        // Colores de marca Netovate (versión oscura)
-        'brand': {
-          navy: '#1E3A8A',        // Azul marino oscuro
-          blue: '#2563EB',        // Azul brillante principal
-          cyan: '#06B6D4',        // Cian eléctrico
-          purple: '#8B5CF6',      // Púrpura vibrante
-          coral: '#F97316',       // Naranja coral
-        },
-
-        // Grises para texto (alta legibilidad sobre negro)
-        'gray': {
-          50: '#FAFAFA',          // Blanco casi puro
-          100: '#F5F5F5',         // Gris muy claro
-          200: '#E5E5E5',         // Gris claro
-          300: '#D4D4D4',         // Gris claro-medio
-          400: '#A3A3A3',         // Gris medio
-          500: '#737373',         // Gris
-          600: '#525252',         // Gris oscuro
-          700: '#404040',         // Gris muy oscuro
-          800: '#262626',         // Casi negro
-          900: '#171717',         // Negro con tinte
-        },
-
-        // Aliases para compatibilidad (migración suave)
+        // Colores principales
         'scale-purple': '#8B5CF6',
         'scale-blue': '#2563EB',
         'scale-cyan': '#06B6D4',
-        'scale-pink': '#EC4899',
         'scale-orange': '#F97316',
+        'scale-pink': '#EC4899',
+        
+        // Fondos oscuros (modo dark principal)
+        'dark': {
+          DEFAULT: '#000000',
+          50: '#0a0a0a',
+          100: '#111111',
+          200: '#1a1a1a',
+          300: '#262626',
+          400: '#333333',
+          500: '#404040',
+          600: '#525252',
+          700: '#737373',
+          800: '#a3a3a3',
+          900: '#d4d4d4',
+        },
+        
+        // Grises neutrales
+        gray: {
+          50: '#F9FAFB',
+          100: '#F3F4F6',
+          200: '#E5E7EB',
+          300: '#D1D5DB',
+          400: '#9CA3AF',
+          500: '#6B7280',
+          600: '#4B5563',
+          700: '#374151',
+          800: '#1F2937',
+          900: '#111827',
+        },
+
+        // Colores neón para acentos
+        neon: {
+          purple: '#A78BFA',
+          blue: '#60A5FA',
+          cyan: '#22D3EE',
+          pink: '#F472B6',
+          orange: '#FB923C',
+        },
       },
-      
+
       // ============================================
-      // 🎨 GRADIENTES OSCUROS ÉPICOS
-      // ============================================
-      backgroundImage: {
-        // Gradiente principal (púrpura a azul sobre negro)
-        'gradient-dark': 'linear-gradient(135deg, #8B5CF6 0%, #2563EB 100%)',
-        
-        // Gradiente arcoíris oscuro
-        'gradient-rainbow': 'linear-gradient(135deg, #8B5CF6 0%, #2563EB 25%, #06B6D4 50%, #EC4899 75%, #F97316 100%)',
-        
-        // Gradiente sutil para cards
-        'gradient-subtle': 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%)',
-        
-        // Gradiente de vidrio (glassmorphism oscuro)
-        'glass-dark': 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%)',
-        
-        // Gradiente animado para fondos
-        'animated-gradient': 'linear-gradient(270deg, #8B5CF6, #2563EB, #06B6D4, #EC4899)',
-      },
-      
-      // ============================================
-      // ✨ EFECTOS DE GLOW (MUY IMPORTANTES)
-      // ============================================
-      boxShadow: {
-        // Glow púrpura
-        'glow-purple': '0 0 30px rgba(139, 92, 246, 0.5), 0 0 60px rgba(139, 92, 246, 0.3)',
-        'glow-purple-lg': '0 0 40px rgba(139, 92, 246, 0.6), 0 0 80px rgba(139, 92, 246, 0.4)',
-        
-        // Glow azul
-        'glow-blue': '0 0 30px rgba(37, 99, 235, 0.5), 0 0 60px rgba(37, 99, 235, 0.3)',
-        'glow-blue-lg': '0 0 40px rgba(37, 99, 235, 0.6), 0 0 80px rgba(37, 99, 235, 0.4)',
-        
-        // Glow cyan
-        'glow-cyan': '0 0 30px rgba(6, 182, 212, 0.5), 0 0 60px rgba(6, 182, 212, 0.3)',
-        'glow-cyan-lg': '0 0 40px rgba(6, 182, 212, 0.6), 0 0 80px rgba(6, 182, 212, 0.4)',
-        
-        // Glow rosa
-        'glow-pink': '0 0 30px rgba(236, 72, 153, 0.5), 0 0 60px rgba(236, 72, 153, 0.3)',
-        
-        // Glow multicolor
-        'glow-rainbow': '0 0 40px rgba(139, 92, 246, 0.4), 0 0 80px rgba(37, 99, 235, 0.3)',
-        
-        // Sombras para cards sobre fondo oscuro
-        'dark-card': '0 8px 32px rgba(0, 0, 0, 0.6)',
-        'dark-card-hover': '0 16px 48px rgba(0, 0, 0, 0.8)',
-      },
-      
-      // ============================================
-      // 🎭 ANIMACIONES SUAVES Y FLUIDAS
+      // ⚡ ANIMACIONES
       // ============================================
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',
-        'fade-in-up': 'fadeInUp 0.8s ease-out',
-        'slide-up': 'slideUp 0.6s ease-out',
-        'slide-down': 'slideDown 0.3s ease-out',
+        'fade-in-up': 'fadeInUp 0.6s ease-out',
+        'fade-in-down': 'fadeInDown 0.6s ease-out',
+        'slide-in-right': 'slideInRight 0.6s ease-out',
+        'slide-in-left': 'slideInLeft 0.6s ease-out',
         'scale-in': 'scaleIn 0.4s ease-out',
-        'shimmer': 'shimmer 3s linear infinite',
+        'bounce-subtle': 'bounceSubtle 2s ease-in-out infinite',
+        'pulse-subtle': 'pulseSubtle 3s ease-in-out infinite',
+        'shimmer': 'shimmer 2s linear infinite',
         'float': 'float 3s ease-in-out infinite',
         'glow-pulse': 'glowPulse 2s ease-in-out infinite',
-        'gradient-x': 'gradientX 15s ease infinite',
-        'gradient-y': 'gradientY 15s ease infinite',
-        'gradient-xy': 'gradientXY 15s ease infinite',
+        'gradient-x': 'gradientX 3s ease infinite',
+        'gradient-y': 'gradientY 3s ease infinite',
+        'gradient-xy': 'gradientXY 6s ease infinite',
       },
       
       keyframes: {
@@ -135,20 +82,32 @@ export default {
           '100%': { opacity: '1' },
         },
         fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(30px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        slideUp: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        slideDown: {
-          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+        fadeInDown: {
+          '0%': { opacity: '0', transform: 'translateY(-20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        slideInRight: {
+          '0%': { opacity: '0', transform: 'translateX(50px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        slideInLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-50px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
         scaleIn: {
-          '0%': { opacity: '0', transform: 'scale(0.9)' },
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        bounceSubtle: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        pulseSubtle: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.8' },
         },
         shimmer: {
           '0%': { backgroundPosition: '-200% 0' },
@@ -189,7 +148,7 @@ export default {
       // ============================================
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Cal Sans', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       
@@ -204,7 +163,7 @@ export default {
       },
       
       // ============================================
-      // 🎯 BACKDROP BLUR (Para glassmorphism)
+      // 🎯 BACKDROP BLUR
       // ============================================
       backdropBlur: {
         'xs': '2px',
@@ -212,11 +171,22 @@ export default {
       },
       
       // ============================================
-      // 🔲 BORDER RADIUS EXTRA
+      // 🔲 BORDER RADIUS
       // ============================================
       borderRadius: {
         '4xl': '2rem',
         '5xl': '3rem',
+      },
+
+      // ============================================
+      // 🌈 BOX SHADOW
+      // ============================================
+      boxShadow: {
+        'glow-sm': '0 0 10px rgba(139, 92, 246, 0.3)',
+        'glow-md': '0 0 20px rgba(139, 92, 246, 0.4)',
+        'glow-lg': '0 0 30px rgba(139, 92, 246, 0.5)',
+        'glow-xl': '0 0 40px rgba(139, 92, 246, 0.6)',
+        'neon': '0 0 5px theme("colors.neon.purple"), 0 0 20px theme("colors.neon.purple")',
       },
     },
   },

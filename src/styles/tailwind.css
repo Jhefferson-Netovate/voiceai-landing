@@ -1,16 +1,17 @@
 /* ============================================
-   🌑 NETOVATE OU - DARK MODE DESIGN SYSTEM
-   Inspirado en Scale.com con paleta OSCURA
+   NETOVATE OU - ESTILOS PRINCIPALES
    ============================================ */
 
+/* Importar fuente Inter de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
+/* Directivas de Tailwind CSS - NO CAMBIAR ESTE ORDEN */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ============================================
-   📦 CSS VARIABLES - DARK MODE
+   VARIABLES CSS - DARK MODE
    ============================================ */
 
 :root {
@@ -38,7 +39,7 @@
 }
 
 /* ============================================
-   🎯 BASE STYLES - DARK MODE
+   ESTILOS BASE
    ============================================ */
 
 @layer base {
@@ -53,10 +54,8 @@
   }
 
   body {
-    @apply bg-dark text-gray-50;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-feature-settings: 'cv11', 'ss01';
-    /* Fondo negro puro */
+    @apply bg-black text-gray-50;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background-color: #000000;
     color: #FAFAFA;
   }
@@ -82,676 +81,138 @@
   a:hover {
     color: var(--accent-purple);
   }
-
-  /* Scrollbar personalizado oscuro */
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-dark-100;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-gradient-to-b from-neon-purple to-neon-blue rounded-full;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply from-neon-blue to-neon-cyan;
-  }
-
-  /* Selection con color vibrante */
-  ::selection {
-    @apply bg-neon-purple/30 text-white;
-  }
-
-  ::-moz-selection {
-    @apply bg-neon-purple/30 text-white;
-  }
 }
 
 /* ============================================
-   🧩 COMPONENT CLASSES - DARK MODE
+   SCROLLBAR PERSONALIZADO
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-purple-600 to-blue-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-purple-700 to-blue-700;
+}
+
+/* ============================================
+   COMPONENTES PERSONALIZADOS
    ============================================ */
 
 @layer components {
-  /* ========== CONTENEDORES ========== */
-  
+  /* Contenedor principal */
   .container-scale {
-    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
+  /* Espaciado de secciones */
   .section-padding {
-    @apply py-20 md:py-32 lg:py-40;
+    @apply py-16 md:py-24 lg:py-32;
   }
 
-  /* ========== BOTONES OSCUROS ========== */
-  
-  .btn-base {
-    @apply inline-flex items-center justify-center font-semibold rounded-xl;
-    @apply transition-all duration-300 ease-out;
-    @apply focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-dark;
-    @apply disabled:opacity-50 disabled:cursor-not-allowed;
-  }
-
-  /* Botón primary con gradiente brillante */
-  .btn-primary {
-    @apply btn-base px-8 py-4 text-white;
-    @apply bg-gradient-to-r from-neon-purple to-neon-blue;
-    @apply hover:from-neon-purple hover:to-neon-cyan;
-    @apply focus:ring-neon-purple;
-    @apply shadow-glow-purple hover:shadow-glow-purple-lg;
-    @apply transform hover:scale-105 hover:-translate-y-1;
-  }
-
-  /* Botón secondary con borde brillante */
-  .btn-secondary {
-    @apply btn-base px-8 py-4;
-    @apply bg-dark-100 text-white border-2 border-white/20;
-    @apply hover:bg-dark-200 hover:border-neon-purple;
-    @apply focus:ring-neon-blue;
-    @apply transform hover:scale-105;
-  }
-
-  /* Botón outline con efecto glow */
-  .btn-outline {
-    @apply btn-base px-8 py-4;
-    @apply bg-transparent border-2 border-neon-blue text-neon-blue;
-    @apply hover:bg-neon-blue hover:text-white;
-    @apply hover:shadow-glow-blue;
-    @apply focus:ring-neon-blue;
-  }
-
-  /* Botón ghost sutil */
-  .btn-ghost {
-    @apply btn-base px-8 py-4;
-    @apply bg-transparent text-white;
-    @apply hover:bg-white/5;
-    @apply focus:ring-white/20;
-  }
-
-  /* Botón glass con blur */
-  .btn-glass {
-    @apply btn-base px-8 py-4 text-white;
-    @apply bg-white/5 border border-white/10;
-    @apply hover:bg-white/10 hover:border-white/20;
-    @apply backdrop-blur-xl;
-    @apply shadow-dark-card hover:shadow-dark-card-hover;
-  }
-
-  /* ========== CARDS OSCURAS ========== */
-  
-  .card {
-    @apply bg-dark-100 rounded-2xl;
-    @apply border border-white/10;
-    @apply transition-all duration-300;
-  }
-
-  .card-hover {
-    @apply card;
-    @apply hover:bg-dark-200 hover:border-white/20;
-    @apply hover:shadow-dark-card-hover hover:scale-105;
-    @apply cursor-pointer;
-  }
-
-  .card-glass {
-    @apply bg-white/5 rounded-2xl;
-    @apply border border-white/10;
-    @apply backdrop-blur-2xl;
-    @apply shadow-dark-card;
-  }
-
-  .card-gradient {
-    @apply bg-gradient-to-br from-dark-100 to-dark-200;
-    @apply rounded-2xl border border-white/10;
-    @apply hover:border-neon-purple/50;
-    @apply transition-all duration-300;
-  }
-
-  /* Card con borde de gradiente */
-  .card-gradient-border {
-    @apply relative bg-dark-100 rounded-2xl p-6;
-    @apply before:absolute before:inset-0 before:-z-10;
-    @apply before:rounded-2xl before:p-[2px];
-    @apply before:bg-gradient-to-r before:from-neon-purple before:to-neon-blue;
-    @apply hover:before:from-neon-blue hover:before:to-neon-cyan;
-    @apply transition-all duration-300;
-  }
-
-  /* ========== BADGES ========== */
-  
-  .badge {
-    @apply inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold;
-    @apply border;
-  }
-
-  .badge-primary {
-    @apply badge;
-    @apply bg-neon-purple/10 text-neon-purple border-neon-purple/20;
-  }
-
-  .badge-blue {
-    @apply badge;
-    @apply bg-neon-blue/10 text-neon-blue border-neon-blue/20;
-  }
-
-  .badge-cyan {
-    @apply badge;
-    @apply bg-neon-cyan/10 text-neon-cyan border-neon-cyan/20;
-  }
-
-  .badge-pink {
-    @apply badge;
-    @apply bg-neon-pink/10 text-neon-pink border-neon-pink/20;
-  }
-
-  .badge-success {
-    @apply badge;
-    @apply bg-neon-green/10 text-neon-green border-neon-green/20;
-  }
-
-  /* ========== INPUTS OSCUROS ========== */
-  
-  .input {
-    @apply w-full px-4 py-3 rounded-xl;
-    @apply bg-dark-100 border-2 border-white/10;
-    @apply text-white placeholder:text-gray-500;
-    @apply focus:border-neon-blue focus:ring-4 focus:ring-neon-blue/20;
-    @apply transition-all duration-200;
-  }
-
-  .input:hover {
-    @apply border-white/20;
-  }
-
-  .input-error {
-    @apply border-red-500/50 focus:border-red-500 focus:ring-red-500/20;
-  }
-
-  /* ========== TEXTOS CON GRADIENTE ========== */
-  
+  /* Gradiente de texto */
   .text-gradient {
-    @apply bg-gradient-to-r from-neon-purple via-neon-blue to-neon-cyan;
-    @apply bg-clip-text text-transparent;
-    /* Fallback */
-    color: #8B5CF6;
+    @apply bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent;
   }
 
-  .text-gradient-rainbow {
-    @apply bg-gradient-to-r from-neon-purple via-neon-blue via-neon-cyan to-neon-pink;
-    @apply bg-clip-text text-transparent;
-    background-size: 200% auto;
+  /* Efecto glass (glassmorphism) */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
   }
 
-  .text-gradient-animated {
-    @apply text-gradient-rainbow animate-gradient-x;
+  /* Efecto glow */
+  .glow {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
   }
 
-  /* ========== GLASSMORPHISM OSCURO ========== */
-  
-  .glassmorphism {
-    @apply bg-white/5 backdrop-blur-2xl;
-    @apply border border-white/10;
+  /* Botón con gradiente */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl;
   }
 
-  .glassmorphism-hover {
-    @apply glassmorphism;
-    @apply hover:bg-white/10 hover:border-white/20;
-    @apply transition-all duration-300;
-  }
-
-  /* ========== EFECTOS ESPECIALES ========== */
-  
-  /* Grid de puntos de fondo */
-  .dot-pattern {
-    background-image: radial-gradient(circle, rgba(139, 92, 246, 0.15) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
-
-  /* Grid de líneas */
-  .grid-pattern {
-    background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-
-  /* Efecto de spotlight */
-  .spotlight {
-    @apply relative overflow-hidden;
-  }
-
-  .spotlight::before {
-    content: '';
-    @apply absolute inset-0 -z-10;
-    @apply bg-gradient-radial from-neon-purple/20 via-transparent to-transparent;
-    @apply opacity-0 transition-opacity duration-500;
-  }
-
-  .spotlight:hover::before {
-    @apply opacity-100;
-  }
-
-  /* Borde animado con gradiente */
-  .animated-border {
-    @apply relative;
-    @apply before:absolute before:inset-0 before:-z-10;
-    @apply before:rounded-2xl before:p-[2px];
-    @apply before:bg-gradient-to-r before:from-neon-purple before:via-neon-blue before:to-neon-cyan;
-    @apply before:bg-[length:200%_auto] before:animate-gradient-x;
+  /* Card con hover effect */
+  .card-hover {
+    @apply transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
   }
 }
 
 /* ============================================
-   ⚡ UTILITY CLASSES - DARK MODE
+   UTILIDADES PERSONALIZADAS
    ============================================ */
 
 @layer utilities {
-  /* Glow on hover */
-  .glow-on-hover {
-    @apply transition-all duration-300;
-  }
-  
-  .glow-on-hover:hover {
-    @apply shadow-glow-purple;
+  /* Animación de fade in */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
   }
 
-  /* Text shimmer effect */
-  .text-shimmer {
-    @apply bg-gradient-to-r from-white via-neon-blue to-white;
-    @apply bg-clip-text text-transparent;
-    @apply bg-[length:200%_auto] animate-shimmer;
+  /* Animación de slide up */
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
   }
 
-  /* Respeto a prefers-reduced-motion */
-  @media (prefers-reduced-motion: reduce) {
-    .animate-safe {
-      animation: none !important;
-      transition: none !important;
-    }
+  /* Blur condicional */
+  .nav-blur {
+    @apply bg-black/80 backdrop-blur-lg;
   }
+}
 
-  /* Hide scrollbar */
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+/* ============================================
+   KEYFRAMES ADICIONALES
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .scrollbar-hide::-webkit-scrollbar {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+/* Ocultar en móvil */
+@media (max-width: 768px) {
+  .hide-mobile {
     display: none;
   }
+}
 
-  /* Gradiente animado de fondo */
-  .bg-gradient-animated {
-    background-size: 200% 200%;
-    animation: gradientXY 15s ease infinite;
+/* Ocultar en desktop */
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none;
   }
 }
 
 /* ============================================
-   🎨 SECCIONES ESPECIALES
+   ACCESIBILIDAD
    ============================================ */
 
-/* Hero section con efecto de profundidad */
-.hero-section {
-  @apply relative overflow-hidden;
-  @apply bg-gradient-to-b from-dark via-dark-50 to-dark;
-}
-
-/* Section con borde superior brillante */
-.section-divider {
-  @apply relative;
-  @apply before:absolute before:top-0 before:left-0 before:right-0;
-  @apply before:h-px before:bg-gradient-to-r;
-  @apply before:from-transparent before:via-neon-purple before:to-transparent;
-}
-
-/* Footer oscuro */
-.footer-dark {
-  @apply bg-gradient-to-b from-dark-100 to-dark;
-  @apply border-t border-white/10;
-}
-
-/* Navegación sticky con blur */
-.nav-dark {
-  @apply bg-dark/80 backdrop-blur-xl;
-  @apply border-b border-white/10;
-  @apply shadow-dark-card;
-}
-
-/* ============================================
-   🎯 RESPONSIVE HELPERS
-   ============================================ */
-
-@media (max-width: 768px) {
-  .section-padding {
-    @apply py-12 md:py-20;
-  }
-  
-  h1 { @apply text-4xl; }
-  h2 { @apply text-3xl; }
-}
-
-/* ============================================
-   💫 EFECTOS HOVER ESPECIALES
-   ============================================ */
-
-/* Efecto de levitación */
-.hover-lift {
-  @apply transition-transform duration-300;
-}
-
-.hover-lift:hover {
-  @apply -translate-y-2;
-}
-
-/* Efecto de brillo al pasar el mouse */
-.hover-glow-blue:hover {
-  @apply shadow-glow-blue-lg;
-}
-
-.hover-glow-purple:hover {
-  @apply shadow-glow-purple-lg;
-}
-
-.hover-glow-cyan:hover {
-  @apply shadow-glow-cyan-lg;
-}
-/* ============================================
-   🎨 CLASES ADICIONALES PARA TRANSICIONES SUAVES
-   Añade estas clases al FINAL de tu tailwind.css
-   ============================================ */
-
-@layer utilities {
-  /* Transición suave entre secciones */
-  .section-transition {
-    position: relative;
-  }
-  
-  .section-transition::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5), #000000);
-    pointer-events: none;
-  }
-
-  /* Gradiente de transición mega-suave */
-  .smooth-gradient-transition {
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 0.1) 20%,
-      rgba(0, 0, 0, 0.3) 40%,
-      rgba(0, 0, 0, 0.6) 60%,
-      rgba(0, 0, 0, 0.9) 80%,
-      #000000 100%
-    );
-  }
-
-  /* Efecto blur progresivo para el header */
-  .header-blur {
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-  }
-
-  /* Sombras especiales para cards en modo oscuro */
-  .card-shadow-dark {
-    box-shadow: 
-      0 0 0 1px rgba(255, 255, 255, 0.05),
-      0 4px 12px rgba(0, 0, 0, 0.3),
-      0 0 40px rgba(139, 92, 246, 0.1);
-  }
-
-  .card-shadow-dark-hover {
-    box-shadow: 
-      0 0 0 1px rgba(255, 255, 255, 0.1),
-      0 8px 24px rgba(0, 0, 0, 0.4),
-      0 0 60px rgba(139, 92, 246, 0.2);
-  }
-
-  /* Input focus glow effect */
-  .input-glow:focus {
-    box-shadow: 
-      0 0 0 1px rgba(139, 92, 246, 0.5),
-      0 0 20px rgba(139, 92, 246, 0.3),
-      0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Animación de apparición suave */
-  .fade-in-up {
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Hover lift effect mejorado */
-  .hover-lift-smooth {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .hover-lift-smooth:hover {
-    transform: translateY(-8px);
-    box-shadow: 
-      0 20px 40px rgba(0, 0, 0, 0.4),
-      0 0 60px rgba(139, 92, 246, 0.2);
-  }
-
-  /* Pattern overlay sutil */
-  .pattern-overlay {
-    position: relative;
-  }
-
-  .pattern-overlay::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: 
-      radial-gradient(circle at 2px 2px, rgba(139, 92, 246, 0.1) 1px, transparent 0);
-    background-size: 32px 32px;
-    pointer-events: none;
-    opacity: 0.5;
-  }
-
-  /* Texto con sombra suave para mejor legibilidad */
-  .text-shadow-soft {
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  }
-
-  /* Border gradient animado */
-  .border-gradient-animated {
-    position: relative;
-    background-clip: padding-box;
-    border: 2px solid transparent;
-  }
-
-  .border-gradient-animated::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: inherit;
-    padding: 2px;
-    background: linear-gradient(
-      45deg,
-      #8B5CF6,
-      #3B82F6,
-      #06B6D4,
-      #8B5CF6
-    );
-    -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box, 
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: borderRotate 3s linear infinite;
-    background-size: 200% 200%;
-  }
-
-  @keyframes borderRotate {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  /* Glassmorphism mejorado */
-  .glass-effect {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.2),
-      inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  }
-
-  /* Transición de scroll suave */
-  .smooth-scroll {
-    scroll-behavior: smooth;
-  }
-
-  /* Efecto de carga de skeleton */
-  .skeleton {
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.05) 25%,
-      rgba(255, 255, 255, 0.1) 50%,
-      rgba(255, 255, 255, 0.05) 75%
-    );
-    background-size: 200% 100%;
-    animation: skeleton-loading 1.5s ease-in-out infinite;
-  }
-
-  @keyframes skeleton-loading {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
-  }
-}
-
-/* ============================================
-   📱 MEJORAS RESPONSIVE PARA MÓVILES
-   ============================================ */
-
-@media (max-width: 768px) {
-  /* Reducir tamaño de elementos en móviles */
-  .section-padding {
-    @apply py-12;
-  }
-
-  /* Hacer que los cards sean más compactos */
-  .card {
-    @apply p-4;
-  }
-
-  /* Mejorar legibilidad de texto en pantallas pequeñas */
-  body {
-    -webkit-text-size-adjust: 100%;
-  }
-
-  /* Hacer que los botones sean más grandes y fáciles de tocar */
-  button, .btn-base {
-    min-height: 44px;
-    min-width: 44px;
-  }
-}
-
-/* ============================================
-   🌟 EFECTOS ESPECIALES PARA EL HERO
-   ============================================ */
-
-.hero-gradient-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50vh;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.2) 25%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.8) 75%,
-    #000000 100%
-  );
-  pointer-events: none;
-  z-index: 20;
-}
-
-/* Orbes flotantes con animación */
-.floating-orb {
-  animation: float 8s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-20px) scale(1.05);
-  }
-}
-
-/* Partículas brillantes */
-.particle-glow {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.8), transparent);
-  border-radius: 50%;
-  animation: particleFloat 4s ease-in-out infinite;
-}
-
-@keyframes particleFloat {
-  0%, 100% {
-    transform: translate(0, 0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(50px, -100px);
-    opacity: 0;
-  }
-}
-
-/* ============================================
-   ⚡ MEJORAS DE PERFORMANCE
-   ============================================ */
-
-/* Usar transform para animaciones (mejor performance) */
-.gpu-accelerated {
-  transform: translateZ(0);
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-/* Reducir animaciones en dispositivos de baja potencia */
+/* Respeta prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -762,38 +223,18 @@
   }
 }
 
+/* Focus visible para navegación con teclado */
+*:focus-visible {
+  @apply outline-none ring-2 ring-purple-500 ring-offset-2 ring-offset-black;
+}
+
 /* ============================================
-   🎯 UTILIDADES FINALES
+   PRINT STYLES
    ============================================ */
 
-/* Ocultar scrollbar pero mantener funcionalidad */
-.hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-/* Texto con ellipsis */
-.text-ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* Clamp para múltiples líneas */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+@media print {
+  /* Ocultar elementos no necesarios al imprimir */
+  .no-print {
+    display: none !important;
+  }
 }

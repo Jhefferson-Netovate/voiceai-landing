@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from './components/Nav';
+import Header from './components/Header';
 import Hero from './components/Hero';
 import FeatureCard from './components/FeatureCard';
 import Pricing from './components/Pricing';
@@ -8,12 +8,10 @@ import ROICalculator from './components/ROICalculator';
 import CookieBanner from './components/CookieBanner';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import ContactForm from './components/ContactForm';
-
-// ✅ Importa SOLO los componentes nuevos que no entran en conflicto
 import AnimatedBackground from './components/AnimatedBackground';
-// import { GlowOrb, GridPattern } from './components/SVGShapes'; // Si los tienes
+import { GlowOrb, GridPattern } from './components/SVGShapes';
 
-// Iconos para las características
+// Iconos
 import { 
   CpuChipIcon,
   PhoneIcon,
@@ -23,43 +21,42 @@ import {
   CogIcon,
 } from '@heroicons/react/24/outline';
 
-
-// Datos de características del producto
+// Datos de características
 const features = [
   {
     icon: CpuChipIcon,
     title: 'IA Conversacional Avanzada',
-    description: 'Tecnología de procesamiento de lenguaje natural que mantiene conversaciones naturales e inteligentes con tus clientes, adaptándose al contexto y tono de cada llamada.',
+    description: 'Tecnología de procesamiento de lenguaje natural que mantiene conversaciones naturales e inteligentes con tus clientes.',
     gradient: 'from-purple-500 to-blue-500'
   },
   {
     icon: PhoneIcon,
     title: 'Llamadas 24/7 Automatizadas',
-    description: 'Sistema autónomo que nunca duerme. Realiza seguimientos de ventas, agenda citas, gestiona consultas y califica leads sin intervención humana.',
+    description: 'Sistema autónomo que nunca duerme. Realiza seguimientos, agenda citas y gestiona consultas sin intervención humana.',
     gradient: 'from-blue-500 to-cyan-500'
   },
   {
     icon: ChartBarIcon,
     title: 'Analytics en Tiempo Real',
-    description: 'Dashboard completo con métricas de rendimiento, tasas de conversión, análisis de sentimientos y ROI detallado de cada campaña.',
+    description: 'Dashboard completo con métricas de rendimiento, tasas de conversión y análisis de sentimientos.',
     gradient: 'from-cyan-500 to-teal-500'
   },
   {
     icon: ClockIcon,
     title: 'Integración Instantánea',
-    description: 'Conecta con tu CRM favorito (Salesforce, HubSpot, Pipedrive) en menos de 5 minutos. API REST completa para integraciones personalizadas.',
+    description: 'Conecta con tu CRM favorito en menos de 5 minutos. API REST completa para integraciones personalizadas.',
     gradient: 'from-teal-500 to-green-500'
   },
   {
     icon: ShieldCheckIcon,
     title: 'Seguridad Empresarial',
-    description: 'Cumplimiento GDPR completo, encriptación end-to-end, auditoría de todas las interacciones y certificaciones ISO 27001.',
+    description: 'Cumplimiento GDPR completo, encriptación end-to-end y certificaciones ISO 27001.',
     gradient: 'from-green-500 to-yellow-500'
   },
   {
     icon: CogIcon,
     title: 'Personalización Total',
-    description: 'Entrena la IA con tu propia voz de marca, scripts personalizados, tonos específicos y flujos de conversación adaptados a tu industria.',
+    description: 'Entrena la IA con tu propia voz de marca, scripts personalizados y flujos adaptados a tu industria.',
     gradient: 'from-yellow-500 to-red-500'
   },
 ];
@@ -73,9 +70,8 @@ function App() {
       {/* Hero Section */}
       <Hero />
 
-      {/* ✨ SECCIÓN DE CARACTERÍSTICAS - CON TRANSICIÓN MEJORADA ✨ */}
-      <section id="caracteristicas" className="relative section-padding bg-black overflow-hidden">
-        {/* Efectos de fondo */}
+      {/* Sección de Características */}
+      <section id="caracteristicas" className="relative py-20 bg-black overflow-hidden">
         <GridPattern opacity={0.05} />
         <GlowOrb 
           size={500} 
@@ -84,204 +80,54 @@ function App() {
           className="top-0 right-1/4" 
         />
         
-        <div className="relative z-10 container-scale">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+        <div className="relative z-10 container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               ¿Por qué elegir{' '}
-              <span className="text-gradient">Netovate OÜ</span>?
+              <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
+                Netovate OU
+              </span>?
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Nuestra tecnología de vanguardia combina inteligencia artificial conversacional, 
-              procesamiento de lenguaje natural y integración empresarial para revolucionar 
-              la comunicación telefónica de tu empresa.
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Nuestra tecnología de vanguardia revoluciona la comunicación telefónica empresarial.
             </p>
           </div>
 
+          {/* Grid de características */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <FeatureCard
-                key={feature.title}
-                icon={feature.icon}
+                key={index}
+                icon={<feature.icon />}
                 title={feature.title}
                 description={feature.description}
-                gradient={feature.gradient}
-                delay={index * 0.1}
+                iconGradient={feature.gradient}
               />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Casos de Uso */}
-      <section id="casos" className="section-padding bg-black relative overflow-hidden">
-        {/* Gradiente de transición sutil */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-black/50 pointer-events-none" />
-        
-        <div className="container-scale relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Casos de uso{' '}
-              <span className="text-gradient">reales</span>
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Descubre cómo empresas como la tuya están transformando sus comunicaciones
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {[
-              {
-                emoji: '🏢',
-                title: 'Ventas B2B',
-                description: 'Automatiza la prospección y calificación de leads. Aumenta un 300% las citas cualificadas identificando interés real y agendando reuniones automáticamente.',
-                stats: '+300% citas cualificadas'
-              },
-              {
-                emoji: '🏥',
-                title: 'Sector Salud',
-                description: 'Recordatorios automáticos de citas médicas, confirmaciones y reprogramación por voz. Reduce las ausencias un 60% mejorando la eficiencia operativa.',
-                stats: '-60% ausencias a citas'
-              },
-              {
-                emoji: '🛒',
-                title: 'E-commerce',
-                description: 'Recupera carritos abandonados con llamadas personalizadas automáticas. ROI del 400% en los primeros 3 meses recuperando ventas perdidas.',
-                stats: '400% ROI primer año'
-              },
-              {
-                emoji: '🏠',
-                title: 'Inmobiliario',
-                description: 'Cualificación automática de leads 24/7. Solo recibes llamadas de clientes realmente interesados con presupuesto confirmado y necesidad real.',
-                stats: '85% leads cualificados'
-              },
-            ].map((useCase, index) => (
-              <div
-                key={useCase.title}
-                className="glass-effect p-8 rounded-xl hover:scale-105 transition-all duration-300 group"
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="text-5xl mb-4">{useCase.emoji}</div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white mb-3">
-                      {useCase.title}
-                    </h3>
-                    <p className="text-gray-400 mb-4 leading-relaxed">
-                      {useCase.description}
-                    </p>
-                    <div className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 text-purple-400 font-semibold text-sm rounded-full">
-                      {useCase.stats}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* Sección de Precios */}
+      <section id="precios" className="py-20 bg-black">
+        <Pricing />
       </section>
 
       {/* Calculadora ROI */}
-      <section id="roi" className="section-padding bg-black relative overflow-hidden">
-        {/* Efectos de fondo */}
-        <GlowOrb 
-          size={600} 
-          color="purple" 
-          opacity={0.1}
-          className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" 
-        />
-        
-        <div className="container-scale relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Calcula tu{' '}
-              <span className="text-gradient">retorno de inversión</span>
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Descubre cuánto puedes ahorrar automatizando tus procesos con Netovate OÜ
-            </p>
-          </div>
-          
-          <ROICalculator />
-        </div>
+      <section className="py-20 bg-black">
+        <ROICalculator />
       </section>
-
-      {/* Precios */}
-      <Pricing />
 
       {/* Formulario de Contacto */}
-      <section id="contacto" className="section-padding bg-black relative overflow-hidden">
-        <GlowOrb 
-          size={500} 
-          color="cyan" 
-          opacity={0.1}
-          className="top-0 left-0" 
-        />
-        
-        <div className="container-scale relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-              ¿Listo para{' '}
-              <span className="text-gradient">empezar</span>?
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Completa el formulario y nuestro equipo te contactará en menos de 24 horas
-            </p>
-          </div>
-          
-          <ContactForm />
-        </div>
-      </section>
-
-      {/* CTA Final */}
-      <section className="section-padding bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-cyan-900/20 relative overflow-hidden">
-        {/* Elementos decorativos de fondo */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="container-scale relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              ¿Listo para revolucionar tus llamadas?
-            </h2>
-            <p className="text-xl mb-8 text-gray-300">
-              Únete a más de 2,500 empresas que ya confían en Netovate OÜ para automatizar sus comunicaciones telefónicas
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button variant="primary">
-                🚀 Prueba Gratis 14 Días
-              </Button>
-              <Button variant="primary">
-                📞 Hablar con Ventas
-              </Button>
-            </div>
-            
-            <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-400">
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
-                Sin compromiso
-              </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
-                Sin tarjeta de crédito
-              </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
-                Configuración en 5 minutos
-              </div>
-            </div>
-          </div>
-        </div>
+      <section id="contacto" className="py-20 bg-black">
+        <ContactForm />
       </section>
 
       {/* Footer */}
       <Footer />
 
-      {/* Cookie Banner - GDPR Compliant */}
+      {/* Componentes auxiliares */}
       <CookieBanner />
-
-      {/* Exit Intent Popup */}
       <ExitIntentPopup />
     </div>
   );
