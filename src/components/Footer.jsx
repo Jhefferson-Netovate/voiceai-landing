@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTheme } from './ThemeProvider';
+import { useTranslation } from 'react-i18next';
 
 /**
  * FOOTER COMPONENT - NETOVATE OU
@@ -16,35 +17,36 @@ import { useTheme } from './ThemeProvider';
 const Footer = () => {
   const { prefersReducedMotion } = useTheme();
   const currentYear = new Date().getFullYear();
+  const { t, i18n } = useTranslation();
 
   // Links organizados por categorías
   const footerLinks = {
     Producto: [
-      { name: 'Características', href: '/#caracteristicas' },
-      { name: 'Casos de Uso', href: '/#casos' },
-      { name: 'Precios', href: '/#precios' },
-      { name: 'Integraciones', href: '/integraciones' },
-      { name: 'Changelog', href: '/changelog' },
+      { name: t('footer.features'), href: '/#caracteristicas' },
+      { name: t('footer.usecases'), href: '/#casos' },
+      { name: t('footer.pricing'), href: '/#precios' },
+      { name: t('footer.integrations'), href: '/integraciones' },
+      { name: t('footer.changelog'), href: '/changelog' },
     ],
     Empresa: [
-      { name: 'Sobre Nosotros', href: '/about' },
-      { name: 'Blog', href: '/blog' },
-      { name: 'Carreras', href: '/carreras' },
-      { name: 'Prensa', href: '/prensa' },
-      { name: 'Contacto', href: '/contacto' },
+      { name: t('footer.about'), href: '/about' },
+      { name: t('footer.blog'), href: '/blog' },
+      { name: t('footer.careers'), href: '/carreras' },
+      { name: t('footer.press'), href: '/prensa' },
+      { name: t('footer.contact'), href: '/contacto' },
     ],
     Recursos: [
-      { name: 'Documentación', href: '/docs' },
-      { name: 'Guías', href: '/guias' },
-      { name: 'API', href: '/api' },
-      { name: 'Centro de Ayuda', href: '/ayuda' },
-      { name: 'Estado del Sistema', href: '/status' },
+      { name: t('footer.docs'), href: '/docs' },
+      { name: t('footer.guides'), href: '/guias' },
+      { name: t('footer.api'), href: '/api' },
+      { name: t('footer.help'), href: '/ayuda' },
+      { name: t('footer.status'), href: '/status' },
     ],
     Legal: [
-      { name: 'Privacidad', href: '/privacidad' },
-      { name: 'Términos', href: '/terminos' },
-      { name: 'Cookies', href: '/cookies' },
-      { name: 'GDPR', href: '/gdpr' },
+      { name: t('footer.privacy'), href: '/privacidad' },
+      { name: t('footer.terms'), href: '/terminos' },
+      { name: t('footer.cookies'), href: '/cookies' },
+      { name: t('footer.gdpr'), href: '/gdpr' },
     ],
   };
 
@@ -197,13 +199,13 @@ const Footer = () => {
 
               <div className="flex flex-wrap items-center justify-center gap-6">
                 <Link to="/privacidad" className="hover:text-white transition-colors">
-                  Privacidad
+                  {t('footer.privacy')}
                 </Link>
                 <Link to="/terminos" className="hover:text-white transition-colors">
-                  Términos
+                  {t('footer.terms')}
                 </Link>
                 <Link to="/cookies" className="hover:text-white transition-colors">
-                  Cookies
+                  {t('footer.cookies')}
                 </Link>
                 <a 
                   href="mailto:info@netovate.com" 
@@ -211,6 +213,9 @@ const Footer = () => {
                 >
                   info@netovate.com
                 </a>
+                {/* Botones para cambiar idioma */}
+                <button onClick={() => i18n.changeLanguage('es')} className="px-2 py-1 text-xs rounded bg-gray-800 text-white">ES</button>
+                <button onClick={() => i18n.changeLanguage('en')} className="px-2 py-1 text-xs rounded bg-gray-800 text-white">EN</button>
               </div>
             </div>
           </div>

@@ -32,15 +32,19 @@ export default function ExitIntentPopup() {
       return;
     }
 
+    let activated = false;
+    let handleMouseLeave;
     // Delay de 5 segundos antes de activar la detección
     const activationTimer = setTimeout(() => {
-      const handleMouseLeave = (e) => {
+      handleMouseLeave = (e) => {
+        if (activated) return;
         // Solo detectar si el mouse sale por arriba (hacia el navegador)
         if (e.clientY <= 0 && !hasShown) {
           setShowPopup(true);
           setHasShown(true);
           sessionStorage.setItem('exit-popup-shown', 'true');
-          
+          activated = true;
+          document.removeEventListener('mouseleave', handleMouseLeave);
           // Tracking
           GAEvents.trackEvent('exit_intent_triggered', {
             event_category: 'engagement',
@@ -48,15 +52,15 @@ export default function ExitIntentPopup() {
           });
         }
       };
-
       document.addEventListener('mouseleave', handleMouseLeave);
+    }, 5000);
 
-      return () => {
+    return () => {
+      clearTimeout(activationTimer);
+      if (handleMouseLeave) {
         document.removeEventListener('mouseleave', handleMouseLeave);
-      };
-    }, 5000); // Activar después de 5 segundos en el sitio
-
-    return () => clearTimeout(activationTimer);
+      }
+    };
   }, [hasShown]);
 
   // Manejar envío del formulario

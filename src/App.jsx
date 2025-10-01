@@ -10,6 +10,7 @@ import CookieBanner from './components/CookieBanner';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import ContactForm from './components/ContactForm';
 import { GlowOrb, GridPattern } from './components/SVGShapes';
+import { useTranslation } from 'react-i18next';
 
 // Iconos para las características
 import { 
@@ -62,6 +63,7 @@ const features = [
 ];
 
 function App() {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-black">
       {/* Navegación */}
@@ -84,13 +86,10 @@ function App() {
         <div className="relative z-10 container-scale">
           <div className="text-center mb-20">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-              ¿Por qué elegir{' '}
-              <span className="text-gradient">Netovate OÜ</span>?
+              {t('features.title')}
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Nuestra tecnología de vanguardia combina inteligencia artificial conversacional, 
-              procesamiento de lenguaje natural y integración empresarial para revolucionar 
-              la comunicación telefónica de tu empresa.
+              {t('features.subtitle')}
             </p>
           </div>
 

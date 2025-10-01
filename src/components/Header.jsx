@@ -8,12 +8,14 @@ import {
 } from '@heroicons/react/24/outline';
 import Button from './Button';
 import { useTheme } from './ThemeProvider';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const { prefersReducedMotion } = useTheme();
+  const { t, i18n } = useTranslation();
 
   // Detectar scroll para cambiar estilo del header
   useEffect(() => {
@@ -29,37 +31,37 @@ const Header = () => {
   // Links de navegación
   const navLinks = [
     { 
-      name: 'Inicio', 
+      name: t('nav.home'), 
       href: '/',
       exact: true
     },
     {
-      name: 'Soluciones',
+      name: t('nav.solutions'),
       dropdown: [
-        { name: 'IA Conversacional', href: '/#caracteristicas', icon: '🤖' },
-        { name: 'Automatización', href: '/#caracteristicas', icon: '⚡' },
-        { name: 'Analytics', href: '/#caracteristicas', icon: '📊' },
-        { name: 'Integraciones', href: '/#caracteristicas', icon: '🔗' },
+        { name: t('nav.ia'), href: '/#caracteristicas', icon: '🤖' },
+        { name: t('nav.automation'), href: '/#caracteristicas', icon: '⚡' },
+        { name: t('nav.analytics'), href: '/#caracteristicas', icon: '📊' },
+        { name: t('nav.integrations'), href: '/#caracteristicas', icon: '🔗' },
       ]
     },
     { 
-      name: 'Casos de Uso', 
+      name: t('nav.usecases'), 
       href: '/#casos' 
     },
     { 
-      name: 'Precios', 
+      name: t('nav.pricing'), 
       href: '/#precios' 
     },
     {
-      name: 'Recursos',
+      name: t('nav.resources'),
       dropdown: [
-        { name: 'Blog', href: '/blog', icon: '📝' },
-        { name: 'Documentación', href: '/docs', icon: '📚' },
-        { name: 'Centro de Ayuda', href: '/ayuda', icon: '💡' },
+        { name: t('nav.blog'), href: '/blog', icon: '📝' },
+        { name: t('nav.docs'), href: '/docs', icon: '📚' },
+        { name: t('nav.help'), href: '/ayuda', icon: '💡' },
       ]
     },
     { 
-      name: 'Sobre Nosotros', 
+      name: t('nav.about'), 
       href: '/about' 
     },
   ];
@@ -186,14 +188,19 @@ const Header = () => {
                 }`}
                 onClick={() => window.location.href = '/#contacto'}
               >
-                Contacto
+                {t('nav.contact')}
               </button>
               <button
                 className="px-6 py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow-lg hover:shadow-xl"
                 onClick={() => window.location.href = '/#precios'}
               >
-                Prueba Gratis
+                {t('nav.tryfree')}
               </button>
+              {/* Botones para cambiar idioma */}
+              <div className="ml-4 flex gap-2">
+                <button onClick={() => i18n.changeLanguage('es')} className="px-2 py-1 text-xs rounded bg-gray-800 text-white">ES</button>
+                <button onClick={() => i18n.changeLanguage('en')} className="px-2 py-1 text-xs rounded bg-gray-800 text-white">EN</button>
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
