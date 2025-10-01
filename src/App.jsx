@@ -63,23 +63,25 @@ const features = [
 
 function App() {
   return (
-  <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black">
       {/* Navegación */}
       <Header />
 
       {/* Hero Section */}
       <Hero />
 
-      {/* Características Principales */}
-  <section id="caracteristicas" className="relative section-padding bg-black overflow-hidden">
-    <GridPattern opacity={0.05} />
-    <GlowOrb 
-      size={500} 
-      color="blue" 
-      opacity={0.2}
-      className="top-0 right-1/4" 
-    />
-    <div className="relative z-10 container-scale">
+      {/* ✨ SECCIÓN DE CARACTERÍSTICAS - CON TRANSICIÓN MEJORADA ✨ */}
+      <section id="caracteristicas" className="relative section-padding bg-black overflow-hidden">
+        {/* Efectos de fondo */}
+        <GridPattern opacity={0.05} />
+        <GlowOrb 
+          size={500} 
+          color="blue" 
+          opacity={0.15}
+          className="top-0 right-1/4" 
+        />
+        
+        <div className="relative z-10 container-scale">
           <div className="text-center mb-20">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               ¿Por qué elegir{' '}
@@ -108,8 +110,11 @@ function App() {
       </section>
 
       {/* Casos de Uso */}
-  <section id="casos" className="section-padding bg-black">
-        <div className="container-scale">
+      <section id="casos" className="section-padding bg-black relative overflow-hidden">
+        {/* Gradiente de transición sutil */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-black/50 pointer-events-none" />
+        
+        <div className="container-scale relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               Casos de uso{' '}
@@ -149,7 +154,7 @@ function App() {
             ].map((useCase, index) => (
               <div
                 key={useCase.title}
-                className="bg-dark-100 rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-dark-200"
+                className="glass-effect p-8 rounded-xl hover:scale-105 transition-all duration-300 group"
               >
                 <div className="flex items-start space-x-4">
                   <div className="text-5xl mb-4">{useCase.emoji}</div>
@@ -160,7 +165,7 @@ function App() {
                     <p className="text-gray-400 mb-4 leading-relaxed">
                       {useCase.description}
                     </p>
-                    <div className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-scale-purple to-scale-blue bg-opacity-10 text-scale-purple font-semibold text-sm rounded-full">
+                    <div className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 text-purple-400 font-semibold text-sm rounded-full">
                       {useCase.stats}
                     </div>
                   </div>
@@ -172,8 +177,16 @@ function App() {
       </section>
 
       {/* Calculadora ROI */}
-  <section id="roi" className="section-padding bg-dark-100">
-        <div className="container-scale">
+      <section id="roi" className="section-padding bg-black relative overflow-hidden">
+        {/* Efectos de fondo */}
+        <GlowOrb 
+          size={600} 
+          color="purple" 
+          opacity={0.1}
+          className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" 
+        />
+        
+        <div className="container-scale relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               Calcula tu{' '}
@@ -192,8 +205,15 @@ function App() {
       <Pricing />
 
       {/* Formulario de Contacto */}
-  <section id="contacto" className="section-padding bg-black">
-        <div className="container-scale">
+      <section id="contacto" className="section-padding bg-black relative overflow-hidden">
+        <GlowOrb 
+          size={500} 
+          color="cyan" 
+          opacity={0.1}
+          className="top-0 left-0" 
+        />
+        
+        <div className="container-scale relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               ¿Listo para{' '}
@@ -209,11 +229,11 @@ function App() {
       </section>
 
       {/* CTA Final */}
-      <section className="section-padding bg-gradient-to-br from-scale-purple via-scale-blue to-scale-cyan relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-cyan-900/20 relative overflow-hidden">
         {/* Elementos decorativos de fondo */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-dark-100 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-dark-100 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-scale relative z-10">
@@ -221,7 +241,7 @@ function App() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               ¿Listo para revolucionar tus llamadas?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="text-xl mb-8 text-gray-300">
               Únete a más de 2,500 empresas que ya confían en Netovate OÜ para automatizar sus comunicaciones telefónicas
             </p>
             
@@ -234,7 +254,7 @@ function App() {
               </Button>
             </div>
             
-            <div className="flex flex-wrap justify-center items-center gap-8 text-sm opacity-80">
+            <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-400">
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
                 Sin compromiso

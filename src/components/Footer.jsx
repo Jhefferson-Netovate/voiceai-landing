@@ -109,7 +109,16 @@ const Footer = () => {
                 viewport={{ once: true }}
               >
                 {/* Logo */}
-                <Link to="/" className="inline-flex items-center space-x-3 mb-6 group">
+                <Link
+                  to="/"
+                  className="inline-flex items-center space-x-3 mb-6 group"
+                  onClick={e => {
+                    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }}
+                >
                   <div className="w-10 h-10 bg-gradient-to-br from-brand-purple to-brand-blue rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                     <span className="text-white font-bold text-xl">N</span>
                   </div>

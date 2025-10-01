@@ -4,9 +4,7 @@ import { PlayIcon, ChevronRightIcon, SparklesIcon } from '@heroicons/react/24/ou
 import { GlowOrb, DottedPattern } from './SVGShapes';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 import FloatingOrbs from './visual/FloatingOrbs';
-import {   GridPattern, FloatingShapes, Spotlight } from './SVGShapes';
-
-
+import { GridPattern, FloatingShapes } from './SVGShapes';
 
 export default function Hero() {
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -59,52 +57,17 @@ export default function Hero() {
   };
 
   return (
-    <>
-      <section className="relative bg-black overflow-hidden">
-        <GlowOrb size={600} color="purple" className="top-0 right-0" />
-        <GlowOrb size={500} color="cyan" className="bottom-0 left-0" />
-        <div className="absolute inset-0 opacity-20 dot-pattern" />
-        <div className="relative z-10">
-          <h1 className="text-white">
-            Título con <span className="text-gradient">Gradiente</span>
-          </h1>
-        </div>
-      </section>
-      <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
       <FloatingOrbs />
-      <GradientOrb size={500} color="purple" className="top-0 right-0 absolute" />
-      <GradientOrb size={400} color="cyan" className="bottom-0 left-0 absolute" />
-      <DottedPattern />
+      
+      {/* GlowOrbs de fondo */}
+      <GlowOrb size={700} color="purple" className="top-0 right-0 -translate-y-1/2 translate-x-1/4" />
+      <GlowOrb size={600} color="cyan" className="bottom-0 left-0 translate-y-1/2 -translate-x-1/4" />
+      <GlowOrb size={500} color="pink" className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      
+      {/* Pattern de fondo */}
+      <DottedPattern color="purple" opacity={0.15} />
       <FloatingShapes />
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-  <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-600/30 rounded-full blur-3xl animate-float" />
-  <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl animate-float" 
-       style={{animationDelay: '2s', animationDuration: '12s'}} />
-  <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl animate-float"
-       style={{animationDelay: '4s', animationDuration: '10s'}} />
-</div>
-{/* Background con GlowOrbs - Modo Oscuro */}
-<div className="absolute inset-0 overflow-hidden">
-  {/* GlowOrbs principales */}
-  <GlowOrb 
-    size={700} 
-    color="purple" 
-    className="top-0 right-0 -translate-y-1/2 translate-x-1/4" 
-  />
-  <GlowOrb 
-    size={600} 
-    color="cyan" 
-    className="bottom-0 left-0 translate-y-1/2 -translate-x-1/4" 
-  />
-  <GlowOrb 
-    size={500} 
-    color="pink" 
-    className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" 
-  />
-  
-  {/* Pattern de puntos de fondo */}
-  <DottedPattern color="purple" opacity={0.15} />
-</div>
 
       {/* Contenido principal */}
       <motion.div 
@@ -152,7 +115,9 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           {...fadeInUp}
         >
-          <button className="btn-primary">Click</button>
+          <button className="btn-primary">
+            🚀 Prueba Gratis 14 Días
+          </button>
           
           <motion.button
             className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold py-4 px-8 rounded-xl hover:bg-white/20 transition-all duration-300 flex items-center justify-center group"
@@ -170,15 +135,15 @@ export default function Hero() {
           {...staggerChildren}
         >
           <motion.div className="text-center" {...fadeInUp}>
-            <div className="text-3xl md:text-4xl font-bold text-white mb-2">25,000+</div>
+            <div className="text-3xl md:text-4xl font-bold text-scale-purple mb-2">25,000+</div>
             <div className="text-white/60 text-sm">Llamadas Automatizadas</div>
           </motion.div>
           <motion.div className="text-center" {...fadeInUp}>
-            <div className="text-3xl md:text-4xl font-bold text-white mb-2">99.2%</div>
+            <div className="text-3xl md:text-4xl font-bold text-scale-cyan mb-2">99.2%</div>
             <div className="text-white/60 text-sm">Precisión IA</div>
           </motion.div>
           <motion.div className="text-center" {...fadeInUp}>
-            <div className="text-3xl md:text-4xl font-bold text-white mb-2">45%</div>
+            <div className="text-3xl md:text-4xl font-bold text-scale-orange mb-2">45%</div>
             <div className="text-white/60 text-sm">Ahorro en Costes</div>
           </motion.div>
         </motion.div>
@@ -199,9 +164,13 @@ export default function Hero() {
         >
           <ChevronRightIcon className="w-6 h-6 rotate-90" />
         </motion.div>
-        
       )}
+
+      {/* ✨ GRADIENTE DE TRANSICIÓN SUAVE - ESTO ES LO NUEVO ✨ */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent via-black/50 to-black pointer-events-none z-20" />
+      
+      {/* Gradiente adicional más grande para transición ultra-suave */}
+      <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-transparent to-black/80 pointer-events-none z-10" />
     </div>
-    </>
   );
 }

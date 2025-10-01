@@ -61,38 +61,38 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Planes y Facturación</h2>
-            <div className="space-y-4 text-gray-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">4. Planes y Facturación</h2>
+            <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                <strong className="text-gray-900">4.1 Planes de Suscripción:</strong> Ofrecemos
+                <strong className="text-white">4.1 Planes de Suscripción:</strong> Ofrecemos
                 diferentes planes (Starter, Professional, Enterprise) con características y límites
                 específicos descritos en nuestra página de precios.
               </p>
               <p>
-                <strong className="text-gray-900">4.2 Facturación:</strong> Los pagos se procesan
+                <strong className="text-white">4.2 Facturación:</strong> Los pagos se procesan
                 mensual o anualmente según tu elección. Las renovaciones son automáticas.
               </p>
               <p>
-                <strong className="text-gray-900">4.3 Período de Prueba:</strong> Ofrecemos 14 días
+                <strong className="text-white">4.3 Período de Prueba:</strong> Ofrecemos 14 días
                 de prueba gratuita sin requerir tarjeta de crédito.
               </p>
               <p>
-                <strong className="text-gray-900">4.4 Cancelación:</strong> Puedes cancelar en
+                <strong className="text-white">4.4 Cancelación:</strong> Puedes cancelar en
                 cualquier momento. Las cancelaciones surten efecto al final del período de facturación.
               </p>
               <p>
-                <strong className="text-gray-900">4.5 Reembolsos:</strong> No ofrecemos reembolsos
+                <strong className="text-white">4.5 Reembolsos:</strong> No ofrecemos reembolsos
                 por períodos parcialmente utilizados, excepto según lo requiera la ley.
               </p>
             </div>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Uso Aceptable</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold text-white mb-4">5. Uso Aceptable</h2>
+            <p className="text-gray-300 leading-relaxed mb-4">
               Al usar nuestros servicios, aceptas NO:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-600 ml-4">
+            <ul className="list-disc list-inside space-y-2 text-gray-300 ml-4">
               <li>Violar leyes o regulaciones aplicables</li>
               <li>Realizar llamadas spam o no solicitadas</li>
               <li>Usar el servicio para fraude, phishing o engaño</li>
@@ -104,8 +104,8 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Propiedad Intelectual</h2>
-            <p className="text-gray-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">6. Propiedad Intelectual</h2>
+            <p className="text-gray-300 leading-relaxed">
               Todo el contenido, software, marcas comerciales y tecnología de Netovate OÜ son
               propiedad de Netovate OU y están protegidos por leyes de propiedad intelectual.
               Te otorgamos una licencia limitada, no exclusiva y revocable para usar el servicio
@@ -114,8 +114,8 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Privacidad y Datos</h2>
-            <p className="text-gray-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">7. Privacidad y Datos</h2>
+            <p className="text-gray-300 leading-relaxed">
               El uso de nuestros servicios está sujeto a nuestra{' '}
               <a href="/privacy" className="text-scale-purple hover:underline">
                 Política de Privacidad
@@ -125,27 +125,27 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Garantías y Responsabilidades</h2>
-            <div className="space-y-4 text-gray-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">8. Garantías y Responsabilidades</h2>
+            <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                <strong className="text-gray-900">8.1 Disponibilidad:</strong> Nos esforzamos por
+                <strong className="text-white">8.1 Disponibilidad:</strong> Nos esforzamos por
                 mantener un 99.9% de uptime, pero no garantizamos disponibilidad ininterrumpida.
               </p>
               <p>
-                <strong className="text-gray-900">8.2 Limitación de Responsabilidad:</strong> No
+                <strong className="text-white">8.2 Limitación de Responsabilidad:</strong> No
                 seremos responsables de daños indirectos, incidentales o consecuentes derivados
                 del uso del servicio.
               </p>
               <p>
-                <strong className="text-gray-900">8.3 Indemnización:</strong> Aceptas indemnizarnos
+                <strong className="text-white">8.3 Indemnización:</strong> Aceptas indemnizarnos
                 contra reclamaciones derivadas de tu uso del servicio o violación de estos términos.
               </p>
             </div>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Modificaciones del Servicio</h2>
-            <p className="text-gray-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">9. Modificaciones del Servicio</h2>
+            <p className="text-gray-300 leading-relaxed">
               Nos reservamos el derecho de modificar, suspender o descontinuar cualquier parte del
               servicio en cualquier momento. Te notificaremos de cambios significativos con 30 días
               de anticipación cuando sea posible.
@@ -153,8 +153,8 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Terminación</h2>
-            <p className="text-gray-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">10. Terminación</h2>
+            <p className="text-gray-300 leading-relaxed">
               Podemos terminar o suspender tu acceso inmediatamente si violas estos términos. Tras
               la terminación, tus datos serán eliminados según nuestra política de retención, excepto
               cuando la ley requiera su conservación.
@@ -162,8 +162,8 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Ley Aplicable</h2>
-            <p className="text-gray-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">11. Ley Aplicable</h2>
+            <p className="text-gray-300 leading-relaxed">
               Estos términos se rigen por las leyes de Estonia. Cualquier disputa se resolverá en
               los tribunales de Tallin, Estonia. Para usuarios de la UE, se aplican también las
               protecciones del consumidor de tu país.
@@ -171,18 +171,18 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Contacto</h2>
-            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-              <p className="text-gray-900 font-semibold mb-2">Netovate OU</p>
-              <p className="text-gray-600 mb-1">Email: legal@netovate.eu</p>
-              <p className="text-gray-600 mb-1">Dirección: Tallin, Estonia</p>
-              <p className="text-gray-600">Soporte: support@netovate.eu</p>
+            <h2 className="text-2xl font-bold text-white mb-4">12. Contacto</h2>
+            <div className="bg-dark-200 rounded-lg p-6 border border-gray-800">
+              <p className="text-white font-semibold mb-2">Netovate OU</p>
+              <p className="text-gray-300 mb-1">Email: legal@netovate.eu</p>
+              <p className="text-gray-300 mb-1">Dirección: Tallin, Estonia</p>
+              <p className="text-gray-300">Soporte: support@netovate.eu</p>
             </div>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">13. Cambios a estos Términos</h2>
-            <p className="text-gray-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">13. Cambios a estos Términos</h2>
+            <p className="text-gray-300 leading-relaxed">
               Podemos actualizar estos términos ocasionalmente. Te notificaremos de cambios
               materiales por email o mediante aviso en el sitio. El uso continuado del servicio
               después de los cambios constituye tu aceptación de los nuevos términos.

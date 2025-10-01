@@ -10,7 +10,7 @@ import { GAEvents } from '../config/analytics';
  * FORMULARIO DE CONTACTO - NETOVATE OU
  * ======================================
  * Formulario con validación completa usando Formik + Yup
- * Incluye tracking de eventos y prevención de spam
+ * CONTRASTE CORREGIDO PARA MODO OSCURO
  */
 
 // Esquema de validación con Yup
@@ -60,20 +60,6 @@ export default function ContactForm() {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       // IMPORTANTE: Aquí debes reemplazar con tu endpoint real
-      // Ejemplo con fetch a tu backend:
-      /*
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values)
-      });
-
-      if (!response.ok) throw new Error('Error al enviar');
-      */
-
-      // Simulación de envío (eliminar en producción)
       await new Promise(resolve => setTimeout(resolve, 1500));
 
       // Éxito
@@ -108,116 +94,116 @@ export default function ContactForm() {
           <Form className="space-y-6">
             {/* Nombre */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                Nombre completo <span className="text-red-500">*</span>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                Nombre completo <span className="text-red-400">*</span>
               </label>
               <Field
                 type="text"
                 name="name"
                 id="name"
-                className={`w-full px-4 py-3 rounded-lg border ${
+                className={`w-full px-4 py-3 rounded-lg bg-white/5 border ${
                   errors.name && touched.name
-                    ? 'border-red-500 focus:ring-red-500'
-                    : 'border-gray-300 focus:ring-[#0F52BA]'
-                } focus:outline-none focus:ring-2 transition-colors`}
+                    ? 'border-red-500/50 focus:ring-red-500/20'
+                    : 'border-white/10 focus:ring-purple-500/20'
+                } text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:border-purple-500 transition-all backdrop-blur-sm`}
                 placeholder="Juan Pérez"
               />
               <ErrorMessage
                 name="name"
                 component="div"
-                className="mt-1 text-sm text-red-600 flex items-center"
+                className="mt-1 text-sm text-red-400 flex items-center"
               />
             </div>
 
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email corporativo <span className="text-red-500">*</span>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                Email corporativo <span className="text-red-400">*</span>
               </label>
               <Field
                 type="email"
                 name="email"
                 id="email"
-                className={`w-full px-4 py-3 rounded-lg border ${
+                className={`w-full px-4 py-3 rounded-lg bg-white/5 border ${
                   errors.email && touched.email
-                    ? 'border-red-500 focus:ring-red-500'
-                    : 'border-gray-300 focus:ring-[#0F52BA]'
-                } focus:outline-none focus:ring-2 transition-colors`}
+                    ? 'border-red-500/50 focus:ring-red-500/20'
+                    : 'border-white/10 focus:ring-purple-500/20'
+                } text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:border-purple-500 transition-all backdrop-blur-sm`}
                 placeholder="juan@empresa.com"
               />
               <ErrorMessage
                 name="email"
                 component="div"
-                className="mt-1 text-sm text-red-600"
+                className="mt-1 text-sm text-red-400"
               />
             </div>
 
-            {/* Teléfono y Empresa en dos columnas */}
+            {/* Teléfono y Empresa en dos columnas, apilados en móviles */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Teléfono */}
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Teléfono <span className="text-red-500">*</span>
+              <div className="w-full">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                  Teléfono <span className="text-red-400">*</span>
                 </label>
                 <Field
                   type="tel"
                   name="phone"
                   id="phone"
-                  className={`w-full px-4 py-3 rounded-lg border ${
+                  className={`w-full px-4 py-3 rounded-lg bg-white/5 border ${
                     errors.phone && touched.phone
-                      ? 'border-red-500 focus:ring-red-500'
-                      : 'border-gray-300 focus:ring-[#0F52BA]'
-                  } focus:outline-none focus:ring-2 transition-colors`}
+                      ? 'border-red-500/50 focus:ring-red-500/20'
+                      : 'border-white/10 focus:ring-purple-500/20'
+                  } text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:border-purple-500 transition-all backdrop-blur-sm`}
                   placeholder="+34 600 123 456"
                 />
                 <ErrorMessage
                   name="phone"
                   component="div"
-                  className="mt-1 text-sm text-red-600"
+                  className="mt-1 text-sm text-red-400"
                 />
               </div>
 
               {/* Empresa */}
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="w-full">
+                <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
                   Empresa
                 </label>
                 <Field
                   type="text"
                   name="company"
                   id="company"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#0F52BA] focus:ring-2 focus:ring-[#0F52BA] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:outline-none transition-all backdrop-blur-sm"
                   placeholder="Netovate OU"
                 />
                 <ErrorMessage
                   name="company"
                   component="div"
-                  className="mt-1 text-sm text-red-600"
+                  className="mt-1 text-sm text-red-400"
                 />
               </div>
             </div>
 
             {/* Mensaje */}
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                Mensaje <span className="text-red-500">*</span>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                Mensaje <span className="text-red-400">*</span>
               </label>
               <Field
                 as="textarea"
                 name="message"
                 id="message"
                 rows="5"
-                className={`w-full px-4 py-3 rounded-lg border ${
+                className={`w-full px-4 py-3 rounded-lg bg-white/5 border ${
                   errors.message && touched.message
-                    ? 'border-red-500 focus:ring-red-500'
-                    : 'border-gray-300 focus:ring-[#0F52BA]'
-                } focus:outline-none focus:ring-2 transition-colors resize-none`}
+                    ? 'border-red-500/50 focus:ring-red-500/20'
+                    : 'border-white/10 focus:ring-purple-500/20'
+                } text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:border-purple-500 transition-all resize-none backdrop-blur-sm`}
                 placeholder="Cuéntanos cómo podemos ayudarte..."
               />
               <ErrorMessage
                 name="message"
                 component="div"
-                className="mt-1 text-sm text-red-600"
+                className="mt-1 text-sm text-red-400"
               />
             </div>
 
@@ -227,9 +213,9 @@ export default function ContactForm() {
                 type="checkbox"
                 name="acceptsMarketing"
                 id="acceptsMarketing"
-                className="mt-1 h-4 w-4 text-[#0F52BA] focus:ring-[#0F52BA] border-gray-300 rounded"
+                className="mt-1 h-4 w-4 text-purple-500 focus:ring-purple-500/20 border-white/20 rounded bg-white/5"
               />
-              <label htmlFor="acceptsMarketing" className="ml-2 text-sm text-gray-600">
+              <label htmlFor="acceptsMarketing" className="ml-2 text-sm text-gray-400">
                 Acepto recibir comunicaciones comerciales de Netovate OU
               </label>
             </div>
@@ -253,14 +239,14 @@ export default function ContactForm() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="p-4 rounded-lg bg-green-50 border border-green-200 flex items-start"
+                  className="p-4 rounded-lg bg-green-500/10 border border-green-500/20 flex items-start backdrop-blur-sm"
                 >
-                  <CheckCircleIcon className="w-5 h-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircleIcon className="w-5 h-5 text-green-400 mr-3 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-sm font-medium text-green-800">
+                    <p className="text-sm font-medium text-green-400">
                       ¡Mensaje enviado con éxito!
                     </p>
-                    <p className="text-sm text-green-700 mt-1">
+                    <p className="text-sm text-green-300/80 mt-1">
                       Te responderemos en menos de 24 horas.
                     </p>
                   </div>
@@ -272,14 +258,14 @@ export default function ContactForm() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="p-4 rounded-lg bg-red-50 border border-red-200 flex items-start"
+                  className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 flex items-start backdrop-blur-sm"
                 >
-                  <ExclamationCircleIcon className="w-5 h-5 text-red-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <ExclamationCircleIcon className="w-5 h-5 text-red-400 mr-3 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-sm font-medium text-red-800">
+                    <p className="text-sm font-medium text-red-400">
                       Error al enviar el mensaje
                     </p>
-                    <p className="text-sm text-red-700 mt-1">
+                    <p className="text-sm text-red-300/80 mt-1">
                       Por favor, inténtalo de nuevo o contacta por email.
                     </p>
                   </div>
@@ -290,7 +276,7 @@ export default function ContactForm() {
             {/* Nota de privacidad */}
             <p className="text-xs text-gray-500 text-center">
               Al enviar este formulario, aceptas nuestra{' '}
-              <a href="/privacidad" className="text-[#0F52BA] hover:underline">
+              <a href="/privacidad" className="text-purple-400 hover:text-purple-300 hover:underline transition-colors">
                 Política de Privacidad
               </a>
             </p>

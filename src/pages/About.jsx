@@ -110,7 +110,7 @@ export default function About() {
       <Header />
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+  <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-dark-100 to-dark-200">
         {/* Efectos visuales de fondo */}
         <GradientOrb size={500} color="purple" className="top-0 right-0 -translate-y-1/2" />
         <GradientOrb size={400} color="cyan" className="bottom-0 left-0 translate-y-1/2" />
@@ -123,17 +123,17 @@ export default function About() {
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-block px-4 py-2 bg-brand-purple/20 text-brand-purple rounded-full text-sm font-semibold mb-6">
               Sobre Netovate OU
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 max-w-4xl mx-auto">
               Construyendo el{' '}
               <span className="text-gradient">futuro</span>
               {' '}de la automatización
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
               En Netovate, creemos que la automatización inteligente debe ser accesible 
               para todas las empresas, sin importar su tamaño.
             </p>
@@ -197,7 +197,7 @@ export default function About() {
   <section className="section-padding bg-dark-100">
         <div className="container-scale">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Nuestros{' '}
               <span className="text-gradient">Valores</span>
             </h2>
@@ -235,7 +235,7 @@ export default function About() {
               Conoce al{' '}
               <span className="text-gradient">Equipo</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Expertos apasionados por construir el futuro de la automatización
             </p>
           </div>
@@ -252,7 +252,8 @@ export default function About() {
                 <img 
                   src={member.image} 
                   alt={member.name}
-                  className="w-full h-64 object-cover rounded-lg mb-4"
+                  className="w-full max-h-64 sm:max-h-56 md:max-h-48 object-cover rounded-lg mb-4 aspect-[4/5]"
+                  style={{ objectFit: 'cover' }}
                 />
                 <h3 className="text-xl font-bold text-white mb-1">
                   {member.name}
@@ -279,7 +280,7 @@ export default function About() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="section-padding bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
+  <section className="section-padding bg-gradient-to-br from-black via-dark-100 to-dark-200 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <DottedPattern />
         </div>
@@ -291,7 +292,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               ¿Listo para transformar tu empresa?
             </h2>
             <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">

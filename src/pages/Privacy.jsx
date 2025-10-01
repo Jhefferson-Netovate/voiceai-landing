@@ -110,37 +110,37 @@ export default function Privacy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Retención de Datos</h2>
-            <p className="text-gray-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">8. Retención de Datos</h2>
+              <p className="text-gray-300 leading-relaxed">
               Conservamos tus datos solo durante el tiempo necesario para cumplir con los propósitos
               descritos, o según lo requiera la ley (generalmente 5-7 años para datos fiscales).
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Transferencias Internacionales</h2>
-            <p className="text-gray-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">9. Transferencias Internacionales</h2>
+              <p className="text-gray-300 leading-relaxed">
               Algunos proveedores pueden estar fuera de la UE. En estos casos, aseguramos protecciones
               adecuadas mediante cláusulas contractuales estándar aprobadas por la UE.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Contacto</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold text-white mb-4">10. Contacto</h2>
+              <p className="text-gray-300 leading-relaxed mb-4">
               Para ejercer tus derechos o hacer preguntas sobre esta política:
             </p>
-            <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-              <p className="text-gray-900 font-semibold mb-2">Netovate OU</p>
-              <p className="text-gray-600 mb-1">Email: privacy@netovate.eu</p>
-              <p className="text-gray-600 mb-1">Dirección: Tallin, Estonia</p>
-              <p className="text-gray-600">Registro: [Número de registro]</p>
+            <div className="bg-dark-200 rounded-lg p-6 border border-gray-800">
+              <p className="text-white font-semibold mb-2">Netovate OU</p>
+              <p className="text-gray-300 mb-1">Email: privacy@netovate.eu</p>
+              <p className="text-gray-300 mb-1">Dirección: Tallin, Estonia</p>
+              <p className="text-gray-300">Registro: [Número de registro]</p>
             </div>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Cambios a esta Política</h2>
-            <p className="text-gray-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">11. Cambios a esta Política</h2>
+              <p className="text-gray-300 leading-relaxed">
               Podemos actualizar esta política ocasionalmente. Te notificaremos de cambios significativos
               por email o mediante un aviso en el sitio web. La fecha de última actualización se muestra
               al inicio del documento.

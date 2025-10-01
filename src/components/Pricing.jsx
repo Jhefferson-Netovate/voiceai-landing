@@ -63,8 +63,12 @@ export default function Pricing() {
   const prefersReducedMotion = usePrefersReducedMotion();
   
   return (
-    <section id="precios" className="section-padding bg-gray-50">
-      <div className="container-scale">
+    <section id="precios" className="section-padding bg-black relative overflow-hidden">
+      {/* Efectos de fondo sutiles */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-blue-900/10" />
+      <div className="absolute inset-0 opacity-5 dot-pattern" />
+      
+      <div className="container-scale relative z-10">
         {/* Header */}
         <motion.div
           className="text-center mb-16"
@@ -73,21 +77,21 @@ export default function Pricing() {
           transition={prefersReducedMotion ? {} : { duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
             Planes que se adaptan a{' '}
             <span className="text-gradient">tu negocio</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             Sin costes ocultos. Cancela cuando quieras. 14 días de prueba gratuita en todos los planes.
           </p>
           
           {/* Toggle anual/mensual */}
-          <div className="inline-flex items-center bg-white rounded-full p-1 shadow-sm border border-gray-200">
+          <div className="inline-flex items-center bg-white/5 backdrop-blur-sm rounded-full p-1 shadow-lg border border-white/10">
             <button
               className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
                 billingPeriod === 'monthly'
-                  ? 'btn-primary'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg'
+                  : 'text-gray-400 hover:text-white'
               }`}
               onClick={() => setBillingPeriod('monthly')}
             >
@@ -96,13 +100,13 @@ export default function Pricing() {
             <button
               className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
                 billingPeriod === 'annual'
-                  ? 'btn-primary'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg'
+                  : 'text-gray-400 hover:text-white'
               }`}
               onClick={() => setBillingPeriod('annual')}
             >
               Anual
-              <span className="ml-2 text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">
+              <span className="ml-2 text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full border border-green-500/30">
                 -20%
               </span>
             </button>
@@ -114,8 +118,10 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              className={`relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${
-                plan.popular ? 'ring-2 ring-scale-purple scale-105' : ''
+              className={`relative bg-white/5 backdrop-blur-xl rounded-2xl border transition-all duration-300 hover:scale-105 ${
+                plan.popular 
+                  ? 'border-purple-500/50 ring-2 ring-purple-500/20 shadow-2xl shadow-purple-500/20' 
+                  : 'border-white/10 hover:border-white/20'
               }`}
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
               whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
@@ -132,9 +138,9 @@ export default function Pricing() {
             >
               {/* Badge "Popular" */}
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex items-center gap-2">
-                  <StarIcon className="w-4 h-4 mr-1" />
-                  <span className="font-semibold text-scale-purple">Más Popular</span>
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1.5 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm font-semibold rounded-full flex items-center gap-1 shadow-lg">
+                  <StarIcon className="w-4 h-4" />
+                  Más Popular
                 </div>
               )}
               
@@ -190,8 +196,8 @@ export default function Pricing() {
                       }}
                       viewport={{ once: true }}
                     >
-                      <CheckIcon className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-400">{feature}</span>
+                      <CheckIcon className="w-5 h-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-300">{feature}</span>
                     </motion.li>
                   ))}
                 </ul>
@@ -200,8 +206,8 @@ export default function Pricing() {
                 <motion.button
                   className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 ${
                     plan.popular
-                      ? 'btn-primary'
-                      : 'btn-secondary'
+                      ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600 shadow-lg hover:shadow-xl'
+                      : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
                   }`}
                   whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
                   whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
@@ -215,7 +221,7 @@ export default function Pricing() {
 
         {/* Footer message */}
         <motion.div
-          className="text-center mt-16 text-gray-600"
+          className="text-center mt-16 text-gray-400"
           initial={prefersReducedMotion ? {} : { opacity: 0 }}
           whileInView={prefersReducedMotion ? {} : { opacity: 1 }}
           transition={prefersReducedMotion ? {} : { duration: 0.8, delay: 0.3 }}
@@ -223,7 +229,7 @@ export default function Pricing() {
         >
           <p className="text-lg">
             ¿Necesitas un plan personalizado?{' '}
-            <a href="#contacto" className="text-scale-purple hover:text-scale-blue font-semibold link-hover">
+            <a href="#contacto" className="text-purple-400 hover:text-purple-300 font-semibold transition-colors">
               Hablamos
             </a>
           </p>

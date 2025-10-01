@@ -458,3 +458,342 @@
 .hover-glow-cyan:hover {
   @apply shadow-glow-cyan-lg;
 }
+/* ============================================
+   🎨 CLASES ADICIONALES PARA TRANSICIONES SUAVES
+   Añade estas clases al FINAL de tu tailwind.css
+   ============================================ */
+
+@layer utilities {
+  /* Transición suave entre secciones */
+  .section-transition {
+    position: relative;
+  }
+  
+  .section-transition::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5), #000000);
+    pointer-events: none;
+  }
+
+  /* Gradiente de transición mega-suave */
+  .smooth-gradient-transition {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.1) 20%,
+      rgba(0, 0, 0, 0.3) 40%,
+      rgba(0, 0, 0, 0.6) 60%,
+      rgba(0, 0, 0, 0.9) 80%,
+      #000000 100%
+    );
+  }
+
+  /* Efecto blur progresivo para el header */
+  .header-blur {
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+
+  /* Sombras especiales para cards en modo oscuro */
+  .card-shadow-dark {
+    box-shadow: 
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 4px 12px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(139, 92, 246, 0.1);
+  }
+
+  .card-shadow-dark-hover {
+    box-shadow: 
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 8px 24px rgba(0, 0, 0, 0.4),
+      0 0 60px rgba(139, 92, 246, 0.2);
+  }
+
+  /* Input focus glow effect */
+  .input-glow:focus {
+    box-shadow: 
+      0 0 0 1px rgba(139, 92, 246, 0.5),
+      0 0 20px rgba(139, 92, 246, 0.3),
+      0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Animación de apparición suave */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hover lift effect mejorado */
+  .hover-lift-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift-smooth:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 60px rgba(139, 92, 246, 0.2);
+  }
+
+  /* Pattern overlay sutil */
+  .pattern-overlay {
+    position: relative;
+  }
+
+  .pattern-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgba(139, 92, 246, 0.1) 1px, transparent 0);
+    background-size: 32px 32px;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* Texto con sombra suave para mejor legibilidad */
+  .text-shadow-soft {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Border gradient animado */
+  .border-gradient-animated {
+    position: relative;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+  }
+
+  .border-gradient-animated::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(
+      45deg,
+      #8B5CF6,
+      #3B82F6,
+      #06B6D4,
+      #8B5CF6
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: borderRotate 3s linear infinite;
+    background-size: 200% 200%;
+  }
+
+  @keyframes borderRotate {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Glassmorphism mejorado */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  }
+
+  /* Transición de scroll suave */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  /* Efecto de carga de skeleton */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 25%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+}
+
+/* ============================================
+   📱 MEJORAS RESPONSIVE PARA MÓVILES
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Reducir tamaño de elementos en móviles */
+  .section-padding {
+    @apply py-12;
+  }
+
+  /* Hacer que los cards sean más compactos */
+  .card {
+    @apply p-4;
+  }
+
+  /* Mejorar legibilidad de texto en pantallas pequeñas */
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Hacer que los botones sean más grandes y fáciles de tocar */
+  button, .btn-base {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ============================================
+   🌟 EFECTOS ESPECIALES PARA EL HERO
+   ============================================ */
+
+.hero-gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 25%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.8) 75%,
+    #000000 100%
+  );
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Orbes flotantes con animación */
+.floating-orb {
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+/* Partículas brillantes */
+.particle-glow {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.8), transparent);
+  border-radius: 50%;
+  animation: particleFloat 4s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(50px, -100px);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   ⚡ MEJORAS DE PERFORMANCE
+   ============================================ */
+
+/* Usar transform para animaciones (mejor performance) */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Reducir animaciones en dispositivos de baja potencia */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   🎯 UTILIDADES FINALES
+   ============================================ */
+
+/* Ocultar scrollbar pero mantener funcionalidad */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Texto con ellipsis */
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Clamp para múltiples líneas */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

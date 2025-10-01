@@ -419,15 +419,3 @@ export const BackgroundEffectsDemo = () => {
 // ============================================
 // EXPORTS
 // ============================================
-export default {
-  GlowOrb,
-  DottedPattern,
-  GridPattern,
-  FloatingShapes,
-  GradientOrb,
-  GradientBeam,
-  PulsingCircle,
-  Spotlight,
-  AnimatedGradientBg,
-  BackgroundEffectsDemo,
-};
