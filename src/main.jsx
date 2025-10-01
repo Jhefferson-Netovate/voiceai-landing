@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Router from './Router.jsx'
 import './styles/tailwind.css'
+import { ThemeProvider } from './components/ThemeProvider'
+
 
 // Importar configuraciones (comentadas hasta que las necesites)
 // import { initGA } from './config/analytics'
@@ -16,6 +18,8 @@ import './styles/tailwind.css'
 // Punto de entrada principal de la aplicación React
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router />
+    <ThemeProvider>
+      <Router />
+    </ThemeProvider>
   </React.StrictMode>,
 )

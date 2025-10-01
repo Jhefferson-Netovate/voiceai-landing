@@ -1,10 +1,12 @@
 import React from 'react';
+import Header from '../components/Header';
 import ContactForm from '../components/ContactForm';
 import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline';
 
 export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-50 py-24 px-4">
+      <Header />
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">

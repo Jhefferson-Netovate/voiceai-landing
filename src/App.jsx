@@ -1,5 +1,6 @@
 import React from 'react';
-import Nav from './components/Nav';
+import Header from './components/Header';
+import Button from './components/Button';
 import Hero from './components/Hero';
 import FeatureCard from './components/FeatureCard';
 import Pricing from './components/Pricing';
@@ -63,7 +64,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navegación */}
-      <Nav />
+      <Header />
 
       {/* Hero Section */}
       <Hero />
@@ -74,7 +75,7 @@ function App() {
           <div className="text-center mb-20">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               ¿Por qué elegir{' '}
-              <span className="text-gradient">VoiceFlow AI</span>?
+              <span className="text-gradient">Netovate OÜ</span>?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Nuestra tecnología de vanguardia combina inteligencia artificial conversacional, 
@@ -171,7 +172,7 @@ function App() {
               <span className="text-gradient">retorno de inversión</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Descubre cuánto puedes ahorrar automatizando tus procesos con VoiceFlow AI
+              Descubre cuánto puedes ahorrar automatizando tus procesos con Netovate OÜ
             </p>
           </div>
           
@@ -213,16 +214,16 @@ function App() {
               ¿Listo para revolucionar tus llamadas?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Únete a más de 2,500 empresas que ya confían en VoiceFlow AI para automatizar sus comunicaciones telefónicas
+              Únete a más de 2,500 empresas que ya confían en Netovate OÜ para automatizar sus comunicaciones telefónicas
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <button className="btn-glass text-lg px-8 py-4 group">
-                <span>🚀 Prueba Gratis 14 Días</span>
-              </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-scale-purple font-semibold py-4 px-8 rounded-lg transition-all duration-200 text-lg">
+              <Button variant="primary">
+                🚀 Prueba Gratis 14 Días
+              </Button>
+              <Button variant="primary">
                 📞 Hablar con Ventas
-              </button>
+              </Button>
             </div>
             
             <div className="flex flex-wrap justify-center items-center gap-8 text-sm opacity-80">

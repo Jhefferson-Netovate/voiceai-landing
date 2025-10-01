@@ -1,9 +1,11 @@
 import React from 'react';
+import Header from '../components/Header';
 import { ShieldCheckIcon } from '@heroicons/react/24/outline';
 
 export default function Privacy() {
   return (
     <div className="min-h-screen bg-gray-50 py-24 px-4">
+      <Header />
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -23,7 +25,7 @@ export default function Privacy() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Información que Recopilamos</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              En VoiceFlow AI (operado por Netovate OU), recopilamos la siguiente información:
+              En Netovate OÜ (operado por Netovate OU), recopilamos la siguiente información:
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-600 ml-4">
               <li>Información de contacto: nombre, email, teléfono, empresa</li>

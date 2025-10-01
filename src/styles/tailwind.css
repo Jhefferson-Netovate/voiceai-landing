@@ -1,24 +1,140 @@
-/* Importar todas las utilidades de Tailwind CSS */
+/* ============================================
+   🎨 NETOVATE OU - DESIGN SYSTEM
+   Sistema de diseño completo con variables CSS
+   Inspirado en Scale.com
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Estilos base personalizados */
+/* ============================================
+   📦 CSS VARIABLES (Design Tokens)
+   ============================================ */
+
+:root {
+  /* Colores de Marca */
+  --color-brand-navy: #0A1F44;
+  --color-brand-blue: #0F52BA;
+  --color-brand-cyan: #00D9FF;
+  --color-brand-purple: #6366F1;
+  --color-brand-coral: #FF6B35;
+
+  /* Escala de Grises */
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #F5F5F5;
+  --color-gray-200: #E5E5E5;
+  --color-gray-300: #D4D4D4;
+  --color-gray-400: #A3A3A3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+
+  /* Colores Semánticos */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  /* Tipografía */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Cal Sans', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Menlo', monospace;
+
+  /* Tamaños de Texto */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Radios de Borde */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.4);
+  --shadow-glow-cyan: 0 0 20px rgba(0, 217, 255, 0.4);
+
+  /* Transiciones */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+  --transition-slower: 500ms ease;
+
+  /* Z-Index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* ============================================
+   🎯 BASE STYLES
+   ============================================ */
+
 @layer base {
+  * {
+    @apply border-gray-200;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* CORREGIDO: Evitar webkit-text-size-adjust problemático */
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
-  
+
   body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background-color: #fafafa;
+    @apply bg-gray-50 text-gray-900;
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
   }
-  
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 { @apply text-5xl lg:text-6xl; }
+  h2 { @apply text-4xl lg:text-5xl; }
+  h3 { @apply text-3xl lg:text-4xl; }
+  h4 { @apply text-2xl lg:text-3xl; }
+  h5 { @apply text-xl lg:text-2xl; }
+  h6 { @apply text-lg lg:text-xl; }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
   /* Mejorar legibilidad en pantallas de alta densidad */
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     body {
@@ -26,188 +142,205 @@
       -moz-osx-font-smoothing: grayscale;
     }
   }
+
+  /* Scroll personalizado */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-brand-purple bg-opacity-20;
+  }
 }
 
-/* Componentes personalizados reutilizables */
+/* ============================================
+   🧩 COMPONENT CLASSES
+   ============================================ */
+
 @layer components {
-  /* Botones inspirados en Scale.com */
-  .btn-primary {
-    @apply inline-flex items-center px-6 py-3 rounded-lg font-semibold text-white;
-    @apply bg-gradient-to-r from-scale-purple to-scale-blue;
-    @apply hover:from-purple-600 hover:to-blue-600;
-    @apply focus:outline-none focus:ring-2 focus:ring-scale-purple focus:ring-offset-2;
-    @apply transition-all duration-200 ease-in-out;
-    @apply transform hover:scale-105 active:scale-95;
-    @apply shadow-lg hover:shadow-glow;
-  }
+  /* ========== CONTENEDORES ========== */
   
+  .container-scale {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* ========== BOTONES ========== */
+  
+  .btn-base {
+    @apply inline-flex items-center justify-center font-semibold rounded-lg;
+    @apply transition-all duration-200 ease-in-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn-base px-6 py-3 text-white;
+    @apply bg-gradient-to-r from-brand-purple to-brand-blue;
+    @apply hover:from-purple-600 hover:to-blue-600;
+    @apply focus:ring-brand-purple;
+    @apply shadow-lg hover:shadow-glow;
+    @apply transform hover:scale-105 active:scale-95;
+  }
+
   .btn-secondary {
-    @apply inline-flex items-center px-6 py-3 rounded-lg font-semibold;
+    @apply btn-base px-6 py-3;
     @apply bg-white text-gray-900 border-2 border-gray-200;
     @apply hover:bg-gray-50 hover:border-gray-300;
-    @apply focus:outline-none focus:ring-2 focus:ring-scale-purple focus:ring-offset-2;
-    @apply transition-all duration-200 ease-in-out;
+    @apply focus:ring-brand-blue;
     @apply transform hover:scale-105 active:scale-95;
   }
-  
-  /* CORREGIDO: Botón glassmorphism compatible con Safari */
+
   .btn-glass {
-    @apply inline-flex items-center px-6 py-3 rounded-lg font-semibold text-white;
-    @apply bg-white bg-opacity-10 border border-white border-opacity-20;
-    @apply hover:bg-opacity-20 hover:border-opacity-30;
-    @apply focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
-    @apply transition-all duration-200 ease-in-out;
-    @apply transform hover:scale-105 active:scale-95;
-    /* Compatibilidad total con Safari */
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    @apply btn-base px-6 py-3 text-white;
+    @apply bg-white/10 border border-white/20;
+    @apply hover:bg-white/20;
+    @apply backdrop-blur-md;
+    @apply shadow-lg;
   }
+
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .btn-lg {
+    @apply px-8 py-4 text-lg;
+  }
+
+  /* ========== TARJETAS ========== */
   
-  /* CORREGIDO: Cards con efecto glassmorphism compatible */
+  .card {
+    @apply bg-white rounded-xl shadow-soft;
+    @apply border border-gray-100;
+    @apply transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply hover:shadow-medium hover:scale-105;
+  }
+
   .card-glass {
-    @apply bg-white bg-opacity-10 rounded-xl border border-white border-opacity-20;
-    @apply shadow-glass;
-    /* Orden importante: webkit primero, estándar después */
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
+    @apply bg-white/80 backdrop-blur-lg;
+    @apply border border-white/20;
   }
+
+  /* ========== BADGES ========== */
   
-  /* Secciones con padding consistente */
-  .section-padding {
-    @apply py-16 px-4 sm:px-6 lg:px-8;
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
   }
-  
-  /* Container responsivo inspirado en Scale */
-  .container-scale {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+
+  .badge-primary {
+    @apply badge bg-brand-purple/10 text-brand-purple;
   }
+
+  .badge-success {
+    @apply badge bg-green-100 text-green-800;
+  }
+
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-error {
+    @apply badge bg-red-100 text-red-800;
+  }
+
+  /* ========== INPUTS ========== */
   
-  /* Gradiente de texto como Scale.com */
+  .input {
+    @apply w-full px-4 py-3 rounded-lg;
+    @apply border-2 border-gray-200;
+    @apply focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20;
+    @apply transition-all duration-200;
+    @apply placeholder:text-gray-400;
+  }
+
+  .input-error {
+    @apply border-red-300 focus:border-red-500 focus:ring-red-500/20;
+  }
+
+  /* ========== TEXTOS ========== */
+  
   .text-gradient {
-    @apply bg-gradient-to-r from-scale-purple via-scale-blue to-scale-cyan;
+    @apply bg-gradient-to-r from-brand-purple via-brand-blue to-brand-cyan;
     @apply bg-clip-text text-transparent;
-    /* Fallback para navegadores antiguos */
-    color: #6366f1;
   }
-  
-  /* Efectos de hover para links */
-  .link-hover {
-    @apply relative transition-colors duration-200;
+
+  .text-gradient-animated {
+    @apply text-gradient animate-gradient;
+    background-size: 200% auto;
   }
+
+  /* ========== UTILIDADES ========== */
   
-  .link-hover::after {
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-200;
-    content: '';
+  .glassmorphism {
+    @apply bg-white/10 backdrop-blur-lg;
+    @apply border border-white/20;
   }
-  
-  .link-hover:hover::after {
-    @apply w-full;
+
+  .smooth-scroll {
+    scroll-behavior: smooth;
   }
 }
 
-/* Utilidades personalizadas */
+/* ============================================
+   ⚡ UTILITY CLASSES
+   ============================================ */
+
 @layer utilities {
-  /* Animación para elementos que aparecen al hacer scroll */
-  .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-out;
-  }
-  
-  .animate-on-scroll.in-view {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Respeto a prefers-reduced-motion */
-  @media (prefers-reduced-motion: reduce) {
-    .animate-on-scroll {
-      transition: none;
-      opacity: 1;
-      transform: none;
+  /* Animación que respeta prefers-reduced-motion */
+  .animate-safe {
+    @media (prefers-reduced-motion: reduce) {
+      animation: none !important;
+      transition: none !important;
     }
   }
+
+  /* Hide scrollbar pero mantener funcionalidad */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
   
-  /* Gradiente animado para backgrounds */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Text balance para títulos */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Gradiente animado de fondo */
   .bg-gradient-animated {
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  /* Glow effect */
+  .glow-on-hover {
+    @apply transition-shadow duration-300;
   }
   
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-}
-
-/* CORREGIDO: Estilos específicos para navegación sticky compatible */
-.nav-blur {
-  /* Orden correcto para compatibilidad con Safari */
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  background-color: rgba(255, 255, 255, 0.8);
-  /* Fallback para navegadores sin soporte */
-  background-color: rgba(255, 255, 255, 0.95);
-}
-
-/* Soporte para navegadores sin backdrop-filter */
-@supports not (backdrop-filter: blur(12px)) {
-  .nav-blur {
-    background-color: rgba(255, 255, 255, 0.95);
-  }
-  
-  .btn-glass {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .card-glass {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-}
-
-/* Personalización de scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #6366f1, #3b82f6);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #5b5ff1, #2563eb);
-}
-
-/* AÑADIDO: Mejoras adicionales de compatibilidad */
-/* Soporte para flexbox en navegadores antiguos */
-.flex-fallback {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-/* Grid fallback para navegadores sin soporte completo */
-@supports not (display: grid) {
-  .grid-fallback {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
-  
-  .grid-fallback > * {
-    -webkit-flex: 1 1 300px;
-    -ms-flex: 1 1 300px;
-    flex: 1 1 300px;
+  .glow-on-hover:hover {
+    @apply shadow-glow;
   }
 }
