@@ -1,70 +1,73 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckIcon, StarIcon } from '@heroicons/react/24/solid';
+import { useTranslation } from 'react-i18next'; // ⬅️ AÑADIR
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
-
-const plans = [
-  {
-    name: 'Starter',
-    description: 'Perfecto para pequeñas empresas',
-    priceMonthly: 199,
-    priceAnnual: 159,
-    features: [
-      'Hasta 1,000 llamadas/mes',
-      'IA Conversacional básica',
-      '2 números telefónicos',
-      'Integración CRM',
-      'Soporte por email',
-      'Analytics básicos'
-    ],
-    popular: false,
-    cta: 'Comenzar Prueba',
-  },
-  {
-    name: 'Professional',
-    description: 'Para empresas en crecimiento',
-    priceMonthly: 499,
-    priceAnnual: 399,
-    features: [
-      'Hasta 5,000 llamadas/mes',
-      'IA Conversacional avanzada',
-      '10 números telefónicos',
-      'Integración CRM Premium',
-      'Soporte prioritario 24/7',
-      'Analytics avanzados',
-      'A/B testing',
-      'Webhooks y API'
-    ],
-    popular: true,
-    cta: 'Comenzar Prueba',
-  },
-  {
-    name: 'Enterprise',
-    description: 'Para grandes organizaciones',
-    priceMonthly: 'Personalizado',
-    priceAnnual: 'Personalizado',
-    features: [
-      'Llamadas ilimitadas',
-      'IA Conversacional personalizada',
-      'Números ilimitados',
-      'Integraciones personalizadas',
-      'Account Manager dedicado',
-      'SLA garantizado 99.9%',
-      'Onboarding personalizado',
-      'Compliance y seguridad avanzada'
-    ],
-    popular: false,
-    cta: 'Contactar Ventas',
-  }
-];
 
 export default function Pricing() {
   const [billingPeriod, setBillingPeriod] = useState('monthly');
   const prefersReducedMotion = usePrefersReducedMotion();
+  const { t } = useTranslation(); // ⬅️ AÑADIR
+
+  // Planes - AHORA USAN TRADUCCIONES
+  const plans = [
+    {
+      name: t('pricing.starterName'), // ⬅️ TRADUCCIÓN
+      description: t('pricing.starterDesc'), // ⬅️ TRADUCCIÓN
+      priceMonthly: 199,
+      priceAnnual: 159,
+      features: [
+        t('pricing.starterFeature1'), // ⬅️ TRADUCCIÓN
+        t('pricing.starterFeature2'), // ⬅️ TRADUCCIÓN
+        t('pricing.starterFeature3'), // ⬅️ TRADUCCIÓN
+        t('pricing.starterFeature4'), // ⬅️ TRADUCCIÓN
+        t('pricing.starterFeature5'), // ⬅️ TRADUCCIÓN
+        t('pricing.starterFeature6'), // ⬅️ TRADUCCIÓN
+      ],
+      popular: false,
+      cta: t('pricing.starterCTA'), // ⬅️ TRADUCCIÓN
+    },
+    {
+      name: t('pricing.proName'), // ⬅️ TRADUCCIÓN
+      description: t('pricing.proDesc'), // ⬅️ TRADUCCIÓN
+      priceMonthly: 499,
+      priceAnnual: 399,
+      features: [
+        t('pricing.proFeature1'), // ⬅️ TRADUCCIÓN
+        t('pricing.proFeature2'), // ⬅️ TRADUCCIÓN
+        t('pricing.proFeature3'), // ⬅️ TRADUCCIÓN
+        t('pricing.proFeature4'), // ⬅️ TRADUCCIÓN
+        t('pricing.proFeature5'), // ⬅️ TRADUCCIÓN
+        t('pricing.proFeature6'), // ⬅️ TRADUCCIÓN
+        t('pricing.proFeature7'), // ⬅️ TRADUCCIÓN
+        t('pricing.proFeature8'), // ⬅️ TRADUCCIÓN
+      ],
+      popular: true,
+      cta: t('pricing.proCTA'), // ⬅️ TRADUCCIÓN
+    },
+    {
+      name: t('pricing.enterpriseName'), // ⬅️ TRADUCCIÓN
+      description: t('pricing.enterpriseDesc'), // ⬅️ TRADUCCIÓN
+      priceMonthly: t('pricing.enterprisePrice'), // ⬅️ TRADUCCIÓN
+      priceAnnual: t('pricing.enterprisePrice'), // ⬅️ TRADUCCIÓN
+      features: [
+        t('pricing.enterpriseFeature1'), // ⬅️ TRADUCCIÓN
+        t('pricing.enterpriseFeature2'), // ⬅️ TRADUCCIÓN
+        t('pricing.enterpriseFeature3'), // ⬅️ TRADUCCIÓN
+        t('pricing.enterpriseFeature4'), // ⬅️ TRADUCCIÓN
+        t('pricing.enterpriseFeature5'), // ⬅️ TRADUCCIÓN
+        t('pricing.enterpriseFeature6'), // ⬅️ TRADUCCIÓN
+        t('pricing.enterpriseFeature7'), // ⬅️ TRADUCCIÓN
+        t('pricing.enterpriseFeature8'), // ⬅️ TRADUCCIÓN
+      ],
+      popular: false,
+      cta: t('pricing.enterpriseCTA'), // ⬅️ TRADUCCIÓN
+    }
+  ];
   
   return (
     <section id="precios" className="section-padding bg-black relative overflow-hidden">
-      {/* Efectos de fondo sutiles */}
+      {/* Efectos de fondo */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-blue-900/10" />
       <div className="absolute inset-0 opacity-5 dot-pattern" />
       
@@ -78,11 +81,11 @@ export default function Pricing() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Planes que se adaptan a{' '}
-            <span className="text-gradient">tu negocio</span>
+            {t('pricing.title')}{' '} {/* ⬅️ TRADUCCIÓN */}
+            <span className="text-gradient">{t('pricing.titleHighlight')}</span> {/* ⬅️ TRADUCCIÓN */}
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Sin costes ocultos. Cancela cuando quieras. 14 días de prueba gratuita en todos los planes.
+            {t('pricing.subtitle')} {/* ⬅️ TRADUCCIÓN */}
           </p>
           
           {/* Toggle anual/mensual */}
@@ -95,7 +98,7 @@ export default function Pricing() {
               }`}
               onClick={() => setBillingPeriod('monthly')}
             >
-              Mensual
+              {t('pricing.monthly')} {/* ⬅️ TRADUCCIÓN */}
             </button>
             <button
               className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
@@ -105,9 +108,9 @@ export default function Pricing() {
               }`}
               onClick={() => setBillingPeriod('annual')}
             >
-              Anual
+              {t('pricing.annual')} {/* ⬅️ TRADUCCIÓN */}
               <span className="ml-2 text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full border border-green-500/30">
-                -20%
+                {t('pricing.discount')} {/* ⬅️ TRADUCCIÓN */}
               </span>
             </button>
           </div>
@@ -130,81 +133,60 @@ export default function Pricing() {
                 delay: index * 0.1, 
                 ease: 'easeOut' 
               }}
-              whileHover={prefersReducedMotion ? {} : { 
-                y: -5,
-                transition: { duration: 0.2 }
-              }}
+              whileHover={prefersReducedMotion ? {} : { y: -8 }}
               viewport={{ once: true }}
             >
-              {/* Badge "Popular" */}
+              {/* Badge "Más Popular" */}
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1.5 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm font-semibold rounded-full flex items-center gap-1 shadow-lg">
-                  <StarIcon className="w-4 h-4" />
-                  Más Popular
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+                    <StarIcon className="w-4 h-4" />
+                    Más Popular
+                  </div>
                 </div>
               )}
-              
+
               <div className="p-8">
-                {/* Header del plan */}
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                  <p className="text-gray-400 mb-6">{plan.description}</p>
-                  
-                  {/* Precio */}
-                  <div className="mb-6">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={billingPeriod}
-                        initial={prefersReducedMotion ? {} : { opacity: 0, y: 10 }}
-                        animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-                        exit={prefersReducedMotion ? {} : { opacity: 0, y: -10 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {typeof plan.priceMonthly === 'number' ? (
-                          <>
-                            <span className="text-4xl font-bold text-white">
-                              €{billingPeriod === 'monthly' ? plan.priceMonthly : plan.priceAnnual}
-                            </span>
-                            <span className="text-gray-400 ml-1">/mes</span>
-                            {billingPeriod === 'annual' && (
-                              <div className="text-sm text-green-400 font-medium mt-1">
-                                Ahorras €{(plan.priceMonthly - plan.priceAnnual) * 12}/año
-                              </div>
-                            )}
-                          </>
-                        ) : (
-                          <span className="text-4xl font-bold text-white">
-                            {plan.priceMonthly}
-                          </span>
-                        )}
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
+                {/* Nombre y descripción */}
+                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                <p className="text-gray-400 mb-6">{plan.description}</p>
+
+                {/* Precio */}
+                <div className="mb-8">
+                  {typeof plan.priceMonthly === 'number' ? (
+                    <>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-5xl font-bold text-white">
+                          €{billingPeriod === 'monthly' ? plan.priceMonthly : plan.priceAnnual}
+                        </span>
+                        <span className="text-gray-400">
+                          {t('pricing.perMonth')} {/* ⬅️ TRADUCCIÓN */}
+                        </span>
+                      </div>
+                      {billingPeriod === 'annual' && (
+                        <p className="text-sm text-green-400 mt-2">
+                          Ahorra €{(plan.priceMonthly - plan.priceAnnual) * 12} al año
+                        </p>
+                      )}
+                    </>
+                  ) : (
+                    <div className="text-3xl font-bold text-white">{plan.priceMonthly}</div>
+                  )}
                 </div>
 
                 {/* Features */}
                 <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <motion.li
-                      key={featureIndex}
-                      className="flex items-start"
-                      initial={prefersReducedMotion ? {} : { opacity: 0, x: -10 }}
-                      whileInView={prefersReducedMotion ? {} : { opacity: 1, x: 0 }}
-                      transition={prefersReducedMotion ? {} : { 
-                        duration: 0.3, 
-                        delay: (index * 0.1) + (featureIndex * 0.05) 
-                      }}
-                      viewport={{ once: true }}
-                    >
-                      <CheckIcon className="w-5 h-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300">{feature}</span>
-                    </motion.li>
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <CheckIcon className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-300 text-sm">{feature}</span>
+                    </li>
                   ))}
                 </ul>
 
-                {/* CTA Button */}
+                {/* CTA */}
                 <motion.button
-                  className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 ${
+                  className={`w-full py-3 rounded-lg font-semibold transition-all duration-200 ${
                     plan.popular
                       ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600 shadow-lg hover:shadow-xl'
                       : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
@@ -228,9 +210,9 @@ export default function Pricing() {
           viewport={{ once: true }}
         >
           <p className="text-lg">
-            ¿Necesitas un plan personalizado?{' '}
+            {t('pricing.footerText')}{' '} {/* ⬅️ TRADUCCIÓN */}
             <a href="#contacto" className="text-purple-400 hover:text-purple-300 font-semibold transition-colors">
-              Hablamos
+              {t('pricing.footerLink')} {/* ⬅️ TRADUCCIÓN */}
             </a>
           </p>
         </motion.div>
