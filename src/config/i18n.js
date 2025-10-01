@@ -216,7 +216,67 @@ const resources = {
         sendButton: 'Enviar Mensaje',
         sending: 'Enviando...',
         successMessage: '¡Mensaje enviado! Te responderemos pronto.',
-        errorMessage: 'Hubo un error. Inténtalo de nuevo.'
+        errorMessage: 'Hubo un error. Inténtalo de nuevo.',
+        addressLabel: 'Dirección',
+        addressText: 'Unión Europea',
+        hoursTitle: 'Horario de Atención',
+        hoursText: 'Lunes a Viernes: 9:00 - 18:00 CET'
+      },
+
+      // BLOGPOST PAGE
+      blogpost: {
+        title: 'El Futuro de la IA en Agentes Telefónicos: 2025',
+        author: 'Equipo Netovate',
+        date: '01/10/2025',
+        readTime: '5 min de lectura',
+        intro: 'Introducción',
+        introText: 'La inteligencia artificial está revolucionando la atención telefónica. Las empresas ahora confían en agentes virtuales capaces de gestionar miles de llamadas simultáneas, personalizar la experiencia del cliente y resolver problemas complejos en tiempo real.',
+        feature1Title: 'Conversaciones naturales',
+        feature1Desc: 'Modelos de lenguaje avanzados para interacciones casi humanas.',
+        feature2Title: 'Automatización total',
+        feature2Desc: 'Procesos automatizados de extremo a extremo, desde verificación hasta gestión de incidencias.',
+        feature3Title: 'Integración omnicanal',
+        feature3Desc: 'Conexión con CRM, chat, email y redes sociales para una experiencia centralizada.',
+        feature4Title: 'Aprendizaje continuo',
+        feature4Desc: 'Análisis de cada llamada para mejorar constantemente.',
+        conclusionTitle: 'Conclusión',
+        conclusionText: 'El futuro de la atención telefónica es inteligente, automatizado y centrado en el cliente. Las empresas que adopten estas tecnologías hoy liderarán el mercado mañana.',
+        cta: 'Prueba Netovate Gratis'
+      },
+
+      // BLOG PAGE - PUNTOS ADICIONALES
+      blog: {
+        title: 'Blog',
+        subtitle: 'Artículos y noticias sobre automatización e IA.',
+        postTag: 'Post',
+        date: '01/10/2025',
+        post1Title: 'El Futuro de la IA en Agentes Telefónicos: 2025',
+        post1Desc: 'Descubre cómo la inteligencia artificial está revolucionando la atención telefónica, automatizando procesos y mejorando la experiencia del cliente en empresas de todo el mundo.',
+        post1Point1: 'Conversaciones naturales y personalizadas.',
+        post1Point2: 'Automatización total de procesos.',
+        post1Point3: 'Integración omnicanal con CRM y redes sociales.',
+        post1Point4: 'Aprendizaje continuo y análisis avanzado.',
+        post1Point5: 'Desafíos éticos y oportunidades de negocio.',
+        readMore: 'Leer artículo completo'
+      },
+
+      // CHANGELOG PAGE - FEATURES
+      changelog: {
+        title: 'Changelog',
+        subtitle: 'Novedades y actualizaciones de la plataforma.',
+        version: 'v1.0',
+        date: '01/10/2025',
+        launchTitle: 'Lanzamiento inicial de VoiceAI Landing 🚀',
+        feature1: 'Nuevo sistema de diseño oscuro, glassmorphism y efectos neon.',
+        feature2: 'Hero section con GlowOrb y animaciones modernas.',
+        feature3: 'Cards de features con glass y hover.',
+        feature4: 'Pricing con bordes neon y fondo oscuro.',
+        feature5: 'Footer y Header adaptativos con modo oscuro.',
+        feature6: 'Legal pages accesibles y con alto contraste.',
+        feature7: 'Dot/grid pattern de fondo en secciones clave.',
+        feature8: 'Botones con efectos glow y gradientes animados.',
+        feature9: 'Integración inicial con analytics y crisp.',
+        thanksMessage: '¡Gracias por probar la primera versión! Envíanos feedback para seguir mejorando.'
       },
 
       // COMMON / GENERAL
@@ -448,7 +508,67 @@ const resources = {
         sendButton: 'Send Message',
         sending: 'Sending...',
         successMessage: 'Message sent! We will respond soon.',
-        errorMessage: 'There was an error. Please try again.'
+        errorMessage: 'There was an error. Please try again.',
+        addressLabel: 'Address',
+        addressText: 'European Union',
+        hoursTitle: 'Business Hours',
+        hoursText: 'Monday to Friday: 9:00 - 18:00 CET'
+      },
+
+      // BLOGPOST PAGE
+      blogpost: {
+        title: 'The Future of AI in Phone Agents: 2025',
+        author: 'Netovate Team',
+        date: '10/01/2025',
+        readTime: '5 min read',
+        intro: 'Introduction',
+        introText: 'Artificial intelligence is revolutionizing phone support. Companies now rely on virtual agents capable of handling thousands of simultaneous calls, personalizing customer experience and solving complex problems in real-time.',
+        feature1Title: 'Natural conversations',
+        feature1Desc: 'Advanced language models for near-human interactions.',
+        feature2Title: 'Total automation',
+        feature2Desc: 'End-to-end automated processes, from verification to incident management.',
+        feature3Title: 'Omnichannel integration',
+        feature3Desc: 'Connection with CRM, chat, email and social networks for a centralized experience.',
+        feature4Title: 'Continuous learning',
+        feature4Desc: 'Analysis of every call to constantly improve.',
+        conclusionTitle: 'Conclusion',
+        conclusionText: 'The future of phone support is intelligent, automated and customer-centric. Companies that adopt these technologies today will lead the market tomorrow.',
+        cta: 'Try Netovate Free'
+      },
+
+      // BLOG PAGE - ADDITIONAL POINTS
+      blog: {
+        title: 'Blog',
+        subtitle: 'Articles and news about automation and AI.',
+        postTag: 'Post',
+        date: '10/01/2025',
+        post1Title: 'The Future of AI in Phone Agents: 2025',
+        post1Desc: 'Discover how artificial intelligence is revolutionizing phone support, automating processes and improving customer experience in companies worldwide.',
+        post1Point1: 'Natural and personalized conversations.',
+        post1Point2: 'Total process automation.',
+        post1Point3: 'Omnichannel integration with CRM and social networks.',
+        post1Point4: 'Continuous learning and advanced analysis.',
+        post1Point5: 'Ethical challenges and business opportunities.',
+        readMore: 'Read full article'
+      },
+
+      // CHANGELOG PAGE - FEATURES
+      changelog: {
+        title: 'Changelog',
+        subtitle: 'Platform news and updates.',
+        version: 'v1.0',
+        date: '10/01/2025',
+        launchTitle: 'VoiceAI Landing Initial Launch 🚀',
+        feature1: 'New dark design system, glassmorphism and neon effects.',
+        feature2: 'Hero section with GlowOrb and modern animations.',
+        feature3: 'Feature cards with glass and hover.',
+        feature4: 'Pricing with neon borders and dark background.',
+        feature5: 'Adaptive Footer and Header with dark mode.',
+        feature6: 'Accessible legal pages with high contrast.',
+        feature7: 'Dot/grid pattern background in key sections.',
+        feature8: 'Buttons with glow effects and animated gradients.',
+        feature9: 'Initial integration with analytics and crisp.',
+        thanksMessage: 'Thanks for trying the first version! Send us feedback to keep improving.'
       },
 
       // COMMON / GENERAL

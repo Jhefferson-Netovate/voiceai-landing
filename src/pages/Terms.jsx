@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { DocumentTextIcon } from '@heroicons/react/24/outline';
 
 export default function Terms() {
   return (
-  <div className="min-h-screen bg-black py-24 px-4">
+    <div className="min-h-screen bg-black py-24 px-4">
       <Header />
       <div className="max-w-4xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-scale-purple to-scale-blue rounded-full mb-6">
             <DocumentTextIcon className="w-8 h-8 text-white" />
@@ -20,61 +20,57 @@ export default function Terms() {
           </p>
         </div>
 
-        {/* Content */}
-  <div className="bg-dark-100 rounded-2xl shadow-sm p-8 md:p-12 space-y-8">
+        <div className="bg-dark-100 rounded-2xl shadow-sm p-8 md:p-12 space-y-8">
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">1. Aceptación de los Términos</h2>
-            <p className="text-gray-400 leading-relaxed">
-              Al acceder y utilizar el sitio web de Netovate OÜ (operado por Netovate OU), aceptas
-              estar sujeto a estos Términos y Condiciones. Si no estás de acuerdo con alguna parte
-              de estos términos, no debes utilizar nuestro sitio web o servicios.
+            <p className="text-gray-300 leading-relaxed">
+              Al acceder y usar los servicios de Netovate OÜ ("Netovate", "nosotros", "nuestro"),
+              aceptas estar sujeto a estos Términos y Condiciones. Si no estás de acuerdo, no uses
+              nuestros servicios.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">2. Descripción del Servicio</h2>
-            <p className="text-gray-400 leading-relaxed mb-4">
-              Netovate OÜ proporciona soluciones de inteligencia artificial conversacional para
-              automatización de llamadas telefónicas empresariales. Nuestros servicios incluyen:
+            <p className="text-gray-300 leading-relaxed">
+              Netovate proporciona servicios de inteligencia artificial para automatización de llamadas
+              telefónicas, incluyendo pero no limitado a: agentes virtuales, transcripción de llamadas,
+              análisis de sentimientos y gestión de CRM.
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-400 ml-4">
-              <li>Plataforma SaaS de IA conversacional</li>
-              <li>Integración con sistemas CRM</li>
-              <li>Analytics y reportes en tiempo real</li>
-              <li>API para integraciones personalizadas</li>
-              <li>Soporte técnico según el plan contratado</li>
-            </ul>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">3. Registro y Cuenta</h2>
-            <p className="text-gray-400 leading-relaxed mb-4">
-              Para utilizar nuestros servicios, debes:
-            </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-400 ml-4">
-              <li>Proporcionar información precisa y completa durante el registro</li>
-              <li>Mantener la seguridad de tu cuenta y contraseña</li>
-              <li>Notificarnos inmediatamente de cualquier uso no autorizado</li>
-              <li>Ser responsable de todas las actividades bajo tu cuenta</li>
-              <li>Tener al menos 18 años o la mayoría de edad legal en tu jurisdicción</li>
-            </ul>
+            <div className="space-y-4 text-gray-300 leading-relaxed">
+              <p>
+                <strong className="text-white">3.1 Elegibilidad:</strong> Debes tener al menos 18
+                años y capacidad legal para celebrar contratos.
+              </p>
+              <p>
+                <strong className="text-white">3.2 Información Precisa:</strong> Debes proporcionar
+                información veraz, actual y completa durante el registro.
+              </p>
+              <p>
+                <strong className="text-white">3.3 Seguridad:</strong> Eres responsable de mantener
+                la confidencialidad de tu cuenta y contraseña.
+              </p>
+            </div>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">4. Planes y Facturación</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">4. Precios y Pagos</h2>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                <strong className="text-white">4.1 Planes de Suscripción:</strong> Ofrecemos
-                diferentes planes (Starter, Professional, Enterprise) con características y límites
-                específicos descritos en nuestra página de precios.
+                <strong className="text-white">4.1 Planes:</strong> Los precios están disponibles
+                en nuestra página de precios y pueden cambiar con 30 días de aviso.
               </p>
               <p>
-                <strong className="text-white">4.2 Facturación:</strong> Los pagos se procesan
-                mensual o anualmente según tu elección. Las renovaciones son automáticas.
+                <strong className="text-white">4.2 Facturación:</strong> Los cargos se facturan
+                por adelantado mensual o anualmente.
               </p>
               <p>
-                <strong className="text-white">4.3 Período de Prueba:</strong> Ofrecemos 14 días
-                de prueba gratuita sin requerir tarjeta de crédito.
+                <strong className="text-white">4.3 Impuestos:</strong> Los precios no incluyen
+                impuestos aplicables (IVA, GST, etc.).
               </p>
               <p>
                 <strong className="text-white">4.4 Cancelación:</strong> Puedes cancelar en
@@ -172,25 +168,17 @@ export default function Terms() {
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">12. Contacto</h2>
+            <p className="text-gray-300 leading-relaxed mb-4">
+              Para preguntas sobre estos términos:
+            </p>
             <div className="bg-dark-200 rounded-lg p-6 border border-gray-800">
               <p className="text-white font-semibold mb-2">Netovate OU</p>
               <p className="text-gray-300 mb-1">Email: legal@netovate.eu</p>
-              <p className="text-gray-300 mb-1">Dirección: Tallin, Estonia</p>
-              <p className="text-gray-300">Soporte: support@netovate.eu</p>
+              <p className="text-gray-300">Tallin, Estonia</p>
             </div>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-white mb-4">13. Cambios a estos Términos</h2>
-            <p className="text-gray-300 leading-relaxed">
-              Podemos actualizar estos términos ocasionalmente. Te notificaremos de cambios
-              materiales por email o mediante aviso en el sitio. El uso continuado del servicio
-              después de los cambios constituye tu aceptación de los nuevos términos.
-            </p>
           </section>
         </div>
 
-        {/* CTA */}
         <div className="mt-12 text-center">
           <a
             href="/"
@@ -200,6 +188,7 @@ export default function Terms() {
           </a>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

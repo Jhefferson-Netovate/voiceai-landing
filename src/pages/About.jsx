@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
-import Card, { StatCard } from '../components/Card'; // ✅ CORREGIDO: StatCard en lugar de StatsCard
+import { StatCard } from '../components/Card';
 import { DottedPattern, GradientOrb, FloatingShapes } from '../components/SVGShapes';
 import { useTheme } from '../components/ThemeProvider';
 import { 
@@ -13,71 +14,62 @@ import {
   HeartIcon 
 } from '@heroicons/react/24/outline';
 
-/**
- * ABOUT PAGE - NETOVATE OU
- * ==========================
- * Página "Sobre Nosotros" refactorizada con el nuevo sistema de diseño
- * Inspirada en Scale.com
- */
-
 export default function About() {
   const { prefersReducedMotion } = useTheme();
+  const { t } = useTranslation();
 
-  // Estadísticas de la empresa
   const stats = [
     { 
-      value: '2,500+', 
-      label: 'Empresas Activas',
+      value: t('about.stats1Value'),
+      label: t('about.stats1Label'),
       icon: <UsersIcon />,
-      trend: '+45%',
+      trend: t('about.stats1Trend'),
       trendUp: true
     },
     { 
-      value: '15M+', 
-      label: 'Llamadas Procesadas',
+      value: t('about.stats2Value'),
+      label: t('about.stats2Label'),
       icon: <RocketLaunchIcon />,
-      trend: '+120%',
+      trend: t('about.stats2Trend'),
       trendUp: true
     },
     { 
-      value: '50+', 
-      label: 'Países',
+      value: t('about.stats3Value'),
+      label: t('about.stats3Label'),
       icon: <GlobeAltIcon />
     },
     { 
-      value: '98%', 
-      label: 'Satisfacción Cliente',
+      value: t('about.stats4Value'),
+      label: t('about.stats4Label'),
       icon: <HeartIcon />,
-      trend: '+2%',
+      trend: t('about.stats4Trend'),
       trendUp: true
     },
   ];
 
-  // Valores de la empresa
   const values = [
     {
       emoji: '🚀',
-      title: 'Innovación Continua',
-      description: 'Nos desafiamos constantemente a crear soluciones que redefinan los estándares de la industria.'
+      title: t('about.value1Title'),
+      description: t('about.value1Desc')
     },
     {
       emoji: '🤝',
-      title: 'Cliente en el Centro',
-      description: 'Cada decisión que tomamos está guiada por el impacto que tendrá en nuestros clientes.'
+      title: t('about.value2Title'),
+      description: t('about.value2Desc')
     },
     {
       emoji: '💡',
-      title: 'Transparencia Total',
-      description: 'Creemos en la honestidad radical y en compartir tanto éxitos como desafíos.'
+      title: t('about.value3Title'),
+      description: t('about.value3Desc')
     },
     {
       emoji: '🌍',
-      title: 'Impacto Global',
-      description: 'Construimos tecnología que democratiza el acceso a la automatización empresarial.'
+      title: t('about.value4Title'),
+      description: t('about.value4Desc')
     },
   ];
 
-  // Equipo (puedes agregar fotos reales más adelante)
   const team = [
     {
       name: 'Ana García',
@@ -95,231 +87,85 @@ export default function About() {
       name: 'María López',
       role: 'Head of AI',
       bio: 'Investigadora en NLP y deep learning, PhD en Computer Science.',
-      image: 'https://ui-avatars.com/api/?name=Maria+Lopez&background=06B6D4&color=fff&size=200'
-    },
-    {
-      name: 'David Chen',
-      role: 'Head of Product',
-      bio: 'Product Manager con experiencia en startups de rápido crecimiento.',
-      image: 'https://ui-avatars.com/api/?name=David+Chen&background=8B5CF6&color=fff&size=200'
+      image: 'https://ui-avatars.com/api/?name=Maria+Lopez&background=EC4899&color=fff&size=200'
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       <Header />
-
-      {/* HERO SECTION */}
-      <section className="relative bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 text-white overflow-hidden">
-        {/* Elementos decorativos de fondo */}
-        <div className="absolute inset-0">
-          <DottedPattern />
-          <GradientOrb size={600} color="purple" className="top-0 right-0" />
-          <GradientOrb size={400} color="blue" className="bottom-0 left-0" />
-        </div>
-
-        <div className="relative z-10 container-scale py-24 md:py-32">
-          <motion.div
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={prefersReducedMotion ? {} : { scale: 0 }}
-              animate={prefersReducedMotion ? {} : { scale: 1 }}
-              transition={{ delay: 0.2, type: "spring" }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-6"
-            >
-              <span className="animate-pulse">✨</span>
-              <span className="text-sm font-semibold">Sobre Netovate OU</span>
-            </motion.div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Revolucionando la 
-              <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-                Comunicación Empresarial
-              </span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Somos un equipo de ingenieros, diseñadores e innovadores apasionados 
-              por transformar cómo las empresas se comunican con sus clientes.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="primary" size="lg">
-                Únete al Equipo
-              </Button>
-              <Button variant="secondary" size="lg">
-                Conoce Nuestra Historia
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ESTADÍSTICAS */}
-      <section className="py-16 bg-white">
-        <div className="container-scale">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <StatCard  
-                key={stat.label}
-                value={stat.value}
-                label={stat.label}
-                icon={stat.icon}
-                trend={stat.trend}
-                trendUp={stat.trendUp}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* NUESTRA MISIÓN */}
-      <section className="py-24 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 text-white relative overflow-hidden">
-        <GradientOrb size={400} color="purple" className="top-0 left-0" />
+      
+      <main className="py-24 px-4 relative overflow-hidden">
+        <DottedPattern opacity={0.03} />
+        <GradientOrb size={600} color="purple" opacity={0.1} className="top-20 right-0" />
         
-        <div className="relative z-10 container-scale">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <motion.h1 
+              className="text-5xl font-bold text-white mb-4"
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-              whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Nuestra Misión
-              </h2>
-              <p className="text-xl leading-relaxed opacity-90">
-                Democratizar el acceso a la automatización empresarial mediante 
-                inteligencia artificial de última generación. Creemos que cada 
-                empresa merece tener herramientas de clase mundial para competir 
-                en la economía digital, sin necesidad de equipos técnicos masivos 
-                o presupuestos millonarios.
-              </p>
-            </motion.div>
+              {t('about.title')}
+            </motion.h1>
+            <motion.p 
+              className="text-xl text-gray-400"
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              {t('about.subtitle')}
+            </motion.p>
           </div>
-        </div>
-      </section>
 
-      {/* NUESTROS VALORES */}
-      <section className="py-24 bg-gray-50">
-        <div className="container-scale">
-          <motion.div
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Nuestros Valores
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Los principios que guían cada decisión que tomamos
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {values.map((value, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+            {stats.map((stat, index) => (
               <motion.div
-                key={value.title}
+                key={index}
                 initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-                whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card variant="default" hoverable>
-                  <div className="flex items-start gap-4">
-                    <div className="text-5xl">{value.emoji}</div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        {value.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        {value.description}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
+                <StatCard {...stat} />
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* NUESTRO EQUIPO */}
-      <section className="py-24 bg-white">
-        <div className="container-scale">
-          <motion.div
+          <motion.div 
+            className="bg-white/5 rounded-2xl p-8 mb-20 backdrop-blur-sm border border-white/10"
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Conoce al Equipo
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Las personas detrás de Netovate OU
-            </p>
+            <h2 className="text-3xl font-bold text-white mb-4">{t('about.missionTitle')}</h2>
+            <p className="text-gray-300 text-lg">{t('about.missionText')}</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.9 }}
-                whileInView={prefersReducedMotion ? {} : { opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card variant="default" hoverable>
-                  <div className="text-center">
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-purple-100"
-                    />
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-purple-600 font-semibold mb-3">
-                      {member.role}
-                    </p>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {member.bio}
-                    </p>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+          <div>
+            <h2 className="text-3xl font-bold text-white text-center mb-12">{t('about.valuesTitle')}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {values.map((value, index) => (
+                <motion.div 
+                  key={index}
+                  className="bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 hover:border-purple-500/30 transition-all duration-300"
+                  initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="text-4xl mb-4">{value.emoji}</div>
+                  <h3 className="text-xl font-bold text-white mb-2">{value.title}</h3>
+                  <p className="text-gray-400">{value.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
-      </section>
-
-      {/* CTA SECTION */}
-      <section className="py-24 bg-gray-50">
-        <div className="container-scale">
-          <Card variant="gradient">
-            <div className="text-center py-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                ¿Quieres unirte a nosotros?
-              </h2>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Estamos siempre buscando talento excepcional para unirse a nuestro equipo
-              </p>
-              <Button variant="primary" size="lg">
-                Ver Posiciones Abiertas
-              </Button>
-            </div>
-          </Card>
-        </div>
-      </section>
-
+      </main>
+      
       <Footer />
     </div>
   );

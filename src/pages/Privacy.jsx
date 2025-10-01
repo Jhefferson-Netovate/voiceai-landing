@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { ShieldCheckIcon } from '@heroicons/react/24/outline';
 
 export default function Privacy() {
   return (
-  <div className="min-h-screen bg-black py-24 px-4">
+    <div className="min-h-screen bg-black py-24 px-4">
       <Header />
       <div className="max-w-4xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-scale-purple to-scale-blue rounded-full mb-6">
             <ShieldCheckIcon className="w-8 h-8 text-white" />
@@ -20,8 +20,7 @@ export default function Privacy() {
           </p>
         </div>
 
-        {/* Content */}
-  <div className="bg-dark-100 rounded-2xl shadow-sm p-8 md:p-12 space-y-8">
+        <div className="bg-dark-100 rounded-2xl shadow-sm p-8 md:p-12 space-y-8">
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">1. Información que Recopilamos</h2>
             <p className="text-gray-400 leading-relaxed mb-4">
@@ -101,17 +100,13 @@ export default function Privacy() {
             <h2 className="text-2xl font-bold text-white mb-4">7. Cookies</h2>
             <p className="text-gray-400 leading-relaxed">
               Utilizamos cookies esenciales, analíticas y de marketing. Puedes gestionar tus preferencias
-              en nuestro banner de cookies. Consulta nuestra{' '}
-              <a href="/cookies" className="text-scale-purple hover:underline">
-                Política de Cookies
-              </a>
-              {' '}para más información.
+              en nuestro banner de cookies.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">8. Retención de Datos</h2>
-              <p className="text-gray-300 leading-relaxed">
+            <p className="text-gray-300 leading-relaxed">
               Conservamos tus datos solo durante el tiempo necesario para cumplir con los propósitos
               descritos, o según lo requiera la ley (generalmente 5-7 años para datos fiscales).
             </p>
@@ -119,7 +114,7 @@ export default function Privacy() {
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">9. Transferencias Internacionales</h2>
-              <p className="text-gray-300 leading-relaxed">
+            <p className="text-gray-300 leading-relaxed">
               Algunos proveedores pueden estar fuera de la UE. En estos casos, aseguramos protecciones
               adecuadas mediante cláusulas contractuales estándar aprobadas por la UE.
             </p>
@@ -127,20 +122,19 @@ export default function Privacy() {
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">10. Contacto</h2>
-              <p className="text-gray-300 leading-relaxed mb-4">
+            <p className="text-gray-300 leading-relaxed mb-4">
               Para ejercer tus derechos o hacer preguntas sobre esta política:
             </p>
             <div className="bg-dark-200 rounded-lg p-6 border border-gray-800">
               <p className="text-white font-semibold mb-2">Netovate OU</p>
               <p className="text-gray-300 mb-1">Email: privacy@netovate.eu</p>
               <p className="text-gray-300 mb-1">Dirección: Tallin, Estonia</p>
-              <p className="text-gray-300">Registro: [Número de registro]</p>
             </div>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">11. Cambios a esta Política</h2>
-              <p className="text-gray-300 leading-relaxed">
+            <p className="text-gray-300 leading-relaxed">
               Podemos actualizar esta política ocasionalmente. Te notificaremos de cambios significativos
               por email o mediante un aviso en el sitio web. La fecha de última actualización se muestra
               al inicio del documento.
@@ -148,7 +142,6 @@ export default function Privacy() {
           </section>
         </div>
 
-        {/* CTA */}
         <div className="mt-12 text-center">
           <a
             href="/"
@@ -158,6 +151,7 @@ export default function Privacy() {
           </a>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

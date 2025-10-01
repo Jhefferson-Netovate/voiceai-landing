@@ -3,9 +3,12 @@ import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { RssIcon } from '@heroicons/react/24/outline';
 
 export default function Blog() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-black">
       <Header />
@@ -21,35 +24,40 @@ export default function Blog() {
                 <RssIcon className="w-8 h-8 text-white" />
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Blog
+                {t('blog.title')}
               </h1>
               <p className="text-xl text-gray-400">
-                Artículos y noticias sobre automatización e IA.
+                {t('blog.subtitle')}
               </p>
             </motion.div>
           </div>
 
-          {/* Post destacado */}
           <div className="space-y-12">
             <article className="bg-dark-100 rounded-2xl shadow-sm p-8 md:p-12 relative z-20">
               <div className="flex items-center gap-3 mb-4">
-                <span className="px-3 py-1 bg-scale-purple text-white rounded-full text-xs font-bold">Post</span>
-                <span className="text-gray-400 text-sm">01/10/2025</span>
+                <span className="px-3 py-1 bg-scale-purple text-white rounded-full text-xs font-bold">
+                  {t('blog.postTag')}
+                </span>
+                <span className="text-gray-400 text-sm">{t('blog.date')}</span>
               </div>
-              <h2 className="text-2xl font-bold text-white mb-2">El Futuro de la IA en Agentes Telefónicos: 2025</h2>
-              <p className="text-gray-300 mb-4">Descubre cómo la inteligencia artificial está revolucionando la atención telefónica, automatizando procesos y mejorando la experiencia del cliente en empresas de todo el mundo.</p>
+              <h2 className="text-2xl font-bold text-white mb-2">
+                {t('blog.post1Title')}
+              </h2>
+              <p className="text-gray-300 mb-4">
+                {t('blog.post1Desc')}
+              </p>
               <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
-                <li>Conversaciones naturales y personalizadas.</li>
-                <li>Automatización total de procesos.</li>
-                <li>Integración omnicanal con CRM y redes sociales.</li>
-                <li>Aprendizaje continuo y análisis avanzado.</li>
-                <li>Desafíos éticos y oportunidades de negocio.</li>
+                <li>{t('blog.post1Point1')}</li>
+                <li>{t('blog.post1Point2')}</li>
+                <li>{t('blog.post1Point3')}</li>
+                <li>{t('blog.post1Point4')}</li>
+                <li>{t('blog.post1Point5')}</li>
               </ul>
               <Link
                 to="/blogpost"
                 className="inline-block mt-4 px-6 py-2 bg-scale-purple text-white rounded-lg font-semibold hover:bg-scale-blue transition-colors z-30 relative"
               >
-                Leer artículo completo
+                {t('blog.readMore')}
               </Link>
             </article>
           </div>
