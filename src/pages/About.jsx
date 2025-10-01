@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
 import Card, { StatsCard } from '../components/Card';
-import { GradientOrb, FloatingShapes, DottedPattern } from '../components/SVGShapes';
+import { DottedPattern, GradientOrb, FloatingShapes } from '../components/SVGShapes';
 import { useTheme } from '../components/ThemeProvider';
 import { 
   UsersIcon, 
@@ -106,7 +106,7 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+  <div className="min-h-screen bg-black">
       <Header />
 
       {/* HERO SECTION */}
@@ -133,7 +133,7 @@ export default function About() {
               {' '}de la automatización
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
               En Netovate, creemos que la automatización inteligente debe ser accesible 
               para todas las empresas, sin importar su tamaño.
             </p>
@@ -151,7 +151,7 @@ export default function About() {
       </section>
 
       {/* ESTADÍSTICAS */}
-      <section className="section-padding bg-white">
+  <section className="section-padding bg-dark-100">
         <div className="container-scale">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
@@ -194,14 +194,14 @@ export default function About() {
       </section>
 
       {/* VALORES */}
-      <section className="section-padding bg-white">
+  <section className="section-padding bg-dark-100">
         <div className="container-scale">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Nuestros{' '}
               <span className="text-gradient">Valores</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Principios que guían cada decisión y cada línea de código que escribimos
             </p>
           </div>
@@ -215,10 +215,10 @@ export default function About() {
                 delay={index * 0.1}
               >
                 <div className="text-5xl mb-4">{value.emoji}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-white mb-3">
                   {value.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   {value.description}
                 </p>
               </Card>
@@ -228,14 +228,14 @@ export default function About() {
       </section>
 
       {/* EQUIPO */}
-      <section className="section-padding bg-gray-50">
+  <section className="section-padding bg-black">
         <div className="container-scale">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Conoce al{' '}
               <span className="text-gradient">Equipo</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Expertos apasionados por construir el futuro de la automatización
             </p>
           </div>
@@ -254,13 +254,13 @@ export default function About() {
                   alt={member.name}
                   className="w-full h-64 object-cover rounded-lg mb-4"
                 />
-                <h3 className="text-xl font-bold text-gray-900 mb-1">
+                <h3 className="text-xl font-bold text-white mb-1">
                   {member.name}
                 </h3>
                 <p className="text-brand-blue font-semibold mb-2">
                   {member.role}
                 </p>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-400 text-sm">
                   {member.bio}
                 </p>
               </Card>
@@ -268,7 +268,7 @@ export default function About() {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-400 mb-6">
               ¿Quieres formar parte de nuestro equipo?
             </p>
             <Button variant="primary" size="lg">

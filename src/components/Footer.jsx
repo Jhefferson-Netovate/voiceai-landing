@@ -89,7 +89,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-gray-900 text-gray-300 overflow-hidden">
+  <footer className="footer-dark text-white overflow-hidden">
       {/* Elementos decorativos de fondo */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-purple rounded-full blur-3xl" />

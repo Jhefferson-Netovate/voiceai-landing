@@ -86,7 +86,7 @@ export default function Pricing() {
             <button
               className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
                 billingPeriod === 'monthly'
-                  ? 'bg-gradient-to-r from-scale-purple to-scale-blue text-white shadow-sm'
+                  ? 'btn-primary'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
               onClick={() => setBillingPeriod('monthly')}
@@ -96,7 +96,7 @@ export default function Pricing() {
             <button
               className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
                 billingPeriod === 'annual'
-                  ? 'bg-gradient-to-r from-scale-purple to-scale-blue text-white shadow-sm'
+                  ? 'btn-primary'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
               onClick={() => setBillingPeriod('annual')}
@@ -132,19 +132,17 @@ export default function Pricing() {
             >
               {/* Badge "Popular" */}
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-scale-purple to-scale-blue text-white px-4 py-1 rounded-full text-sm font-medium flex items-center">
-                    <StarIcon className="w-4 h-4 mr-1" />
-                    Más Popular
-                  </div>
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 flex items-center gap-2">
+                  <StarIcon className="w-4 h-4 mr-1" />
+                  <span className="font-semibold text-scale-purple">Más Popular</span>
                 </div>
               )}
               
               <div className="p-8">
                 {/* Header del plan */}
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                  <p className="text-gray-600 mb-6">{plan.description}</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                  <p className="text-gray-400 mb-6">{plan.description}</p>
                   
                   {/* Precio */}
                   <div className="mb-6">
@@ -158,18 +156,18 @@ export default function Pricing() {
                       >
                         {typeof plan.priceMonthly === 'number' ? (
                           <>
-                            <span className="text-4xl font-bold text-gray-900">
+                            <span className="text-4xl font-bold text-white">
                               €{billingPeriod === 'monthly' ? plan.priceMonthly : plan.priceAnnual}
                             </span>
-                            <span className="text-gray-600 ml-1">/mes</span>
+                            <span className="text-gray-400 ml-1">/mes</span>
                             {billingPeriod === 'annual' && (
-                              <div className="text-sm text-green-600 font-medium mt-1">
+                              <div className="text-sm text-green-400 font-medium mt-1">
                                 Ahorras €{(plan.priceMonthly - plan.priceAnnual) * 12}/año
                               </div>
                             )}
                           </>
                         ) : (
-                          <span className="text-4xl font-bold text-gray-900">
+                          <span className="text-4xl font-bold text-white">
                             {plan.priceMonthly}
                           </span>
                         )}
@@ -193,7 +191,7 @@ export default function Pricing() {
                       viewport={{ once: true }}
                     >
                       <CheckIcon className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                      <span className="text-gray-400">{feature}</span>
                     </motion.li>
                   ))}
                 </ul>

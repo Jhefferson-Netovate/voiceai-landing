@@ -9,6 +9,7 @@ import ROICalculator from './components/ROICalculator';
 import CookieBanner from './components/CookieBanner';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import ContactForm from './components/ContactForm';
+import { GlowOrb, GridPattern } from './components/SVGShapes';
 
 // Iconos para las características
 import { 
@@ -62,7 +63,7 @@ const features = [
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
+  <div className="min-h-screen bg-black">
       {/* Navegación */}
       <Header />
 
@@ -70,14 +71,21 @@ function App() {
       <Hero />
 
       {/* Características Principales */}
-      <section id="caracteristicas" className="section-padding bg-white">
-        <div className="container-scale">
+  <section id="caracteristicas" className="relative section-padding bg-black overflow-hidden">
+    <GridPattern opacity={0.05} />
+    <GlowOrb 
+      size={500} 
+      color="blue" 
+      opacity={0.2}
+      className="top-0 right-1/4" 
+    />
+    <div className="relative z-10 container-scale">
           <div className="text-center mb-20">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               ¿Por qué elegir{' '}
               <span className="text-gradient">Netovate OÜ</span>?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               Nuestra tecnología de vanguardia combina inteligencia artificial conversacional, 
               procesamiento de lenguaje natural y integración empresarial para revolucionar 
               la comunicación telefónica de tu empresa.
@@ -100,14 +108,14 @@ function App() {
       </section>
 
       {/* Casos de Uso */}
-      <section id="casos" className="section-padding bg-gray-50">
+  <section id="casos" className="section-padding bg-black">
         <div className="container-scale">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               Casos de uso{' '}
               <span className="text-gradient">reales</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Descubre cómo empresas como la tuya están transformando sus comunicaciones
             </p>
           </div>
@@ -141,15 +149,15 @@ function App() {
             ].map((useCase, index) => (
               <div
                 key={useCase.title}
-                className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
+                className="bg-dark-100 rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-dark-200"
               >
                 <div className="flex items-start space-x-4">
                   <div className="text-5xl mb-4">{useCase.emoji}</div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    <h3 className="text-xl font-semibold text-white mb-3">
                       {useCase.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-gray-400 mb-4 leading-relaxed">
                       {useCase.description}
                     </p>
                     <div className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-scale-purple to-scale-blue bg-opacity-10 text-scale-purple font-semibold text-sm rounded-full">
@@ -164,14 +172,14 @@ function App() {
       </section>
 
       {/* Calculadora ROI */}
-      <section id="roi" className="section-padding bg-white">
+  <section id="roi" className="section-padding bg-dark-100">
         <div className="container-scale">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               Calcula tu{' '}
               <span className="text-gradient">retorno de inversión</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Descubre cuánto puedes ahorrar automatizando tus procesos con Netovate OÜ
             </p>
           </div>
@@ -184,14 +192,14 @@ function App() {
       <Pricing />
 
       {/* Formulario de Contacto */}
-      <section id="contacto" className="section-padding bg-gray-50">
+  <section id="contacto" className="section-padding bg-black">
         <div className="container-scale">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               ¿Listo para{' '}
               <span className="text-gradient">empezar</span>?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Completa el formulario y nuestro equipo te contactará en menos de 24 horas
             </p>
           </div>
@@ -204,8 +212,8 @@ function App() {
       <section className="section-padding bg-gradient-to-br from-scale-purple via-scale-blue to-scale-cyan relative overflow-hidden">
         {/* Elementos decorativos de fondo */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-dark-100 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-dark-100 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-scale relative z-10">

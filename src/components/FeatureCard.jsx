@@ -13,7 +13,7 @@ export default function FeatureCard({
   
   return (
     <motion.div
-      className="group relative bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200"
+      className="card-glass p-8 hover:border-neon-purple/50 transition-all"
       initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
       whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
       transition={prefersReducedMotion ? {} : { duration: 0.6, delay, ease: 'easeOut' }}
@@ -33,10 +33,10 @@ export default function FeatureCard({
       
       {/* Contenido */}
       <div className="relative">
-        <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-gray-700 transition-colors">
+        <h3 className="text-white text-xl font-semibold mb-3">
           {title}
         </h3>
-        <p className="text-gray-600 leading-relaxed">
+        <p className="text-gray-400 leading-relaxed">
           {description}
         </p>
       </div>

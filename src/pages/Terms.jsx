@@ -4,7 +4,7 @@ import { DocumentTextIcon } from '@heroicons/react/24/outline';
 
 export default function Terms() {
   return (
-    <div className="min-h-screen bg-gray-50 py-24 px-4">
+  <div className="min-h-screen bg-black py-24 px-4">
       <Header />
       <div className="max-w-4xl mx-auto">
         {/* Header */}
@@ -12,19 +12,19 @@ export default function Terms() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-scale-purple to-scale-blue rounded-full mb-6">
             <DocumentTextIcon className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Términos y Condiciones
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-400">
             Última actualización: {new Date().toLocaleDateString('es-ES')}
           </p>
         </div>
 
         {/* Content */}
-        <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12 space-y-8">
+  <div className="bg-dark-100 rounded-2xl shadow-sm p-8 md:p-12 space-y-8">
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Aceptación de los Términos</h2>
-            <p className="text-gray-600 leading-relaxed">
+            <h2 className="text-2xl font-bold text-white mb-4">1. Aceptación de los Términos</h2>
+            <p className="text-gray-400 leading-relaxed">
               Al acceder y utilizar el sitio web de Netovate OÜ (operado por Netovate OU), aceptas
               estar sujeto a estos Términos y Condiciones. Si no estás de acuerdo con alguna parte
               de estos términos, no debes utilizar nuestro sitio web o servicios.
@@ -32,12 +32,12 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Descripción del Servicio</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold text-white mb-4">2. Descripción del Servicio</h2>
+            <p className="text-gray-400 leading-relaxed mb-4">
               Netovate OÜ proporciona soluciones de inteligencia artificial conversacional para
               automatización de llamadas telefónicas empresariales. Nuestros servicios incluyen:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-600 ml-4">
+            <ul className="list-disc list-inside space-y-2 text-gray-400 ml-4">
               <li>Plataforma SaaS de IA conversacional</li>
               <li>Integración con sistemas CRM</li>
               <li>Analytics y reportes en tiempo real</li>
@@ -47,11 +47,11 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Registro y Cuenta</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold text-white mb-4">3. Registro y Cuenta</h2>
+            <p className="text-gray-400 leading-relaxed mb-4">
               Para utilizar nuestros servicios, debes:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-600 ml-4">
+            <ul className="list-disc list-inside space-y-2 text-gray-400 ml-4">
               <li>Proporcionar información precisa y completa durante el registro</li>
               <li>Mantener la seguridad de tu cuenta y contraseña</li>
               <li>Notificarnos inmediatamente de cualquier uso no autorizado</li>

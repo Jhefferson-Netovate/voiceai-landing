@@ -77,6 +77,7 @@ const Header = () => {
   const handleLinkClick = () => {
     setMobileMenuOpen(false);
     setActiveDropdown(null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

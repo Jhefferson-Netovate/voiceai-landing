@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { PlayIcon, ChevronRightIcon, SparklesIcon } from '@heroicons/react/24/outline';
+import { GlowOrb, DottedPattern } from './SVGShapes';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 import FloatingOrbs from './visual/FloatingOrbs';
-import { GradientOrb, FloatingShapes, DottedPattern } from './SVGShapes';
+import {   GridPattern, FloatingShapes, Spotlight } from './SVGShapes';
 
 
 
@@ -58,7 +59,18 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <>
+      <section className="relative bg-black overflow-hidden">
+        <GlowOrb size={600} color="purple" className="top-0 right-0" />
+        <GlowOrb size={500} color="cyan" className="bottom-0 left-0" />
+        <div className="absolute inset-0 opacity-20 dot-pattern" />
+        <div className="relative z-10">
+          <h1 className="text-white">
+            Título con <span className="text-gradient">Gradiente</span>
+          </h1>
+        </div>
+      </section>
+      <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
       <FloatingOrbs />
       <GradientOrb size={500} color="purple" className="top-0 right-0 absolute" />
       <GradientOrb size={400} color="cyan" className="bottom-0 left-0 absolute" />
@@ -71,126 +83,28 @@ export default function Hero() {
   <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl animate-float"
        style={{animationDelay: '4s', animationDuration: '10s'}} />
 </div>
-      {/* Background animado estilo Scale.com */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Gradient base animado */}
-        <motion.div
-          className="absolute inset-0"
-          style={{
-            background: `
-              radial-gradient(circle at ${mousePosition.x * 0.1}px ${mousePosition.y * 0.1}px, 
-                rgba(139, 92, 246, 0.3) 0%, 
-                transparent 70%),
-              radial-gradient(circle at ${100 - mousePosition.x * 0.08}% ${100 - mousePosition.y * 0.08}%, 
-                rgba(59, 130, 246, 0.2) 0%, 
-                transparent 70%),
-              linear-gradient(135deg, 
-                rgba(15, 23, 42, 0.9) 0%, 
-                rgba(88, 28, 135, 0.8) 50%, 
-                rgba(15, 23, 42, 0.9) 100%)
-            `
-          }}
-          animate={prefersReducedMotion ? {} : {
-            background: [
-              `linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(88, 28, 135, 0.8) 50%, rgba(15, 23, 42, 0.9) 100%)`,
-              `linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(59, 130, 246, 0.8) 50%, rgba(15, 23, 42, 0.9) 100%)`,
-              `linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(139, 92, 246, 0.8) 50%, rgba(15, 23, 42, 0.9) 100%)`
-            ]
-          }}
-          transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
-        />
-
-        {/* Orbes flotantes grandes */}
-        {!prefersReducedMotion && (
-          <>
-            {/* Orbe principal */}
-            <motion.div
-              className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-20"
-              style={{
-                background: 'radial-gradient(circle, rgba(139, 92, 246, 0.6) 0%, transparent 70%)',
-                x: orbX,
-                y: orbY
-              }}
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.1, 0.3, 0.1],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            
-            {/* Orbe secundario */}
-            <motion.div
-              className="absolute top-3/4 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-15"
-              style={{
-                background: 'radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, transparent 70%)',
-                x: useTransform(orbX, x => -x * 0.7),
-                y: useTransform(orbY, y => -y * 0.5)
-              }}
-              animate={{
-                scale: [1.2, 1, 1.2],
-                opacity: [0.1, 0.25, 0.1],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 2
-              }}
-            />
-
-            {/* Partículas flotantes */}
-            {[...Array(12)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 bg-white/20 rounded-full blur-sm"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  x: particleX,
-                  y: particleY
-                }}
-                animate={{
-                  y: [0, -20, 0],
-                  opacity: [0, 1, 0],
-                  scale: [0.5, 1, 0.5]
-                }}
-                transition={{
-                  duration: 3 + Math.random() * 4,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                  ease: "easeInOut"
-                }}
-              />
-            ))}
-
-            {/* Mesh gradient animado */}
-            <motion.div
-              className="absolute inset-0 opacity-30"
-              style={{
-                background: `
-                  conic-gradient(from ${mousePosition.x * 0.1}deg at 50% 50%, 
-                    rgba(139, 92, 246, 0.1) 0deg,
-                    rgba(59, 130, 246, 0.1) 120deg,
-                    rgba(168, 85, 247, 0.1) 240deg,
-                    rgba(139, 92, 246, 0.1) 360deg)
-                `
-              }}
-              animate={{
-                opacity: [0.1, 0.3, 0.1]
-              }}
-              transition={{
-                duration: 10,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          </>
-        )}
-      </div>
+{/* Background con GlowOrbs - Modo Oscuro */}
+<div className="absolute inset-0 overflow-hidden">
+  {/* GlowOrbs principales */}
+  <GlowOrb 
+    size={700} 
+    color="purple" 
+    className="top-0 right-0 -translate-y-1/2 translate-x-1/4" 
+  />
+  <GlowOrb 
+    size={600} 
+    color="cyan" 
+    className="bottom-0 left-0 translate-y-1/2 -translate-x-1/4" 
+  />
+  <GlowOrb 
+    size={500} 
+    color="pink" 
+    className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" 
+  />
+  
+  {/* Pattern de puntos de fondo */}
+  <DottedPattern color="purple" opacity={0.15} />
+</div>
 
       {/* Contenido principal */}
       <motion.div 
@@ -238,13 +152,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           {...fadeInUp}
         >
-          <motion.button
-            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl backdrop-blur-md"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Prueba Gratis 14 Días
-          </motion.button>
+          <button className="btn-primary">Click</button>
           
           <motion.button
             className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold py-4 px-8 rounded-xl hover:bg-white/20 transition-all duration-300 flex items-center justify-center group"
@@ -294,5 +202,6 @@ export default function Hero() {
         
       )}
     </div>
+    </>
   );
 }

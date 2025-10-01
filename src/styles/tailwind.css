@@ -1,7 +1,6 @@
 /* ============================================
-   🎨 NETOVATE OU - DESIGN SYSTEM
-   Sistema de diseño completo con variables CSS
-   Inspirado en Scale.com
+   🌑 NETOVATE OU - DARK MODE DESIGN SYSTEM
+   Inspirado en Scale.com con paleta OSCURA
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
@@ -11,164 +10,109 @@
 @tailwind utilities;
 
 /* ============================================
-   📦 CSS VARIABLES (Design Tokens)
+   📦 CSS VARIABLES - DARK MODE
    ============================================ */
 
 :root {
-  /* Colores de Marca */
-  --color-brand-navy: #0A1F44;
-  --color-brand-blue: #0F52BA;
-  --color-brand-cyan: #00D9FF;
-  --color-brand-purple: #6366F1;
-  --color-brand-coral: #FF6B35;
-
-  /* Escala de Grises */
-  --color-gray-50: #FAFAFA;
-  --color-gray-100: #F5F5F5;
-  --color-gray-200: #E5E5E5;
-  --color-gray-300: #D4D4D4;
-  --color-gray-400: #A3A3A3;
-  --color-gray-500: #737373;
-  --color-gray-600: #525252;
-  --color-gray-700: #404040;
-  --color-gray-800: #262626;
-  --color-gray-900: #171717;
-
-  /* Colores Semánticos */
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
-  --color-info: #3B82F6;
-
-  /* Tipografía */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Cal Sans', 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Menlo', monospace;
-
-  /* Tamaños de Texto */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
-  --text-5xl: 3rem;
-
-  /* Espaciado */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-  --spacing-3xl: 4rem;
-
-  /* Radios de Borde */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-  --radius-full: 9999px;
-
-  /* Sombras */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.4);
-  --shadow-glow-cyan: 0 0 20px rgba(0, 217, 255, 0.4);
-
-  /* Transiciones */
-  --transition-fast: 150ms ease;
-  --transition-base: 200ms ease;
-  --transition-slow: 300ms ease;
-  --transition-slower: 500ms ease;
-
-  /* Z-Index Scale */
-  --z-dropdown: 1000;
-  --z-sticky: 1020;
-  --z-fixed: 1030;
-  --z-modal-backdrop: 1040;
-  --z-modal: 1050;
-  --z-popover: 1060;
-  --z-tooltip: 1070;
+  /* Fondos oscuros */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #111111;
+  --bg-card: #1a1a1a;
+  
+  /* Texto sobre fondo oscuro */
+  --text-primary: #FAFAFA;
+  --text-secondary: #A3A3A3;
+  --text-muted: #737373;
+  
+  /* Acentos brillantes */
+  --accent-blue: #2563EB;
+  --accent-purple: #8B5CF6;
+  --accent-cyan: #06B6D4;
+  --accent-pink: #EC4899;
+  --accent-orange: #F97316;
+  
+  /* Bordes sutiles */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
 }
 
 /* ============================================
-   🎯 BASE STYLES
+   🎯 BASE STYLES - DARK MODE
    ============================================ */
 
 @layer base {
   * {
-    @apply border-gray-200;
+    @apply border-white/10;
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-gray-50 text-gray-900;
-    font-family: var(--font-sans);
+    @apply bg-dark text-gray-50;
+    font-family: 'Inter', system-ui, sans-serif;
     font-feature-settings: 'cv11', 'ss01';
+    /* Fondo negro puro */
+    background-color: #000000;
+    color: #FAFAFA;
   }
 
+  /* Headings con peso extra en dark mode */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    @apply font-bold tracking-tight text-white;
   }
 
-  h1 { @apply text-5xl lg:text-6xl; }
-  h2 { @apply text-4xl lg:text-5xl; }
-  h3 { @apply text-3xl lg:text-4xl; }
-  h4 { @apply text-2xl lg:text-3xl; }
-  h5 { @apply text-xl lg:text-2xl; }
-  h6 { @apply text-lg lg:text-xl; }
+  h1 { @apply text-5xl lg:text-7xl; }
+  h2 { @apply text-4xl lg:text-6xl; }
+  h3 { @apply text-3xl lg:text-5xl; }
+  h4 { @apply text-2xl lg:text-4xl; }
+  h5 { @apply text-xl lg:text-3xl; }
+  h6 { @apply text-lg lg:text-2xl; }
 
+  /* Links con color de acento */
   a {
-    @apply transition-colors duration-200;
+    @apply transition-all duration-200;
+    color: var(--accent-blue);
   }
 
-  /* Mejorar legibilidad en pantallas de alta densidad */
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    body {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+  a:hover {
+    color: var(--accent-purple);
   }
 
-  /* Scroll personalizado */
+  /* Scrollbar personalizado oscuro */
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100;
+    @apply bg-dark-100;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 rounded-full;
+    @apply bg-gradient-to-b from-neon-purple to-neon-blue rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-400;
+    @apply from-neon-blue to-neon-cyan;
   }
 
-  /* Selection color */
+  /* Selection con color vibrante */
   ::selection {
-    @apply bg-brand-purple bg-opacity-20;
+    @apply bg-neon-purple/30 text-white;
+  }
+
+  ::-moz-selection {
+    @apply bg-neon-purple/30 text-white;
   }
 }
 
 /* ============================================
-   🧩 COMPONENT CLASSES
+   🧩 COMPONENT CLASSES - DARK MODE
    ============================================ */
 
 @layer components {
@@ -179,142 +123,256 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-20 md:py-32 lg:py-40;
   }
 
-  /* ========== BOTONES ========== */
+  /* ========== BOTONES OSCUROS ========== */
   
   .btn-base {
-    @apply inline-flex items-center justify-center font-semibold rounded-lg;
-    @apply transition-all duration-200 ease-in-out;
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center font-semibold rounded-xl;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-dark;
     @apply disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
+  /* Botón primary con gradiente brillante */
   .btn-primary {
-    @apply btn-base px-6 py-3 text-white;
-    @apply bg-gradient-to-r from-brand-purple to-brand-blue;
-    @apply hover:from-purple-600 hover:to-blue-600;
-    @apply focus:ring-brand-purple;
-    @apply shadow-lg hover:shadow-glow;
-    @apply transform hover:scale-105 active:scale-95;
+    @apply btn-base px-8 py-4 text-white;
+    @apply bg-gradient-to-r from-neon-purple to-neon-blue;
+    @apply hover:from-neon-purple hover:to-neon-cyan;
+    @apply focus:ring-neon-purple;
+    @apply shadow-glow-purple hover:shadow-glow-purple-lg;
+    @apply transform hover:scale-105 hover:-translate-y-1;
   }
 
+  /* Botón secondary con borde brillante */
   .btn-secondary {
-    @apply btn-base px-6 py-3;
-    @apply bg-white text-gray-900 border-2 border-gray-200;
-    @apply hover:bg-gray-50 hover:border-gray-300;
-    @apply focus:ring-brand-blue;
-    @apply transform hover:scale-105 active:scale-95;
+    @apply btn-base px-8 py-4;
+    @apply bg-dark-100 text-white border-2 border-white/20;
+    @apply hover:bg-dark-200 hover:border-neon-purple;
+    @apply focus:ring-neon-blue;
+    @apply transform hover:scale-105;
   }
 
+  /* Botón outline con efecto glow */
+  .btn-outline {
+    @apply btn-base px-8 py-4;
+    @apply bg-transparent border-2 border-neon-blue text-neon-blue;
+    @apply hover:bg-neon-blue hover:text-white;
+    @apply hover:shadow-glow-blue;
+    @apply focus:ring-neon-blue;
+  }
+
+  /* Botón ghost sutil */
+  .btn-ghost {
+    @apply btn-base px-8 py-4;
+    @apply bg-transparent text-white;
+    @apply hover:bg-white/5;
+    @apply focus:ring-white/20;
+  }
+
+  /* Botón glass con blur */
   .btn-glass {
-    @apply btn-base px-6 py-3 text-white;
-    @apply bg-white/10 border border-white/20;
-    @apply hover:bg-white/20;
-    @apply backdrop-blur-md;
-    @apply shadow-lg;
+    @apply btn-base px-8 py-4 text-white;
+    @apply bg-white/5 border border-white/10;
+    @apply hover:bg-white/10 hover:border-white/20;
+    @apply backdrop-blur-xl;
+    @apply shadow-dark-card hover:shadow-dark-card-hover;
   }
 
-  .btn-sm {
-    @apply px-4 py-2 text-sm;
-  }
-
-  .btn-lg {
-    @apply px-8 py-4 text-lg;
-  }
-
-  /* ========== TARJETAS ========== */
+  /* ========== CARDS OSCURAS ========== */
   
   .card {
-    @apply bg-white rounded-xl shadow-soft;
-    @apply border border-gray-100;
-    @apply transition-all duration-200;
+    @apply bg-dark-100 rounded-2xl;
+    @apply border border-white/10;
+    @apply transition-all duration-300;
   }
 
   .card-hover {
-    @apply hover:shadow-medium hover:scale-105;
+    @apply card;
+    @apply hover:bg-dark-200 hover:border-white/20;
+    @apply hover:shadow-dark-card-hover hover:scale-105;
+    @apply cursor-pointer;
   }
 
   .card-glass {
-    @apply bg-white/80 backdrop-blur-lg;
-    @apply border border-white/20;
+    @apply bg-white/5 rounded-2xl;
+    @apply border border-white/10;
+    @apply backdrop-blur-2xl;
+    @apply shadow-dark-card;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-dark-100 to-dark-200;
+    @apply rounded-2xl border border-white/10;
+    @apply hover:border-neon-purple/50;
+    @apply transition-all duration-300;
+  }
+
+  /* Card con borde de gradiente */
+  .card-gradient-border {
+    @apply relative bg-dark-100 rounded-2xl p-6;
+    @apply before:absolute before:inset-0 before:-z-10;
+    @apply before:rounded-2xl before:p-[2px];
+    @apply before:bg-gradient-to-r before:from-neon-purple before:to-neon-blue;
+    @apply hover:before:from-neon-blue hover:before:to-neon-cyan;
+    @apply transition-all duration-300;
   }
 
   /* ========== BADGES ========== */
   
   .badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+    @apply inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold;
+    @apply border;
   }
 
   .badge-primary {
-    @apply badge bg-brand-purple/10 text-brand-purple;
+    @apply badge;
+    @apply bg-neon-purple/10 text-neon-purple border-neon-purple/20;
+  }
+
+  .badge-blue {
+    @apply badge;
+    @apply bg-neon-blue/10 text-neon-blue border-neon-blue/20;
+  }
+
+  .badge-cyan {
+    @apply badge;
+    @apply bg-neon-cyan/10 text-neon-cyan border-neon-cyan/20;
+  }
+
+  .badge-pink {
+    @apply badge;
+    @apply bg-neon-pink/10 text-neon-pink border-neon-pink/20;
   }
 
   .badge-success {
-    @apply badge bg-green-100 text-green-800;
+    @apply badge;
+    @apply bg-neon-green/10 text-neon-green border-neon-green/20;
   }
 
-  .badge-warning {
-    @apply badge bg-yellow-100 text-yellow-800;
-  }
-
-  .badge-error {
-    @apply badge bg-red-100 text-red-800;
-  }
-
-  /* ========== INPUTS ========== */
+  /* ========== INPUTS OSCUROS ========== */
   
   .input {
-    @apply w-full px-4 py-3 rounded-lg;
-    @apply border-2 border-gray-200;
-    @apply focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20;
+    @apply w-full px-4 py-3 rounded-xl;
+    @apply bg-dark-100 border-2 border-white/10;
+    @apply text-white placeholder:text-gray-500;
+    @apply focus:border-neon-blue focus:ring-4 focus:ring-neon-blue/20;
     @apply transition-all duration-200;
-    @apply placeholder:text-gray-400;
+  }
+
+  .input:hover {
+    @apply border-white/20;
   }
 
   .input-error {
-    @apply border-red-300 focus:border-red-500 focus:ring-red-500/20;
+    @apply border-red-500/50 focus:border-red-500 focus:ring-red-500/20;
   }
 
-  /* ========== TEXTOS ========== */
+  /* ========== TEXTOS CON GRADIENTE ========== */
   
   .text-gradient {
-    @apply bg-gradient-to-r from-brand-purple via-brand-blue to-brand-cyan;
+    @apply bg-gradient-to-r from-neon-purple via-neon-blue to-neon-cyan;
     @apply bg-clip-text text-transparent;
+    /* Fallback */
+    color: #8B5CF6;
   }
 
-  .text-gradient-animated {
-    @apply text-gradient animate-gradient;
+  .text-gradient-rainbow {
+    @apply bg-gradient-to-r from-neon-purple via-neon-blue via-neon-cyan to-neon-pink;
+    @apply bg-clip-text text-transparent;
     background-size: 200% auto;
   }
 
-  /* ========== UTILIDADES ========== */
-  
-  .glassmorphism {
-    @apply bg-white/10 backdrop-blur-lg;
-    @apply border border-white/20;
+  .text-gradient-animated {
+    @apply text-gradient-rainbow animate-gradient-x;
   }
 
-  .smooth-scroll {
-    scroll-behavior: smooth;
+  /* ========== GLASSMORPHISM OSCURO ========== */
+  
+  .glassmorphism {
+    @apply bg-white/5 backdrop-blur-2xl;
+    @apply border border-white/10;
+  }
+
+  .glassmorphism-hover {
+    @apply glassmorphism;
+    @apply hover:bg-white/10 hover:border-white/20;
+    @apply transition-all duration-300;
+  }
+
+  /* ========== EFECTOS ESPECIALES ========== */
+  
+  /* Grid de puntos de fondo */
+  .dot-pattern {
+    background-image: radial-gradient(circle, rgba(139, 92, 246, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Grid de líneas */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Efecto de spotlight */
+  .spotlight {
+    @apply relative overflow-hidden;
+  }
+
+  .spotlight::before {
+    content: '';
+    @apply absolute inset-0 -z-10;
+    @apply bg-gradient-radial from-neon-purple/20 via-transparent to-transparent;
+    @apply opacity-0 transition-opacity duration-500;
+  }
+
+  .spotlight:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Borde animado con gradiente */
+  .animated-border {
+    @apply relative;
+    @apply before:absolute before:inset-0 before:-z-10;
+    @apply before:rounded-2xl before:p-[2px];
+    @apply before:bg-gradient-to-r before:from-neon-purple before:via-neon-blue before:to-neon-cyan;
+    @apply before:bg-[length:200%_auto] before:animate-gradient-x;
   }
 }
 
 /* ============================================
-   ⚡ UTILITY CLASSES
+   ⚡ UTILITY CLASSES - DARK MODE
    ============================================ */
 
 @layer utilities {
-  /* Animación que respeta prefers-reduced-motion */
-  .animate-safe {
-    @media (prefers-reduced-motion: reduce) {
+  /* Glow on hover */
+  .glow-on-hover {
+    @apply transition-all duration-300;
+  }
+  
+  .glow-on-hover:hover {
+    @apply shadow-glow-purple;
+  }
+
+  /* Text shimmer effect */
+  .text-shimmer {
+    @apply bg-gradient-to-r from-white via-neon-blue to-white;
+    @apply bg-clip-text text-transparent;
+    @apply bg-[length:200%_auto] animate-shimmer;
+  }
+
+  /* Respeto a prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-safe {
       animation: none !important;
       transition: none !important;
     }
   }
 
-  /* Hide scrollbar pero mantener funcionalidad */
+  /* Hide scrollbar */
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -324,23 +382,79 @@
     display: none;
   }
 
-  /* Text balance para títulos */
-  .text-balance {
-    text-wrap: balance;
-  }
-
   /* Gradiente animado de fondo */
   .bg-gradient-animated {
     background-size: 200% 200%;
-    animation: gradient 8s ease infinite;
+    animation: gradientXY 15s ease infinite;
   }
+}
 
-  /* Glow effect */
-  .glow-on-hover {
-    @apply transition-shadow duration-300;
+/* ============================================
+   🎨 SECCIONES ESPECIALES
+   ============================================ */
+
+/* Hero section con efecto de profundidad */
+.hero-section {
+  @apply relative overflow-hidden;
+  @apply bg-gradient-to-b from-dark via-dark-50 to-dark;
+}
+
+/* Section con borde superior brillante */
+.section-divider {
+  @apply relative;
+  @apply before:absolute before:top-0 before:left-0 before:right-0;
+  @apply before:h-px before:bg-gradient-to-r;
+  @apply before:from-transparent before:via-neon-purple before:to-transparent;
+}
+
+/* Footer oscuro */
+.footer-dark {
+  @apply bg-gradient-to-b from-dark-100 to-dark;
+  @apply border-t border-white/10;
+}
+
+/* Navegación sticky con blur */
+.nav-dark {
+  @apply bg-dark/80 backdrop-blur-xl;
+  @apply border-b border-white/10;
+  @apply shadow-dark-card;
+}
+
+/* ============================================
+   🎯 RESPONSIVE HELPERS
+   ============================================ */
+
+@media (max-width: 768px) {
+  .section-padding {
+    @apply py-12 md:py-20;
   }
   
-  .glow-on-hover:hover {
-    @apply shadow-glow;
-  }
+  h1 { @apply text-4xl; }
+  h2 { @apply text-3xl; }
+}
+
+/* ============================================
+   💫 EFECTOS HOVER ESPECIALES
+   ============================================ */
+
+/* Efecto de levitación */
+.hover-lift {
+  @apply transition-transform duration-300;
+}
+
+.hover-lift:hover {
+  @apply -translate-y-2;
+}
+
+/* Efecto de brillo al pasar el mouse */
+.hover-glow-blue:hover {
+  @apply shadow-glow-blue-lg;
+}
+
+.hover-glow-purple:hover {
+  @apply shadow-glow-purple-lg;
+}
+
+.hover-glow-cyan:hover {
+  @apply shadow-glow-cyan-lg;
 }
