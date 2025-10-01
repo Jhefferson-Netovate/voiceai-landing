@@ -3,6 +3,8 @@ import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { PlayIcon, ChevronRightIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 import FloatingOrbs from './visual/FloatingOrbs';
+import { GradientOrb, FloatingShapes, DottedPattern } from './SVGShapes';
+
 
 
 export default function Hero() {
@@ -57,6 +59,11 @@ export default function Hero() {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <FloatingOrbs />
+      <GradientOrb size={500} color="purple" className="top-0 right-0 absolute" />
+      <GradientOrb size={400} color="cyan" className="bottom-0 left-0 absolute" />
+      <DottedPattern />
+      <FloatingShapes />
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
   <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-600/30 rounded-full blur-3xl animate-float" />
   <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl animate-float" 
@@ -284,6 +291,7 @@ export default function Hero() {
         >
           <ChevronRightIcon className="w-6 h-6 rotate-90" />
         </motion.div>
+        
       )}
     </div>
   );
