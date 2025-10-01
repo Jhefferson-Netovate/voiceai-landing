@@ -2,39 +2,40 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { PhoneIcon } from '@heroicons/react/24/outline';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
+import { Link } from 'react-router-dom';
 
 const footerLinks = {
   producto: [
-    { name: 'Características', href: '#caracteristicas' },
-    { name: 'Casos de Uso', href: '#casos' },
-    { name: 'Precios', href: '#precios' },
-    { name: 'API', href: '#api' },
+    { name: 'Características', href: '/#caracteristicas' },
+    { name: 'Casos de Uso', href: '/#casos' },
+    { name: 'Precios', href: '/#precios' },
+    { name: 'ROI', href: '/#roi' },
   ],
   empresa: [
-    { name: 'Sobre Nosotros', href: '#empresa' },
-    { name: 'Equipo', href: '#equipo' },
-    { name: 'Carreras', href: '#carreras' },
+    { name: 'Sobre Nosotros', href: '/about' },
+    { name: 'Contacto', href: '/contacto' },
     { name: 'Blog', href: '#blog' },
+    { name: 'Carreras', href: '#carreras' },
   ],
   soporte: [
     { name: 'Centro de Ayuda', href: '#ayuda' },
     { name: 'Documentación', href: '#docs' },
-    { name: 'Contacto', href: '#contacto' },
+    { name: 'Contacto', href: '/contacto' },
     { name: 'Estado del Sistema', href: '#status' },
   ],
   legal: [
-    { name: 'Privacidad', href: '#privacidad' },
-    { name: 'Términos', href: '#terminos' },
-    { name: 'Cookies', href: '#cookies' },
-    { name: 'GDPR', href: '#gdpr' },
+    { name: 'Privacidad', href: '/privacy' },
+    { name: 'Términos', href: '/terms' },
+    { name: 'Cookies', href: '/privacy#cookies' },
+    { name: 'GDPR', href: '/privacy#gdpr' },
   ],
 };
 
 const socialLinks = [
-  { name: 'LinkedIn', href: '#linkedin', emoji: '💼' },
-  { name: 'Twitter', href: '#twitter', emoji: '🐦' },
-  { name: 'YouTube', href: '#youtube', emoji: '📺' },
-  { name: 'GitHub', href: '#github', emoji: '🐙' },
+  { name: 'LinkedIn', href: 'https://linkedin.com', emoji: '💼' },
+  { name: 'Twitter', href: 'https://twitter.com', emoji: '🐦' },
+  { name: 'YouTube', href: 'https://youtube.com', emoji: '📺' },
+  { name: 'GitHub', href: 'https://github.com', emoji: '🐙' },
 ];
 
 export default function Footer() {
@@ -53,14 +54,14 @@ export default function Footer() {
               transition={prefersReducedMotion ? {} : { duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center space-x-3 mb-6">
+              <Link to="/" className="flex items-center space-x-3 mb-6">
                 <div className="w-10 h-10 bg-gradient-to-r from-scale-purple to-scale-blue rounded-lg flex items-center justify-center">
                   <PhoneIcon className="w-6 h-6 text-white" />
                 </div>
                 <span className="text-2xl font-bold">
                   VoiceFlow<span className="text-gradient">.ai</span>
                 </span>
-              </div>
+              </Link>
               
               <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-md">
                 La plataforma de IA conversacional más avanzada para automatizar llamadas telefónicas empresariales. 
@@ -73,6 +74,8 @@ export default function Footer() {
                   <motion.a
                     key={social.name}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-12 h-12 bg-gray-800 hover:bg-gradient-to-r hover:from-scale-purple hover:to-scale-blue rounded-lg flex items-center justify-center transition-all duration-200 group"
                     whileHover={prefersReducedMotion ? {} : { scale: 1.1, rotate: 5 }}
                     whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}
@@ -121,12 +124,21 @@ export default function Footer() {
                         }}
                         viewport={{ once: true }}
                       >
-                        <a
-                          href={link.href}
-                          className="text-gray-300 hover:text-white transition-colors duration-200 block link-hover"
-                        >
-                          {link.name}
-                        </a>
+                        {link.href.startsWith('/') ? (
+                          <Link
+                            to={link.href}
+                            className="text-gray-300 hover:text-white transition-colors duration-200 block link-hover"
+                          >
+                            {link.name}
+                          </Link>
+                        ) : (
+                          <a
+                            href={link.href}
+                            className="text-gray-300 hover:text-white transition-colors duration-200 block link-hover"
+                          >
+                            {link.name}
+                          </a>
+                        )}
                       </motion.li>
                     ))}
                   </ul>
@@ -146,7 +158,7 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <p className="text-gray-400 text-center sm:text-left">
-              © 2025 VoiceFlow AI. Todos los derechos reservados.
+              © {new Date().getFullYear()} VoiceFlow AI by Netovate OU. Todos los derechos reservados.
             </p>
             
             <div className="flex items-center space-x-6">

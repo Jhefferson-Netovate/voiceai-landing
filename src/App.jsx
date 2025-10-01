@@ -4,6 +4,10 @@ import Hero from './components/Hero';
 import FeatureCard from './components/FeatureCard';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
+import ROICalculator from './components/ROICalculator';
+import CookieBanner from './components/CookieBanner';
+import ExitIntentPopup from './components/ExitIntentPopup';
+import ContactForm from './components/ContactForm';
 
 // Iconos para las características
 import { 
@@ -158,8 +162,42 @@ function App() {
         </div>
       </section>
 
+      {/* Calculadora ROI */}
+      <section id="roi" className="section-padding bg-white">
+        <div className="container-scale">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Calcula tu{' '}
+              <span className="text-gradient">retorno de inversión</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Descubre cuánto puedes ahorrar automatizando tus procesos con VoiceFlow AI
+            </p>
+          </div>
+          
+          <ROICalculator />
+        </div>
+      </section>
+
       {/* Precios */}
       <Pricing />
+
+      {/* Formulario de Contacto */}
+      <section id="contacto" className="section-padding bg-gray-50">
+        <div className="container-scale">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              ¿Listo para{' '}
+              <span className="text-gradient">empezar</span>?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Completa el formulario y nuestro equipo te contactará en menos de 24 horas
+            </p>
+          </div>
+          
+          <ContactForm />
+        </div>
+      </section>
 
       {/* CTA Final */}
       <section className="section-padding bg-gradient-to-br from-scale-purple via-scale-blue to-scale-cyan relative overflow-hidden">
@@ -207,6 +245,12 @@ function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Cookie Banner - GDPR Compliant */}
+      <CookieBanner />
+
+      {/* Exit Intent Popup */}
+      <ExitIntentPopup />
     </div>
   );
 }
