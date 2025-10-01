@@ -1,7 +1,63 @@
 {
   "translation": {
-    "welcome": "Welcome to Netovate",
-    "description": "AI Solutions for businesses",
-    "contact": "Contact"
+    "nav": {
+      "home": "Home",
+      "solutions": "Solutions",
+      "ia": "Artificial Intelligence",
+      "automation": "Automation",
+      "analytics": "Analytics",
+      "integrations": "Integrations",
+      "usecases": "Use Cases",
+      "pricing": "Pricing",
+      "resources": "Resources",
+      "blog": "Blog",
+      "docs": "Documentation",
+      "help": "Help",
+      "about": "About Us",
+      "contact": "Contact",
+      "tryfree": "Try Free"
+    },
+    "footer": {
+      "features": "Features",
+      "usecases": "Use Cases",
+      "pricing": "Pricing",
+      "integrations": "Integrations",
+      "changelog": "Changelog",
+      "about": "About Us",
+      "blog": "Blog",
+      "careers": "Careers",
+      "press": "Press",
+      "contact": "Contact",
+      "docs": "Documentation",
+      "guides": "Guides",
+      "api": "API",
+      "help": "Help",
+      "status": "Service Status",
+      "privacy": "Privacy",
+      "terms": "Terms and Conditions",
+      "cookies": "Cookie Policy",
+      "gdpr": "GDPR"
+    },
+    "hero": {
+      "title": "Automate Your Calls with AI",
+      "subtitle": "Transform your business communication with cutting-edge conversational artificial intelligence",
+      "ctaPrimary": "Try Free 14 Days",
+      "ctaSecondary": "Watch Demo"
+    },
+    "features": {
+      "title": "Why choose Netovate OU?",
+      "subtitle": "Our cutting-edge technology revolutionizes business phone communication"
+    },
+    "common": {
+      "welcome": "Welcome to Netovate",
+      "description": "AI Solutions for businesses",
+      "learnMore": "Learn More",
+      "getStarted": "Get Started",
+      "contactUs": "Contact Us",
+      "loading": "Loading...",
+      "error": "Error",
+      "success": "Success",
+      "allRightsReserved": "All rights reserved"
+    }
   }
 }

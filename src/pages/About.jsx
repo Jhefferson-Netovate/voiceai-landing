@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
-import Card, { StatsCard } from '../components/Card';
+import Card, { StatCard } from '../components/Card'; // ✅ CORREGIDO: StatCard en lugar de StatsCard
 import { DottedPattern, GradientOrb, FloatingShapes } from '../components/SVGShapes';
 import { useTheme } from '../components/ThemeProvider';
 import { 
@@ -28,28 +28,28 @@ export default function About() {
     { 
       value: '2,500+', 
       label: 'Empresas Activas',
-      icon: UsersIcon,
-      trend: 'up',
-      trendValue: '+45% este año'
+      icon: <UsersIcon />,
+      trend: '+45%',
+      trendUp: true
     },
     { 
       value: '15M+', 
       label: 'Llamadas Procesadas',
-      icon: RocketLaunchIcon,
-      trend: 'up',
-      trendValue: '+120% mensual'
+      icon: <RocketLaunchIcon />,
+      trend: '+120%',
+      trendUp: true
     },
     { 
       value: '50+', 
       label: 'Países',
-      icon: GlobeAltIcon
+      icon: <GlobeAltIcon />
     },
     { 
       value: '98%', 
       label: 'Satisfacción Cliente',
-      icon: HeartIcon,
-      trend: 'up',
-      trendValue: '+2% vs Q3'
+      icon: <HeartIcon />,
+      trend: '+2%',
+      trendUp: true
     },
   ];
 
@@ -77,65 +77,74 @@ export default function About() {
     },
   ];
 
-  // Miembros del equipo (ejemplo)
+  // Equipo (puedes agregar fotos reales más adelante)
   const team = [
     {
-      name: 'María González',
-      role: 'CEO & Co-Founder',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400',
-      bio: '15+ años en IA y automatización'
+      name: 'Ana García',
+      role: 'CEO & Fundadora',
+      bio: 'Experta en IA con 15 años de experiencia en automatización empresarial.',
+      image: 'https://ui-avatars.com/api/?name=Ana+Garcia&background=8B5CF6&color=fff&size=200'
     },
     {
       name: 'Carlos Ruiz',
-      role: 'CTO & Co-Founder',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
-      bio: 'Ex-Google, Stanford CS PhD'
+      role: 'CTO',
+      bio: 'Arquitecto de sistemas con pasión por crear infraestructura escalable.',
+      image: 'https://ui-avatars.com/api/?name=Carlos+Ruiz&background=3B82F6&color=fff&size=200'
     },
     {
-      name: 'Ana Martínez',
+      name: 'María López',
+      role: 'Head of AI',
+      bio: 'Investigadora en NLP y deep learning, PhD en Computer Science.',
+      image: 'https://ui-avatars.com/api/?name=Maria+Lopez&background=06B6D4&color=fff&size=200'
+    },
+    {
+      name: 'David Chen',
       role: 'Head of Product',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400',
-      bio: 'Product leader en startups SaaS'
-    },
-    {
-      name: 'David López',
-      role: 'Head of Engineering',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400',
-      bio: 'Senior Engineer desde 2010'
+      bio: 'Product Manager con experiencia en startups de rápido crecimiento.',
+      image: 'https://ui-avatars.com/api/?name=David+Chen&background=8B5CF6&color=fff&size=200'
     },
   ];
 
   return (
-  <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gray-50">
       <Header />
 
       {/* HERO SECTION */}
-  <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-dark-100 to-dark-200">
-        {/* Efectos visuales de fondo */}
-        <GradientOrb size={500} color="purple" className="top-0 right-0 -translate-y-1/2" />
-        <GradientOrb size={400} color="cyan" className="bottom-0 left-0 translate-y-1/2" />
-        <DottedPattern />
-        <FloatingShapes />
+      <section className="relative bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 text-white overflow-hidden">
+        {/* Elementos decorativos de fondo */}
+        <div className="absolute inset-0">
+          <DottedPattern />
+          <GradientOrb size={600} color="purple" className="top-0 right-0" />
+          <GradientOrb size={400} color="blue" className="bottom-0 left-0" />
+        </div>
 
-        <div className="relative z-10 container-scale text-center py-20">
+        <div className="relative z-10 container-scale py-24 md:py-32">
           <motion.div
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="text-center max-w-4xl mx-auto"
           >
-            <div className="inline-block px-4 py-2 bg-brand-purple/20 text-brand-purple rounded-full text-sm font-semibold mb-6">
-              Sobre Netovate OU
-            </div>
+            <motion.div
+              initial={prefersReducedMotion ? {} : { scale: 0 }}
+              animate={prefersReducedMotion ? {} : { scale: 1 }}
+              transition={{ delay: 0.2, type: "spring" }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-6"
+            >
+              <span className="animate-pulse">✨</span>
+              <span className="text-sm font-semibold">Sobre Netovate OU</span>
+            </motion.div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 max-w-4xl mx-auto">
-              Construyendo el{' '}
-              <span className="text-gradient">futuro</span>
-              {' '}de la automatización
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Revolucionando la 
+              <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                Comunicación Empresarial
+              </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-              En Netovate, creemos que la automatización inteligente debe ser accesible 
-              para todas las empresas, sin importar su tamaño.
+            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+              Somos un equipo de ingenieros, diseñadores e innovadores apasionados 
+              por transformar cómo las empresas se comunican con sus clientes.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -151,15 +160,17 @@ export default function About() {
       </section>
 
       {/* ESTADÍSTICAS */}
-  <section className="section-padding bg-dark-100">
+      <section className="py-16 bg-white">
         <div className="container-scale">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <StatsCard
+              <StatCard  
                 key={stat.label}
-                {...stat}
-                animated
-                delay={index * 0.1}
+                value={stat.value}
+                label={stat.label}
+                icon={stat.icon}
+                trend={stat.trend}
+                trendUp={stat.trendUp}
               />
             ))}
           </div>
@@ -167,7 +178,7 @@ export default function About() {
       </section>
 
       {/* NUESTRA MISIÓN */}
-      <section className="section-padding bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 text-white relative overflow-hidden">
         <GradientOrb size={400} color="purple" className="top-0 left-0" />
         
         <div className="relative z-10 container-scale">
@@ -193,121 +204,119 @@ export default function About() {
         </div>
       </section>
 
-      {/* VALORES */}
-  <section className="section-padding bg-dark-100">
+      {/* NUESTROS VALORES */}
+      <section className="py-24 bg-gray-50">
         <div className="container-scale">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Nuestros{' '}
-              <span className="text-gradient">Valores</span>
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Principios que guían cada decisión y cada línea de código que escribimos
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {values.map((value, index) => (
-              <Card 
-                key={value.title} 
-                variant="hover" 
-                animated 
-                delay={index * 0.1}
-              >
-                <div className="text-5xl mb-4">{value.emoji}</div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  {value.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* EQUIPO */}
-  <section className="section-padding bg-black">
-        <div className="container-scale">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Conoce al{' '}
-              <span className="text-gradient">Equipo</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Expertos apasionados por construir el futuro de la automatización
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <Card 
-                key={member.name} 
-                variant="hover" 
-                padding="lg"
-                animated 
-                delay={index * 0.1}
-              >
-                <img 
-                  src={member.image} 
-                  alt={member.name}
-                  className="w-full max-h-64 sm:max-h-56 md:max-h-48 object-cover rounded-lg mb-4 aspect-[4/5]"
-                  style={{ objectFit: 'cover' }}
-                />
-                <h3 className="text-xl font-bold text-white mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-brand-blue font-semibold mb-2">
-                  {member.role}
-                </p>
-                <p className="text-gray-400 text-sm">
-                  {member.bio}
-                </p>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-gray-400 mb-6">
-              ¿Quieres formar parte de nuestro equipo?
-            </p>
-            <Button variant="primary" size="lg">
-              Ver Posiciones Abiertas →
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA FINAL */}
-  <section className="section-padding bg-gradient-to-br from-black via-dark-100 to-dark-200 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <DottedPattern />
-        </div>
-
-        <div className="relative z-10 container-scale text-center">
           <motion.div
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
             whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              ¿Listo para transformar tu empresa?
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Nuestros Valores
             </h2>
-            <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
-              Únete a las 2,500+ empresas que ya confían en Netovate OU
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Los principios que guían cada decisión que tomamos
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {values.map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+                whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card variant="default" hoverable>
+                  <div className="flex items-start gap-4">
+                    <div className="text-5xl">{value.emoji}</div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                        {value.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {value.description}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NUESTRO EQUIPO */}
+      <section className="py-24 bg-white">
+        <div className="container-scale">
+          <motion.div
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Conoce al Equipo
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Las personas detrás de Netovate OU
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {team.map((member, index) => (
+              <motion.div
+                key={member.name}
+                initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.9 }}
+                whileInView={prefersReducedMotion ? {} : { opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card variant="default" hoverable>
+                  <div className="text-center">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-purple-100"
+                    />
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">
+                      {member.name}
+                    </h3>
+                    <p className="text-purple-600 font-semibold mb-3">
+                      {member.role}
+                    </p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {member.bio}
+                    </p>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="py-24 bg-gray-50">
+        <div className="container-scale">
+          <Card variant="gradient">
+            <div className="text-center py-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                ¿Quieres unirte a nosotros?
+              </h2>
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Estamos siempre buscando talento excepcional para unirse a nuestro equipo
+              </p>
               <Button variant="primary" size="lg">
-                Comenzar Gratis
-              </Button>
-              <Button variant="outline" size="lg">
-                Hablar con Ventas
+                Ver Posiciones Abiertas
               </Button>
             </div>
-          </motion.div>
+          </Card>
         </div>
       </section>
 

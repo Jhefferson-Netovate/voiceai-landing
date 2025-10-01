@@ -98,10 +98,11 @@ function App() {
             {features.map((feature, index) => (
               <FeatureCard
                 key={index}
-                icon={<feature.icon />}
+                icon={feature.icon}
                 title={feature.title}
                 description={feature.description}
-                iconGradient={feature.gradient}
+                gradient={feature.gradient}
+                delay={index * 0.1}
               />
             ))}
           </div>
