@@ -89,7 +89,7 @@ export default function Gdpr() {
                 <h2 className="text-xl sm:text-2xl font-semibold text-scale-purple mt-6 mb-3 sm:mt-8 sm:mb-4">
                   Contacto y reclamaciones
                 </h2>
-                <p>Si tienes dudas, deseas ejercer tus derechos o presentar una reclamación, puedes contactarnos en <a href="mailto:privacidad@netovate.com" className="text-scale-purple hover:underline">privacidad@netovate.com</a>.<br />
+                <p>Si tienes dudas, deseas ejercer tus derechos o presentar una reclamación, puedes contactarnos en <a href="mailto:privacidad@netovateou.com" className="text-scale-purple hover:underline">privacidad@netovateou.com</a>.<br />
                 También puedes dirigirte a la Agencia Española de Protección de Datos (AEPD) si consideras que tus derechos no han sido respetados.</p>
               </div>
 
