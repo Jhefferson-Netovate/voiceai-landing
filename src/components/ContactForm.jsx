@@ -3,10 +3,15 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next'; // ⬅️ AÑADIR
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
+import { useScrollAnimation } from '../hooks/useOptimizedAnimation';
+
+
 
 export default function ContactForm() {
   const prefersReducedMotion = usePrefersReducedMotion();
   const { t } = useTranslation(); // ⬅️ AÑADIR
+  const headerAnimation = useScrollAnimation({ type: 'fade' });
+  const formAnimation = useScrollAnimation({ type: 'slide', delay: 0.2 });
   
   const [formData, setFormData] = useState({
     name: '',
@@ -55,10 +60,7 @@ export default function ContactForm() {
           {/* Header */}
           <motion.div
             className="text-center mb-12"
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={prefersReducedMotion ? {} : { duration: 0.8 }}
-            viewport={{ once: true }}
+            {...headerAnimation}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               {t('contact.title')} {/* ⬅️ TRADUCCIÓN */}
@@ -70,11 +72,8 @@ export default function ContactForm() {
 
           {/* Form */}
           <motion.div
-            className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-8 md:p-12"
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={prefersReducedMotion ? {} : { duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
+             className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-8 md:p-12"
+             {...formAnimation}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Nombre */}

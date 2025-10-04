@@ -279,6 +279,67 @@ const resources = {
         thanksMessage: '¡Gracias por probar la primera versión! Envíanos feedback para seguir mejorando.'
       },
 
+      // ROI CALCULATOR
+      roi: {
+        title: 'Calcula tu ROI con Netovate',
+        subtitle: 'Descubre cuánto puedes ahorrar automatizando tus llamadas',
+        inputsTitle: 'Tu Situación Actual',
+        employeesLabel: 'Número de empleados',
+        hourlyRateLabel: 'Coste por hora (€)',
+        hoursPerDayLabel: 'Horas dedicadas/día',
+        workDaysLabel: 'Días laborables/mes',
+        resultsTitle: 'Tu Ahorro Potencial',
+        currentCostLabel: 'Coste actual mensual',
+        netovatePriceLabel: 'Con Netovate',
+        savingsLabel: 'Ahorro mensual',
+        roiLabel: 'ROI',
+        paybackLabel: 'Meses recuperación',
+        timeSavedLabel: 'Tiempo ahorrado mensual',
+        hoursLabel: 'horas',
+        ctaButton: 'Comenzar Ahora →',
+        ctaSubtext: '14 días de prueba gratis • Sin tarjeta',
+        noteTitle: 'Nota:',
+        noteText: 'Esta calculadora proporciona estimaciones basadas en promedios de la industria. Los resultados reales pueden variar según tu caso específico.'
+      },
+
+      // COOKIE BANNER
+      cookies: {
+        title: '🍪 Este sitio usa cookies',
+        description: 'Utilizamos cookies para mejorar tu experiencia, analizar el tráfico y personalizar el contenido. Al hacer clic en "Aceptar todas", aceptas nuestro uso de cookies.',
+        acceptAll: 'Aceptar todas',
+        rejectAll: 'Rechazar todas',
+        customize: 'Personalizar',
+        preferencesTitle: 'Preferencias de Cookies',
+        necessaryTitle: 'Cookies Necesarias',
+        necessaryDesc: 'Esenciales para el funcionamiento del sitio web. No se pueden desactivar.',
+        analyticsTitle: 'Cookies Analíticas',
+        analyticsDesc: 'Nos ayudan a entender cómo usas el sitio y mejorar tu experiencia.',
+        marketingTitle: 'Cookies de Marketing',
+        marketingDesc: 'Utilizadas para mostrarte anuncios relevantes en otros sitios.',
+        alwaysActive: 'Siempre activo',
+        back: 'Atrás',
+        savePreferences: 'Guardar Preferencias'
+      },
+
+      // EXIT INTENT POPUP
+      exitPopup: {
+        title: '¡Espera! No te vayas sin tu descuento',
+        subtitle: 'Obtén acceso exclusivo a nuestra oferta especial antes de irte',
+        offer: '30% de descuento en tu primer mes',
+        offerDesc: 'Solo para nuevos clientes que se registren hoy',
+        emailPlaceholder: 'tu@email.com',
+        submitButton: 'Obtener Mi Descuento',
+        submitting: 'Suscribiendo...',
+        alsoReceive: 'También recibirás:',
+        benefit1: 'Guías exclusivas de automatización',
+        benefit2: 'Casos de éxito de clientes',
+        benefit3: 'Acceso anticipado a nuevas funciones',
+        privacyNote: 'No spam. Puedes darte de baja en cualquier momento.',
+        successTitle: '¡Listo!',
+        successMessage: 'Revisa tu email para obtener tu código de descuento del 30%.',
+        close: 'Cerrar'
+      },
+
       // COMMON / GENERAL
       common: {
         welcome: 'Bienvenido a Netovate',
@@ -569,6 +630,67 @@ const resources = {
         feature8: 'Buttons with glow effects and animated gradients.',
         feature9: 'Initial integration with analytics and crisp.',
         thanksMessage: 'Thanks for trying the first version! Send us feedback to keep improving.'
+      },
+
+      // ROI CALCULATOR
+      roi: {
+        title: 'Calculate your ROI with Netovate',
+        subtitle: 'Discover how much you can save by automating your calls',
+        inputsTitle: 'Your Current Situation',
+        employeesLabel: 'Number of employees',
+        hourlyRateLabel: 'Cost per hour (€)',
+        hoursPerDayLabel: 'Hours dedicated/day',
+        workDaysLabel: 'Working days/month',
+        resultsTitle: 'Your Potential Savings',
+        currentCostLabel: 'Current monthly cost',
+        netovatePriceLabel: 'With Netovate',
+        savingsLabel: 'Monthly savings',
+        roiLabel: 'ROI',
+        paybackLabel: 'Payback months',
+        timeSavedLabel: 'Monthly time saved',
+        hoursLabel: 'hours',
+        ctaButton: 'Start Now →',
+        ctaSubtext: '14-day free trial • No card required',
+        noteTitle: 'Note:',
+        noteText: 'This calculator provides estimates based on industry averages. Actual results may vary depending on your specific case.'
+      },
+
+      // COOKIE BANNER
+      cookies: {
+        title: '🍪 This site uses cookies',
+        description: 'We use cookies to improve your experience, analyze traffic and personalize content. By clicking "Accept all", you agree to our use of cookies.',
+        acceptAll: 'Accept all',
+        rejectAll: 'Reject all',
+        customize: 'Customize',
+        preferencesTitle: 'Cookie Preferences',
+        necessaryTitle: 'Necessary Cookies',
+        necessaryDesc: 'Essential for the website to function. Cannot be disabled.',
+        analyticsTitle: 'Analytics Cookies',
+        analyticsDesc: 'Help us understand how you use the site and improve your experience.',
+        marketingTitle: 'Marketing Cookies',
+        marketingDesc: 'Used to show you relevant ads on other sites.',
+        alwaysActive: 'Always active',
+        back: 'Back',
+        savePreferences: 'Save Preferences'
+      },
+
+      // EXIT INTENT POPUP
+      exitPopup: {
+        title: "Wait! Don't leave without your discount",
+        subtitle: 'Get exclusive access to our special offer before you go',
+        offer: '30% off your first month',
+        offerDesc: 'Only for new customers who sign up today',
+        emailPlaceholder: 'your@email.com',
+        submitButton: 'Get My Discount',
+        submitting: 'Subscribing...',
+        alsoReceive: 'You will also receive:',
+        benefit1: 'Exclusive automation guides',
+        benefit2: 'Customer success stories',
+        benefit3: 'Early access to new features',
+        privacyNote: 'No spam. You can unsubscribe at any time.',
+        successTitle: 'Done!',
+        successMessage: 'Check your email to get your 30% discount code.',
+        close: 'Close'
       },
 
       // COMMON / GENERAL

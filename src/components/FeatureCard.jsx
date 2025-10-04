@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
+import { useScrollAnimation, useHoverAnimation } from '../hooks/useOptimizedAnimation';
 
 export default function FeatureCard({ 
   icon: Icon, 
@@ -9,19 +9,14 @@ export default function FeatureCard({
   gradient = 'from-scale-purple to-scale-blue',
   delay = 0 
 }) {
-  const prefersReducedMotion = usePrefersReducedMotion();
+  const scrollAnimation = useScrollAnimation({ type: 'slide', delay });
+  const hoverAnimation = useHoverAnimation(1.02);
   
   return (
     <motion.div
       className="card-glass p-8 hover:border-neon-purple/50 transition-all"
-      initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-      whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-      transition={prefersReducedMotion ? {} : { duration: 0.6, delay, ease: 'easeOut' }}
-      whileHover={prefersReducedMotion ? {} : { 
-        y: -5,
-        transition: { duration: 0.2 }
-      }}
-      viewport={{ once: true, margin: '-50px' }}
+      {...scrollAnimation}
+      {...hoverAnimation}
     >
       {/* Gradiente de fondo sutil */}
       <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-5 rounded-xl transition-opacity duration-300`} />

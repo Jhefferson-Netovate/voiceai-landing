@@ -238,3 +238,278 @@
     display: none !important;
   }
 }
+/* Elementos animados: preparar la GPU */
+.motion-element,
+[data-framer-motion],
+.animate-fade-in,
+.animate-slide-up,
+.animate-fade-in-up {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Después de la animación, quitar will-change para liberar memoria */
+.motion-element.animation-complete {
+  will-change: auto;
+}
+
+/* ============================================
+   2. OPTIMIZACIÓN BACKDROP-BLUR EN MÓVIL
+   ============================================ */
+
+/* Reducir o eliminar backdrop-blur en móviles para mejor performance */
+@media (max-width: 768px) {
+  .backdrop-blur-xl,
+  .backdrop-blur-lg,
+  .backdrop-blur-md {
+    backdrop-filter: blur(8px) !important; /* Reducido de 24px/16px a 8px */
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+  
+  /* Para elementos menos críticos, eliminar completamente */
+  .nav-blur {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  
+  /* Alternativa sin blur para dispositivos muy lentos */
+  @supports not (backdrop-filter: blur(1px)) {
+    .backdrop-blur-xl,
+    .backdrop-blur-lg,
+    .backdrop-blur-md,
+    .nav-blur {
+      background-color: rgba(0, 0, 0, 0.9) !important;
+      backdrop-filter: none !important;
+    }
+  }
+}
+
+/* ============================================
+   3. SUAVIZADO DE ANIMACIONES
+   ============================================ */
+
+/* Usar transform3d para forzar aceleración GPU */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ============================================
+   4. PREVENCIÓN DE LAYOUT SHIFT
+   ============================================ */
+
+/* Contenedor para prevenir saltos de layout */
+.content-wrapper {
+  contain: layout style paint;
+}
+
+/* Imágenes con aspect ratio para prevenir reflows */
+img,
+video {
+  content-visibility: auto;
+  contain-intrinsic-size: 500px 500px;
+}
+
+/* ============================================
+   5. OPTIMIZACIÓN DE SCROLL
+   ============================================ */
+
+/* Scroll suave pero sin retrasos */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto; /* Más rápido en móvil */
+  }
+}
+
+/* Prevenir over-scroll bounce en iOS */
+body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ============================================
+   6. TRANSICIONES OPTIMIZADAS
+   ============================================ */
+
+/* Solo animar propiedades que no causan reflow */
+.optimized-transition {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Evitar animar: width, height, padding, margin, border-width */
+}
+
+/* Clases utilitarias optimizadas para móvil */
+@media (max-width: 768px) {
+  
+  /* Reducir duración de animaciones en móvil */
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-fade-in-up {
+    animation-duration: 0.3s !important; /* Reducido de 0.6s */
+  }
+  
+  /* Simplificar hover effects en móvil (touch devices) */
+  @media (hover: none) {
+    .card-hover {
+      transform: none !important;
+    }
+    
+    .card-hover:active {
+      transform: scale(0.98) !important;
+      transition: transform 0.1s;
+    }
+  }
+}
+
+/* ============================================
+   7. INTERSECTION OBSERVER OPTIMIZATION
+   ============================================ */
+
+/* Añadir threshold visual para evitar triggers prematuros */
+.viewport-element {
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+/* ============================================
+   8. CONTENIDO CRÍTICO ABOVE-THE-FOLD
+   ============================================ */
+
+/* Eliminar animaciones del contenido inicial visible */
+.hero-content,
+.above-fold {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ============================================
+   9. OPTIMIZACIÓN DE SOMBRAS
+   ============================================ */
+
+/* Reducir o eliminar sombras complejas en móvil */
+@media (max-width: 768px) {
+  .shadow-2xl,
+  .shadow-xl {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important; /* Simplificada */
+  }
+  
+  /* Eliminar múltiples capas de sombras */
+  .glow {
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.3) !important;
+  }
+}
+
+/* ============================================
+   10. CONTENIDO DIFERIDO (LAZY CONTENT)
+   ============================================ */
+
+/* Ocultar contenido fuera del viewport inicialmente */
+.lazy-content {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* ============================================
+   11. COMPOSITING LAYERS
+   ============================================ */
+
+/* Crear capas de composición para elementos animados */
+.composite-layer {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Elementos fijos (header, footer) en su propia capa */
+header,
+footer,
+.fixed {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* ============================================
+   12. PREVENCIÓN DE PARPADEO EN GRADIENTES
+   ============================================ */
+
+/* Optimizar gradientes animados */
+.text-gradient,
+.bg-gradient-to-r,
+.bg-gradient-to-b {
+  -webkit-background-clip: text;
+  background-clip: text;
+  will-change: background-position;
+  backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  /* Simplificar gradientes en móvil */
+  .bg-gradient-to-r,
+  .bg-gradient-to-b {
+    background-image: none;
+    background-color: var(--accent-purple);
+  }
+}
+
+/* ============================================
+   13. FONTS ANTIALIASING
+   ============================================ */
+
+/* Suavizado de fuentes para prevenir parpadeo */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================
+   14. TOUCH ACTIONS
+   ============================================ */
+
+/* Optimizar respuesta táctil */
+button,
+a,
+.clickable {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ============================================
+   15. CRITICAL: REDUCE MOTION PARA ACCESIBILIDAD
+   ============================================ */
+
+/* Respetar preferencias de usuario */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

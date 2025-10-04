@@ -13,6 +13,7 @@ import {
   GlobeAltIcon,
   HeartIcon 
 } from '@heroicons/react/24/outline';
+import { useScrollAnimation } from '../hooks/useOptimizedAnimation';
 
 export default function About() {
   const { prefersReducedMotion } = useTheme();
@@ -120,17 +121,14 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <StatCard {...stat} />
-              </motion.div>
-            ))}
+          {stats.map((stat, index) => {
+            const animation = useScrollAnimation({ type: 'slide', delay: index * 0.1 });
+             return (
+            <motion.div key={index} {...animation}>
+            <StatCard {...stat} />
+            </motion.div>
+            );
+          })}
           </div>
 
           <motion.div 
