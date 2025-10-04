@@ -73,44 +73,71 @@ function App() {
       <Hero />
 
       {/* Sección de Características */}
-      <section id="caracteristicas" className="relative py-20 bg-black overflow-hidden">
-        <GridPattern opacity={0.05} />
-        <GlowOrb 
-          size={500} 
-          color="blue" 
-          opacity={0.15}
-          className="top-0 right-1/4" 
-        />
-        
-        <div className="relative z-10 container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              {t('characteristics.title')}{' '} {/* ⬅️ TRADUCCIÓN */}
-              <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
-                {t('characteristics.titleBrand')} {/* ⬅️ TRADUCCIÓN */}
-              </span>
-              ?
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              {t('characteristics.subtitle')} {/* ⬅️ TRADUCCIÓN */}
-            </p>
-          </div>
+      <section 
+  id="caracteristicas" 
+  className="relative py-12 sm:py-16 md:py-20 bg-black overflow-hidden"
+>
+  {/* Elementos decorativos de fondo */}
+  <GridPattern opacity={0.05} />
+  <GlowOrb 
+    size={500} 
+    color="blue" 
+    opacity={0.15}
+    className="top-0 right-1/4" 
+  />
+  
+  <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Título de la sección - RESPONSIVE + i18n */}
+    <div className="text-center mb-10 sm:mb-12 md:mb-16">
+      <h2 className="
+        text-3xl sm:text-4xl lg:text-5xl 
+        font-bold text-white 
+        mb-4 sm:mb-6
+        leading-tight
+        px-4
+      ">
+        {t('characteristics.title')}{' '}
+        <span className="
+          bg-gradient-to-r from-purple-500 to-blue-500 
+          bg-clip-text text-transparent
+          inline-block
+        ">
+          {t('characteristics.titleBrand')}
+        </span>
+        ?
+      </h2>
+      <p className="
+        text-base sm:text-lg md:text-xl 
+        text-gray-300 sm:text-gray-400 
+        max-w-3xl mx-auto
+        px-4
+        leading-relaxed
+      ">
+        {t('characteristics.subtitle')}
+      </p>
+    </div>
 
-          {/* Grid de características */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <FeatureCard
-                key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                gradient={feature.gradient}
-                delay={index * 0.1}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* Grid de características - RESPONSIVE Y OPTIMIZADO */}
+    <div className="
+      grid 
+      grid-cols-1 
+      sm:grid-cols-2 
+      lg:grid-cols-3 
+      gap-4 sm:gap-6 lg:gap-8
+    ">
+      {features.map((feature, index) => (
+        <FeatureCard
+          key={index}
+          icon={feature.icon}
+          title={feature.title}
+          description={feature.description}
+          gradient={feature.gradient}
+          delay={index * 0.1}
+        />
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Sección de Precios */}
       <section id="precios" className="py-20 bg-black">

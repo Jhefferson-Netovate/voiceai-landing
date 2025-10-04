@@ -45,12 +45,14 @@
 @layer base {
   * {
     @apply border-white/10;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   html {
     scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
   }
 
   body {
@@ -58,6 +60,7 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background-color: #000000;
     color: #FAFAFA;
+    overscroll-behavior: none;
   }
 
   /* Headings con peso extra en dark mode */
@@ -80,6 +83,13 @@
 
   a:hover {
     color: var(--accent-purple);
+  }
+  
+  /* Imágenes con aspect ratio para prevenir reflows */
+  img,
+  video {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px 500px;
   }
 }
 
@@ -109,39 +119,39 @@
    ============================================ */
 
 @layer components {
-  /* Contenedor principal */
   .container-scale {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Espaciado de secciones */
   .section-padding {
     @apply py-16 md:py-24 lg:py-32;
   }
 
-  /* Gradiente de texto */
   .text-gradient {
     @apply bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    backface-visibility: hidden;
   }
 
-  /* Efecto glass (glassmorphism) */
   .glass {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
   }
 
-  /* Efecto glow */
   .glow {
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
   }
 
-  /* Botón con gradiente */
   .btn-gradient {
     @apply bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl;
   }
 
-  /* Card con hover effect */
   .card-hover {
     @apply transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+  
+  .content-wrapper {
+    contain: layout style paint;
   }
 }
 
@@ -150,148 +160,23 @@
    ============================================ */
 
 @layer utilities {
-  /* Animación de fade in */
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out;
   }
 
-  /* Animación de slide up */
   .animate-slide-up {
     animation: slideUp 0.6s ease-out;
   }
 
-  /* Blur condicional */
   .nav-blur {
     @apply bg-black/80 backdrop-blur-lg;
   }
 }
 
 /* ============================================
-   KEYFRAMES ADICIONALES
+   KEYFRAMES
    ============================================ */
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ============================================
-   RESPONSIVE UTILITIES
-   ============================================ */
-
-/* Ocultar en móvil */
-@media (max-width: 768px) {
-  .hide-mobile {
-    display: none;
-  }
-}
-
-/* Ocultar en desktop */
-@media (min-width: 769px) {
-  .hide-desktop {
-    display: none;
-  }
-}
-
-/* ============================================
-   ACCESIBILIDAD
-   ============================================ */
-
-/* Respeta prefers-reduced-motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Focus visible para navegación con teclado */
-*:focus-visible {
-  @apply outline-none ring-2 ring-purple-500 ring-offset-2 ring-offset-black;
-}
-
-/* ============================================
-   PRINT STYLES
-   ============================================ */
-
-@media print {
-  /* Ocultar elementos no necesarios al imprimir */
-  .no-print {
-    display: none !important;
-  }
-}
-/* Elementos animados: preparar la GPU */
-.motion-element,
-[data-framer-motion],
-.animate-fade-in,
-.animate-slide-up,
-.animate-fade-in-up {
-  will-change: opacity, transform;
-  backface-visibility: hidden;
-  perspective: 1000px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Después de la animación, quitar will-change para liberar memoria */
-.motion-element.animation-complete {
-  will-change: auto;
-}
-
-/* ============================================
-   2. OPTIMIZACIÓN BACKDROP-BLUR EN MÓVIL
-   ============================================ */
-
-/* Reducir o eliminar backdrop-blur en móviles para mejor performance */
-@media (max-width: 768px) {
-  .backdrop-blur-xl,
-  .backdrop-blur-lg,
-  .backdrop-blur-md {
-    backdrop-filter: blur(8px) !important; /* Reducido de 24px/16px a 8px */
-    -webkit-backdrop-filter: blur(8px) !important;
-  }
-  
-  /* Para elementos menos críticos, eliminar completamente */
-  .nav-blur {
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-  
-  /* Alternativa sin blur para dispositivos muy lentos */
-  @supports not (backdrop-filter: blur(1px)) {
-    .backdrop-blur-xl,
-    .backdrop-blur-lg,
-    .backdrop-blur-md,
-    .nav-blur {
-      background-color: rgba(0, 0, 0, 0.9) !important;
-      backdrop-filter: none !important;
-    }
-  }
-}
-
-/* ============================================
-   3. SUAVIZADO DE ANIMACIONES
-   ============================================ */
-
-/* Usar transform3d para forzar aceleración GPU */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -315,194 +200,277 @@
 }
 
 /* ============================================
-   4. PREVENCIÓN DE LAYOUT SHIFT
+   OPTIMIZACIÓN GPU Y ANTI-FLICKERING
    ============================================ */
 
-/* Contenedor para prevenir saltos de layout */
-.content-wrapper {
-  contain: layout style paint;
-}
-
-/* Imágenes con aspect ratio para prevenir reflows */
-img,
-video {
-  content-visibility: auto;
-  contain-intrinsic-size: 500px 500px;
-}
-
-/* ============================================
-   5. OPTIMIZACIÓN DE SCROLL
-   ============================================ */
-
-/* Scroll suave pero sin retrasos */
-html {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
-}
-
-@media (max-width: 768px) {
-  html {
-    scroll-behavior: auto; /* Más rápido en móvil */
-  }
-}
-
-/* Prevenir over-scroll bounce en iOS */
-body {
-  overscroll-behavior: none;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* ============================================
-   6. TRANSICIONES OPTIMIZADAS
-   ============================================ */
-
-/* Solo animar propiedades que no causan reflow */
-.optimized-transition {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  /* Evitar animar: width, height, padding, margin, border-width */
-}
-
-/* Clases utilitarias optimizadas para móvil */
-@media (max-width: 768px) {
-  
-  /* Reducir duración de animaciones en móvil */
-  .animate-fade-in,
-  .animate-slide-up,
-  .animate-fade-in-up {
-    animation-duration: 0.3s !important; /* Reducido de 0.6s */
-  }
-  
-  /* Simplificar hover effects en móvil (touch devices) */
-  @media (hover: none) {
-    .card-hover {
-      transform: none !important;
-    }
-    
-    .card-hover:active {
-      transform: scale(0.98) !important;
-      transition: transform 0.1s;
-    }
-  }
-}
-
-/* ============================================
-   7. INTERSECTION OBSERVER OPTIMIZATION
-   ============================================ */
-
-/* Añadir threshold visual para evitar triggers prematuros */
-.viewport-element {
-  margin-top: -10px;
-  margin-bottom: -10px;
-}
-
-/* ============================================
-   8. CONTENIDO CRÍTICO ABOVE-THE-FOLD
-   ============================================ */
-
-/* Eliminar animaciones del contenido inicial visible */
-.hero-content,
-.above-fold {
-  animation: none !important;
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-/* ============================================
-   9. OPTIMIZACIÓN DE SOMBRAS
-   ============================================ */
-
-/* Reducir o eliminar sombras complejas en móvil */
-@media (max-width: 768px) {
-  .shadow-2xl,
-  .shadow-xl {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important; /* Simplificada */
-  }
-  
-  /* Eliminar múltiples capas de sombras */
-  .glow {
-    box-shadow: 0 0 10px rgba(139, 92, 246, 0.3) !important;
-  }
-}
-
-/* ============================================
-   10. CONTENIDO DIFERIDO (LAZY CONTENT)
-   ============================================ */
-
-/* Ocultar contenido fuera del viewport inicialmente */
-.lazy-content {
-  content-visibility: auto;
-  contain-intrinsic-size: 0 500px;
-}
-
-/* ============================================
-   11. COMPOSITING LAYERS
-   ============================================ */
-
-/* Crear capas de composición para elementos animados */
-.composite-layer {
+/* Forzar aceleración GPU en elementos críticos */
+[class*="bg-gradient"],
+[class*="backdrop-blur"],
+[data-framer-motion],
+.group,
+svg {
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-/* Elementos fijos (header, footer) en su propia capa */
-header,
-footer,
-.fixed {
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+/* Preparar animaciones de Framer Motion */
+[data-framer-motion] {
+  will-change: opacity, transform;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
 }
 
-/* ============================================
-   12. PREVENCIÓN DE PARPADEO EN GRADIENTES
-   ============================================ */
+/* Liberar will-change después de animar */
+[data-framer-motion][style*="opacity: 1"] {
+  will-change: auto;
+}
 
-/* Optimizar gradientes animados */
-.text-gradient,
+/* Optimizar gradientes */
+.bg-gradient-to-br,
 .bg-gradient-to-r,
 .bg-gradient-to-b {
-  -webkit-background-clip: text;
-  background-clip: text;
-  will-change: background-position;
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Estabilidad de cards */
+[class*="bg-gradient-to-br"][class*="from-gray-900"] {
+  isolation: isolate;
+  transform: translate3d(0, 0, 0);
+  box-sizing: border-box;
+}
+
+/* Optimizar sombras */
+.shadow-lg,
+.shadow-xl {
+  isolation: isolate;
+}
+
+/* Optimizar bordes animados */
+[class*="hover:border-purple"] {
+  border-style: solid;
+  border-width: 1px;
+  will-change: border-color;
+}
+
+/* Prevenir repaints en scroll */
+.overflow-hidden,
+section[id="caracteristicas"] {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Optimizar elementos absolute */
+[class*="absolute"] {
+  transform: translateZ(0);
+}
+
+/* Optimizar rounded corners */
+.rounded-2xl,
+.rounded-xl {
   backface-visibility: hidden;
 }
 
+/* SVG rendering optimizado */
+svg {
+  shape-rendering: geometricPrecision;
+}
+
+/* ============================================
+   OPTIMIZACIONES MÓVIL
+   ============================================ */
+
 @media (max-width: 768px) {
-  /* Simplificar gradientes en móvil */
+  /* Scroll más rápido en móvil */
+  html {
+    scroll-behavior: auto;
+  }
+  
+  /* Reducir duración de animaciones */
+  .animate-fade-in,
+  .animate-slide-up,
+  [data-framer-motion] {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+    animation-delay: 0s !important;
+    transition-delay: 0s !important;
+  }
+  
+  /* Simplificar backdrop-blur */
+  .backdrop-blur-xl,
+  .backdrop-blur-lg,
+  .backdrop-blur-md,
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+  }
+  
+  .nav-blur {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  
+  /* Fallback sin blur para dispositivos viejos */
+  @supports not (backdrop-filter: blur(1px)) {
+    .backdrop-blur-xl,
+    .backdrop-blur-lg,
+    .backdrop-blur-md,
+    .backdrop-blur-sm,
+    .nav-blur {
+      background-color: rgba(0, 0, 0, 0.95) !important;
+      backdrop-filter: none !important;
+    }
+  }
+  
+  /* Simplificar sombras */
+  .shadow-2xl,
+  .shadow-xl {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .glow {
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.3) !important;
+  }
+  
+  /* Simplificar gradientes */
+  .bg-gradient-to-br,
   .bg-gradient-to-r,
   .bg-gradient-to-b {
-    background-image: none;
-    background-color: var(--accent-purple);
+    background-blend-mode: normal;
+    background-attachment: scroll;
+    will-change: auto;
+  }
+  
+  /* Mejorar contraste de texto */
+  .text-gray-400 {
+    color: rgb(209, 213, 219) !important;
+  }
+  
+  .text-gray-300 {
+    color: rgb(229, 231, 235) !important;
+  }
+}
+
+/* Touch devices: deshabilitar hover effects */
+@media (hover: none) and (pointer: coarse) {
+  .card-hover {
+    transform: none !important;
+  }
+  
+  .card-hover:active,
+  .group:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.1s ease;
+  }
+  
+  .group:hover {
+    transform: none !important;
+  }
+  
+  .group:hover .group-hover\:opacity-5 {
+    opacity: 0 !important;
+  }
+}
+
+/* Dispositivos con GPU débil */
+@media (max-width: 768px) and (max-resolution: 1dppx) {
+  [data-framer-motion] {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
   }
 }
 
 /* ============================================
-   13. FONTS ANTIALIASING
+   FEATURE CARDS - OPTIMIZACIONES ESPECÍFICAS
    ============================================ */
 
-/* Suavizado de fuentes para prevenir parpadeo */
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+#caracteristicas {
+  contain: layout style paint;
+}
+
+#caracteristicas > div > div:last-child {
+  contain: layout;
+  min-height: 400px;
+}
+
+.feature-card-container {
+  contain: layout style paint;
+  content-visibility: auto;
+  min-height: 200px;
 }
 
 /* ============================================
-   14. TOUCH ACTIONS
+   OPTIMIZACIONES ESPECÍFICAS POR NAVEGADOR
    ============================================ */
 
-/* Optimizar respuesta táctil */
-button,
-a,
-.clickable {
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
+/* WebKit (Chrome, Safari) */
+@supports (-webkit-appearance: none) {
+  [class*="bg-gradient"] {
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+/* iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .group {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  .backdrop-blur-sm,
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(4px);
+  }
+}
+
+/* Firefox */
+@-moz-document url-prefix() {
+  [data-framer-motion] {
+    transform: translateZ(0.1px);
+  }
 }
 
 /* ============================================
-   15. CRITICAL: REDUCE MOTION PARA ACCESIBILIDAD
+   RESPONSIVE UTILITIES
    ============================================ */
 
-/* Respetar preferencias de usuario */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+  
+  .feature-card-grid {
+    gap: 1rem !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .feature-card-grid {
+    gap: 1.5rem !important;
+  }
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .feature-card-text {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -511,5 +479,41 @@ a,
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+    will-change: auto !important;
+  }
+  
+  .hero-content,
+  .above-fold {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Focus para navegación con teclado */
+*:focus-visible {
+  @apply outline-none ring-2 ring-purple-500 ring-offset-2 ring-offset-black;
+}
+
+/* Touch actions optimizadas */
+button,
+a,
+.clickable {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .feature-card-container {
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
