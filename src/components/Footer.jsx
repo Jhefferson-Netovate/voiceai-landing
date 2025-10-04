@@ -208,10 +208,10 @@ const Footer = () => {
                   Cookies
                 </Link>
                 <a 
-                  href="mailto:info@netovate.com" 
+                  href="mailto:info@netovateou.com" 
                   className="hover:text-white transition-colors"
                 >
-                  info@netovate.com
+                  info@netovateou.com
                 </a>
               </div>
             </div>

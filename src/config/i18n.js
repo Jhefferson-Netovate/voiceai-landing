@@ -359,9 +359,206 @@ const resources = {
         edit: 'Editar',
         close: 'Cerrar',
         copyright: '© {{year}} Netovate OU. Todos los derechos reservados.'
-      }
+      },
+
+      // PRIVACY PAGE
+      privacy: {
+      title: 'Política de Privacidad',
+      lastUpdate: 'Última actualización:',
+      section1Title: '1. Información que Recopilamos',
+      section1Text: 'En Netovate OU, recopilamos la siguiente información:',
+      section1Point1: 'Información de contacto: nombre, email, teléfono, empresa',
+      section1Point2: 'Información de uso: páginas visitadas, tiempo en el sitio, clics',
+      section1Point3: 'Información técnica: dirección IP, navegador, sistema operativo',
+      section1Point4: 'Cookies y tecnologías similares para mejorar la experiencia',
+      
+      section2Title: '2. Cómo Usamos tu Información',
+      section2Text: 'Utilizamos tu información para:',
+      section2Point1: 'Proporcionar y mejorar nuestros servicios',
+      section2Point2: 'Comunicarnos contigo sobre tu cuenta y actualizaciones',
+      section2Point3: 'Enviar información de marketing (con tu consentimiento)',
+      section2Point4: 'Analizar el uso del sitio para mejorarlo',
+      section2Point5: 'Cumplir con obligaciones legales',
+      
+      section3Title: '3. Base Legal (GDPR)',
+      section3Text: 'Procesamos tus datos personales basándonos en:',
+      section3Point1: 'Consentimiento: Para comunicaciones de marketing',
+      section3Point2: 'Ejecución de contrato: Para proporcionar servicios',
+      section3Point3: 'Interés legítimo: Para análisis y mejoras',
+      section3Point4: 'Obligación legal: Para cumplir con la ley',
+      
+      section4Title: '4. Compartir Información',
+      section4Text: 'No vendemos tu información personal. Podemos compartirla con:',
+      section4Point1: 'Proveedores de servicios (hosting, analytics, CRM)',
+      section4Point2: 'Autoridades legales cuando sea requerido por ley',
+      section4Point3: 'Socios comerciales con tu consentimiento explícito',
+      
+      section5Title: '5. Tus Derechos (GDPR)',
+      section5Text: 'Tienes derecho a:',
+      section5Point1: 'Acceso: Solicitar una copia de tus datos',
+      section5Point2: 'Rectificación: Corregir datos inexactos',
+      section5Point3: 'Eliminación: Solicitar la eliminación de tus datos',
+      section5Point4: 'Portabilidad: Recibir tus datos en formato estructurado',
+      section5Point5: 'Oposición: Oponerte al procesamiento de tus datos',
+      section5Point6: 'Restricción: Limitar el uso de tus datos',
+      
+      section6Title: '6. Seguridad de Datos',
+      section6Text: 'Implementamos medidas técnicas y organizativas para proteger tus datos, incluyendo: encriptación SSL/TLS, acceso restringido, auditorías regulares y cumplimiento ISO 27001.',
+      
+      section7Title: '7. Cookies',
+      section7Text: 'Utilizamos cookies esenciales, analíticas y de marketing. Puedes gestionar tus preferencias en nuestro banner de cookies.',
+      
+      section8Title: '8. Retención de Datos',
+      section8Text: 'Conservamos tus datos solo durante el tiempo necesario para cumplir con los propósitos descritos, o según lo requiera la ley (generalmente 5-7 años para datos fiscales).',
+      
+      section9Title: '9. Transferencias Internacionales',
+      section9Text: 'Algunos proveedores pueden estar fuera de la UE. En estos casos, aseguramos protecciones adecuadas mediante cláusulas contractuales estándar aprobadas por la UE.',
+      
+      section10Title: '10. Contacto',
+      section10Text: 'Para ejercer tus derechos o hacer preguntas sobre esta política:',
+      contactCompany: 'Netovate OU',
+      contactEmail: 'Email: privacy@netovate.eu',
+      contactAddress: 'Dirección: Tallin, Estonia',
+      
+      section11Title: '11. Cambios a esta Política',
+      section11Text: 'Podemos actualizar esta política ocasionalmente. Te notificaremos de cambios significativos por email o mediante un aviso en el sitio web. La fecha de última actualización se muestra al inicio del documento.',
+      
+      backHome: 'Volver al Inicio'
+    },
+
+    // TERMS PAGE
+    terms: {
+      title: 'Términos y Condiciones',
+      lastUpdate: 'Última actualización:',
+      
+      section1Title: '1. Aceptación de los Términos',
+      section1Text: 'Al acceder y usar los servicios de Netovate OU ("Netovate", "nosotros", "nuestro"), aceptas estar sujeto a estos Términos y Condiciones. Si no estás de acuerdo, no uses nuestros servicios.',
+      
+      section2Title: '2. Descripción del Servicio',
+      section2Text: 'Netovate proporciona servicios de inteligencia artificial para automatización de llamadas telefónicas, incluyendo pero no limitado a: agentes virtuales, transcripción de llamadas, análisis de sentimientos y gestión de CRM.',
+      
+      section3Title: '3. Registro y Cuenta',
+      section3Sub1: '3.1 Elegibilidad:',
+      section3Sub1Text: 'Debes tener al menos 18 años y capacidad legal para celebrar contratos.',
+      section3Sub2: '3.2 Información Precisa:',
+      section3Sub2Text: 'Debes proporcionar información veraz, actual y completa durante el registro.',
+      section3Sub3: '3.3 Seguridad:',
+      section3Sub3Text: 'Eres responsable de mantener la confidencialidad de tu cuenta y contraseña.',
+      
+      section4Title: '4. Uso Aceptable',
+      section4Text: 'No puedes usar el servicio para:',
+      section4Point1: 'Actividades ilegales o fraudulentas',
+      section4Point2: 'Spam, phishing o prácticas engañosas',
+      section4Point3: 'Violación de derechos de propiedad intelectual',
+      section4Point4: 'Distribución de malware o código malicioso',
+      section4Point5: 'Acoso, abuso o contenido ofensivo',
+      
+      section5Title: '5. Planes y Facturación',
+      section5Sub1: '5.1 Suscripciones:',
+      section5Sub1Text: 'Los planes se facturan mensual o anualmente según tu elección.',
+      section5Sub2: '5.2 Renovación Automática:',
+      section5Sub2Text: 'Tu suscripción se renueva automáticamente salvo cancelación.',
+      section5Sub3: '5.3 Reembolsos:',
+      section5Sub3Text: 'Ofrecemos garantía de 14 días en el primer pago. Después, no hay reembolsos parciales.',
+      
+      section6Title: '6. Propiedad Intelectual',
+      section6Text: 'Todo el contenido, software, marcas comerciales y tecnología de Netovate OU son propiedad de Netovate OU y están protegidos por leyes de propiedad intelectual. Te otorgamos una licencia limitada, no exclusiva y revocable para usar el servicio según estos términos.',
+      
+      section7Title: '7. Privacidad y Datos',
+      section7Text: 'El uso de nuestros servicios está sujeto a nuestra',
+      section7Link: 'Política de Privacidad',
+      section7Text2: '. Cumplimos con GDPR y otras regulaciones de protección de datos aplicables.',
+      
+      section8Title: '8. Garantías y Responsabilidades',
+      section8Sub1: '8.1 Disponibilidad:',
+      section8Sub1Text: 'Nos esforzamos por mantener un 99.9% de uptime, pero no garantizamos disponibilidad ininterrumpida.',
+      section8Sub2: '8.2 Limitación de Responsabilidad:',
+      section8Sub2Text: 'No seremos responsables de daños indirectos, incidentales o consecuentes derivados del uso del servicio.',
+      section8Sub3: '8.3 Indemnización:',
+      section8Sub3Text: 'Aceptas indemnizarnos contra reclamaciones derivadas de tu uso del servicio o violación de estos términos.',
+      
+      section9Title: '9. Modificaciones del Servicio',
+      section9Text: 'Nos reservamos el derecho de modificar, suspender o descontinuar cualquier parte del servicio en cualquier momento. Te notificaremos de cambios significativos con 30 días de anticipación cuando sea posible.',
+      
+      section10Title: '10. Terminación',
+      section10Text: 'Podemos terminar o suspender tu acceso inmediatamente si violas estos términos. Tras la terminación, tus datos serán eliminados según nuestra política de retención, excepto cuando la ley requiera su conservación.',
+      
+      section11Title: '11. Ley Aplicable',
+      section11Text: 'Estos términos se rigen por las leyes de Estonia. Cualquier disputa se resolverá en los tribunales de Tallin, Estonia.',
+      
+      section12Title: '12. Modificaciones',
+      section12Text: 'Podemos modificar estos términos en cualquier momento. Los cambios significativos serán notificados con 30 días de anticipación. El uso continuado del servicio implica aceptación de los nuevos términos.',
+      
+      section13Title: '13. Contacto',
+      section13Text: 'Para preguntas sobre estos términos:',
+      
+      backHome: 'Volver al Inicio'
+    },
+
+    // GDPR PAGE
+    gdpr: {
+      title: 'Cumplimiento GDPR',
+      subtitle: 'Nuestro compromiso con la protección de tus datos personales y la transparencia en el tratamiento de la información.',
+      
+      whatIsTitle: '¿Qué es el GDPR?',
+      whatIsText: 'El Reglamento General de Protección de Datos (GDPR) es la normativa europea que regula el tratamiento de datos personales de los ciudadanos de la Unión Europea. Su objetivo es proteger la privacidad y los derechos de los usuarios, garantizando un uso responsable y seguro de la información.',
+      
+      principlesTitle: 'Principios de protección de datos',
+      principle1: 'Licitud, lealtad y transparencia:',
+      principle1Text: 'Tratamos tus datos de forma legal, justa y transparente.',
+      principle2: 'Limitación de la finalidad:',
+      principle2Text: 'Solo utilizamos tus datos para los fines específicos para los que fueron recogidos.',
+      principle3: 'Minimización de datos:',
+      principle3Text: 'Recogemos únicamente los datos necesarios para cada propósito.',
+      principle4: 'Exactitud:',
+      principle4Text: 'Mantenemos tus datos actualizados y corregimos cualquier inexactitud.',
+      principle5: 'Limitación del plazo de conservación:',
+      principle5Text: 'Conservamos tus datos solo el tiempo necesario.',
+      principle6: 'Integridad y confidencialidad:',
+      principle6Text: 'Protegemos tus datos mediante medidas de seguridad técnicas y organizativas.',
+      
+      dataCollectedTitle: '¿Qué datos recogemos?',
+      dataCollectedText: 'Recopilamos datos personales como',
+      dataCollectedHighlight: 'nombre, correo electrónico, teléfono y empresa',
+      dataCollectedText2: ', únicamente cuando tú los proporcionas a través de formularios de contacto, registro o contratación de servicios.',
+      
+      rightsTitle: 'Tus derechos como usuario',
+      right1: 'Acceso:',
+      right1Text: 'Puedes solicitar qué datos tuyos tenemos y cómo los usamos.',
+      right2: 'Rectificación:',
+      right2Text: 'Puedes corregir datos inexactos o incompletos.',
+      right3: 'Supresión:',
+      right3Text: 'Puedes pedir que eliminemos tus datos cuando ya no sean necesarios.',
+      right4: 'Limitación:',
+      right4Text: 'Puedes solicitar que limitemos el tratamiento de tus datos en ciertos casos.',
+      right5: 'Portabilidad:',
+      right5Text: 'Puedes recibir tus datos en formato electrónico y transferirlos a otro proveedor.',
+      right6: 'Oposición:',
+      right6Text: 'Puedes oponerte al tratamiento de tus datos para fines específicos.',
+      
+      securityTitle: 'Medidas de seguridad',
+      securityText: 'En Netovate OU aplicamos',
+      securityHighlight: 'medidas técnicas y organizativas avanzadas',
+      securityText2: 'para proteger tus datos: encriptación, acceso restringido, auditorías periódicas y formación continua de nuestro equipo.',
+      
+      contactTitle: 'Contacto y reclamaciones',
+      contactText: 'Si tienes dudas, deseas ejercer tus derechos o presentar una reclamación, puedes contactarnos en',
+      contactEmail: 'privacidad@netovate.com',
+      contactText2: '. También puedes dirigirte a la Agencia Española de Protección de Datos (AEPD) si consideras que tus derechos no han sido respetados.',
+      
+      lastUpdateLabel: 'Última actualización:',
+      companyCommitment: 'Comprometidos con tu privacidad.'
+    },
+
+    // FOOTER (actualización)
+    footer: {
+      // ... (mantén las traducciones existentes)
+      companyName: 'Netovate OU',
+      rightsReserved: 'Todos los derechos reservados.',
+      emailContact: 'info@netovate.com'
     }
-  },
+  }
+},
 
   en: {
     translation: {
@@ -713,10 +910,205 @@ const resources = {
         edit: 'Edit',
         close: 'Close',
         copyright: '© {{year}} Netovate OU. All rights reserved.'
-      }
+      },
+      privacy: {
+      title: 'Privacy Policy',
+      lastUpdate: 'Last updated:',
+      section1Title: '1. Information We Collect',
+      section1Text: 'At Netovate OU, we collect the following information:',
+      section1Point1: 'Contact information: name, email, phone, company',
+      section1Point2: 'Usage information: pages visited, time on site, clicks',
+      section1Point3: 'Technical information: IP address, browser, operating system',
+      section1Point4: 'Cookies and similar technologies to improve experience',
+      
+      section2Title: '2. How We Use Your Information',
+      section2Text: 'We use your information to:',
+      section2Point1: 'Provide and improve our services',
+      section2Point2: 'Communicate with you about your account and updates',
+      section2Point3: 'Send marketing information (with your consent)',
+      section2Point4: 'Analyze site usage to improve it',
+      section2Point5: 'Comply with legal obligations',
+      
+      section3Title: '3. Legal Basis (GDPR)',
+      section3Text: 'We process your personal data based on:',
+      section3Point1: 'Consent: For marketing communications',
+      section3Point2: 'Contract execution: To provide services',
+      section3Point3: 'Legitimate interest: For analysis and improvements',
+      section3Point4: 'Legal obligation: To comply with the law',
+      
+      section4Title: '4. Sharing Information',
+      section4Text: 'We do not sell your personal information. We may share it with:',
+      section4Point1: 'Service providers (hosting, analytics, CRM)',
+      section4Point2: 'Legal authorities when required by law',
+      section4Point3: 'Business partners with your explicit consent',
+      
+      section5Title: '5. Your Rights (GDPR)',
+      section5Text: 'You have the right to:',
+      section5Point1: 'Access: Request a copy of your data',
+      section5Point2: 'Rectification: Correct inaccurate data',
+      section5Point3: 'Deletion: Request deletion of your data',
+      section5Point4: 'Portability: Receive your data in structured format',
+      section5Point5: 'Opposition: Object to processing of your data',
+      section5Point6: 'Restriction: Limit use of your data',
+      
+      section6Title: '6. Data Security',
+      section6Text: 'We implement technical and organizational measures to protect your data, including: SSL/TLS encryption, restricted access, regular audits and ISO 27001 compliance.',
+      
+      section7Title: '7. Cookies',
+      section7Text: 'We use essential, analytical and marketing cookies. You can manage your preferences in our cookie banner.',
+      
+      section8Title: '8. Data Retention',
+      section8Text: 'We retain your data only for the time necessary to fulfill the described purposes, or as required by law (generally 5-7 years for tax data).',
+      
+      section9Title: '9. International Transfers',
+      section9Text: 'Some providers may be outside the EU. In these cases, we ensure adequate protections through EU-approved standard contractual clauses.',
+      
+      section10Title: '10. Contact',
+      section10Text: 'To exercise your rights or ask questions about this policy:',
+      contactCompany: 'Netovate OU',
+      contactEmail: 'Email: privacy@netovate.eu',
+      contactAddress: 'Address: Tallinn, Estonia',
+      
+      section11Title: '11. Changes to this Policy',
+      section11Text: 'We may update this policy occasionally. We will notify you of significant changes by email or notice on the website. The last update date is shown at the beginning of the document.',
+      
+      backHome: 'Back to Home'
+    },
+
+    // TERMS PAGE
+    terms: {
+      title: 'Terms and Conditions',
+      lastUpdate: 'Last updated:',
+      
+      section1Title: '1. Acceptance of Terms',
+      section1Text: 'By accessing and using Netovate OU services ("Netovate", "we", "our"), you agree to be bound by these Terms and Conditions. If you do not agree, do not use our services.',
+      
+      section2Title: '2. Service Description',
+      section2Text: 'Netovate provides artificial intelligence services for telephone call automation, including but not limited to: virtual agents, call transcription, sentiment analysis and CRM management.',
+      
+      section3Title: '3. Registration and Account',
+      section3Sub1: '3.1 Eligibility:',
+      section3Sub1Text: 'You must be at least 18 years old and have legal capacity to enter into contracts.',
+      section3Sub2: '3.2 Accurate Information:',
+      section3Sub2Text: 'You must provide truthful, current and complete information during registration.',
+      section3Sub3: '3.3 Security:',
+      section3Sub3Text: 'You are responsible for maintaining the confidentiality of your account and password.',
+      
+      section4Title: '4. Acceptable Use',
+      section4Text: 'You may not use the service for:',
+      section4Point1: 'Illegal or fraudulent activities',
+      section4Point2: 'Spam, phishing or deceptive practices',
+      section4Point3: 'Violation of intellectual property rights',
+      section4Point4: 'Distribution of malware or malicious code',
+      section4Point5: 'Harassment, abuse or offensive content',
+      
+      section5Title: '5. Plans and Billing',
+      section5Sub1: '5.1 Subscriptions:',
+      section5Sub1Text: 'Plans are billed monthly or annually according to your choice.',
+      section5Sub2: '5.2 Auto-renewal:',
+      section5Sub2Text: 'Your subscription renews automatically unless cancelled.',
+      section5Sub3: '5.3 Refunds:',
+      section5Sub3Text: 'We offer a 14-day guarantee on first payment. After that, there are no partial refunds.',
+      
+      section6Title: '6. Intellectual Property',
+      section6Text: 'All content, software, trademarks and technology of Netovate OU are owned by Netovate OU and protected by intellectual property laws. We grant you a limited, non-exclusive and revocable license to use the service according to these terms.',
+      
+      section7Title: '7. Privacy and Data',
+      section7Text: 'Use of our services is subject to our',
+      section7Link: 'Privacy Policy',
+      section7Text2: '. We comply with GDPR and other applicable data protection regulations.',
+      
+      section8Title: '8. Warranties and Liabilities',
+      section8Sub1: '8.1 Availability:',
+      section8Sub1Text: 'We strive to maintain 99.9% uptime, but do not guarantee uninterrupted availability.',
+      section8Sub2: '8.2 Limitation of Liability:',
+      section8Sub2Text: 'We will not be liable for indirect, incidental or consequential damages arising from use of the service.',
+      section8Sub3: '8.3 Indemnification:',
+      section8Sub3Text: 'You agree to indemnify us against claims arising from your use of the service or violation of these terms.',
+      
+      section9Title: '9. Service Modifications',
+      section9Text: 'We reserve the right to modify, suspend or discontinue any part of the service at any time. We will notify you of significant changes with 30 days notice when possible.',
+      
+      section10Title: '10. Termination',
+      section10Text: 'We may terminate or suspend your access immediately if you violate these terms. Upon termination, your data will be deleted according to our retention policy, except when required by law.',
+      
+      section11Title: '11. Applicable Law',
+      section11Text: 'These terms are governed by the laws of Estonia. Any disputes will be resolved in the courts of Tallinn, Estonia.',
+      
+      section12Title: '12. Modifications',
+      section12Text: 'We may modify these terms at any time. Significant changes will be notified with 30 days notice. Continued use of the service implies acceptance of the new terms.',
+      
+      section13Title: '13. Contact',
+      section13Text: 'For questions about these terms:',
+      
+      backHome: 'Back to Home'
+    },
+
+    // GDPR PAGE
+    gdpr: {
+      title: 'GDPR Compliance',
+      subtitle: 'Our commitment to protecting your personal data and transparency in information processing.',
+      
+      whatIsTitle: 'What is GDPR?',
+      whatIsText: 'The General Data Protection Regulation (GDPR) is the European regulation that governs the processing of personal data of European Union citizens. Its goal is to protect user privacy and rights, ensuring responsible and secure use of information.',
+      
+      principlesTitle: 'Data protection principles',
+      principle1: 'Lawfulness, fairness and transparency:',
+      principle1Text: 'We process your data legally, fairly and transparently.',
+      principle2: 'Purpose limitation:',
+      principle2Text: 'We only use your data for the specific purposes for which it was collected.',
+      principle3: 'Data minimization:',
+      principle3Text: 'We collect only the data necessary for each purpose.',
+      principle4: 'Accuracy:',
+      principle4Text: 'We keep your data updated and correct any inaccuracies.',
+      principle5: 'Storage limitation:',
+      principle5Text: 'We retain your data only as long as necessary.',
+      principle6: 'Integrity and confidentiality:',
+      principle6Text: 'We protect your data through technical and organizational security measures.',
+      
+      dataCollectedTitle: 'What data do we collect?',
+      dataCollectedText: 'We collect personal data such as',
+      dataCollectedHighlight: 'name, email, phone and company',
+      dataCollectedText2: ', only when you provide it through contact forms, registration or service contracting.',
+      
+      rightsTitle: 'Your rights as a user',
+      right1: 'Access:',
+      right1Text: 'You can request what data we have about you and how we use it.',
+      right2: 'Rectification:',
+      right2Text: 'You can correct inaccurate or incomplete data.',
+      right3: 'Deletion:',
+      right3Text: 'You can request deletion of your data when no longer necessary.',
+      right4: 'Restriction:',
+      right4Text: 'You can request that we limit processing of your data in certain cases.',
+      right5: 'Portability:',
+      right5Text: 'You can receive your data in electronic format and transfer it to another provider.',
+      right6: 'Objection:',
+      right6Text: 'You can object to processing of your data for specific purposes.',
+      
+      securityTitle: 'Security measures',
+      securityText: 'At Netovate OU we apply',
+      securityHighlight: 'advanced technical and organizational measures',
+      securityText2: 'to protect your data: encryption, restricted access, periodic audits and continuous training of our team.',
+      
+      contactTitle: 'Contact and complaints',
+      contactText: 'If you have questions, wish to exercise your rights or file a complaint, you can contact us at',
+      contactEmail: 'privacy@netovate.com',
+      contactText2: '. You can also contact the Spanish Data Protection Agency (AEPD) if you consider your rights have not been respected.',
+      
+      lastUpdateLabel: 'Last update:',
+      companyCommitment: 'Committed to your privacy.'
+    },
+
+    // FOOTER (update)
+    footer: {
+      // ... (mantén las traducciones existentes)
+      companyName: 'Netovate OU',
+      rightsReserved: 'All rights reserved.',
+      emailContact: 'info@netovate.com'
     }
   }
-};
+  }
+}
 
 // CONFIGURACIÓN DE I18NEXT
 i18n

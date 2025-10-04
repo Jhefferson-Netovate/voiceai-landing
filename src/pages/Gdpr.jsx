@@ -1,10 +1,13 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 import { ShieldCheckIcon } from '@heroicons/react/24/outline';
 
 export default function Gdpr() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-black">
       <Header />
@@ -20,59 +23,103 @@ export default function Gdpr() {
                 <ShieldCheckIcon className="w-8 h-8 text-white" />
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
-                Cumplimiento GDPR
+                {t('gdpr.title')}
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-gray-400">
-                Nuestro compromiso con la protección de tus datos personales y la transparencia en el tratamiento de la información.
+                {t('gdpr.subtitle')}
               </p>
             </div>
             
             <section className="prose prose-invert max-w-none text-gray-300 mx-auto text-base sm:text-lg md:text-lg space-y-8">
               <div className="bg-dark-100 rounded-xl p-4 mb-6 border border-scale-purple/30">
-                <h2 className="text-2xl sm:text-3xl font-bold text-scale-purple mb-3 sm:mb-4">¿Qué es el GDPR?</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-scale-purple mb-3 sm:mb-4">
+                  {t('gdpr.whatIsTitle')}
+                </h2>
                 <p className="text-lg text-gray-200">
-                  El Reglamento General de Protección de Datos (GDPR) es la normativa europea que regula el tratamiento de datos personales de los ciudadanos de la Unión Europea. Su objetivo es proteger la privacidad y los derechos de los usuarios, garantizando un uso responsable y seguro de la información.
+                  {t('gdpr.whatIsText')}
                 </p>
               </div>
 
               <div className="bg-dark-100 rounded-xl p-4 mb-6 border border-scale-blue/30">
                 <h2 className="text-xl sm:text-2xl font-semibold text-scale-purple mt-6 mb-3 sm:mt-8 sm:mb-4">
-                  Principios de protección de datos
+                  {t('gdpr.principlesTitle')}
                 </h2>
                 <ul className="list-disc list-inside space-y-2 mb-6">
-                  <li><span className="font-bold text-scale-blue">Licitud, lealtad y transparencia:</span> Tratamos tus datos de forma legal, justa y transparente.</li>
-                  <li><span className="font-bold text-scale-blue">Limitación de la finalidad:</span> Solo utilizamos tus datos para los fines específicos para los que fueron recogidos.</li>
-                  <li><span className="font-bold text-scale-blue">Minimización de datos:</span> Recogemos únicamente los datos necesarios para cada propósito.</li>
-                  <li><span className="font-bold text-scale-blue">Exactitud:</span> Mantenemos tus datos actualizados y corregimos cualquier inexactitud.</li>
-                  <li><span className="font-bold text-scale-blue">Limitación del plazo de conservación:</span> Conservamos tus datos solo el tiempo necesario.</li>
-                  <li><span className="font-bold text-scale-blue">Integridad y confidencialidad:</span> Protegemos tus datos mediante medidas de seguridad técnicas y organizativas.</li>
+                  <li>
+                    <span className="font-bold text-scale-blue">{t('gdpr.principle1')}</span>{' '}
+                    {t('gdpr.principle1Text')}
+                  </li>
+                  <li>
+                    <span className="font-bold text-scale-blue">{t('gdpr.principle2')}</span>{' '}
+                    {t('gdpr.principle2Text')}
+                  </li>
+                  <li>
+                    <span className="font-bold text-scale-blue">{t('gdpr.principle3')}</span>{' '}
+                    {t('gdpr.principle3Text')}
+                  </li>
+                  <li>
+                    <span className="font-bold text-scale-blue">{t('gdpr.principle4')}</span>{' '}
+                    {t('gdpr.principle4Text')}
+                  </li>
+                  <li>
+                    <span className="font-bold text-scale-blue">{t('gdpr.principle5')}</span>{' '}
+                    {t('gdpr.principle5Text')}
+                  </li>
+                  <li>
+                    <span className="font-bold text-scale-blue">{t('gdpr.principle6')}</span>{' '}
+                    {t('gdpr.principle6Text')}
+                  </li>
                 </ul>
               </div>
 
               <div className="bg-dark-100 rounded-xl p-4 mb-6 border border-scale-blue/30">
                 <h2 className="text-xl sm:text-2xl font-semibold text-scale-purple mt-6 mb-3 sm:mt-8 sm:mb-4">
-                  ¿Qué datos recogemos?
+                  {t('gdpr.dataCollectedTitle')}
                 </h2>
-                <p>Recopilamos datos personales como <span className="font-semibold text-scale-purple">nombre, correo electrónico, teléfono y empresa</span>, únicamente cuando tú los proporcionas a través de formularios de contacto, registro o contratación de servicios.</p>
+                <p>
+                  {t('gdpr.dataCollectedText')}{' '}
+                  <span className="font-semibold text-scale-purple">
+                    {t('gdpr.dataCollectedHighlight')}
+                  </span>
+                  {t('gdpr.dataCollectedText2')}
+                </p>
               </div>
 
               <div className="bg-dark-100 rounded-xl p-4 mb-6 border border-scale-purple/30">
                 <h2 className="text-xl sm:text-2xl font-semibold text-scale-purple mt-6 mb-3 sm:mt-8 sm:mb-4">
-                  Tus derechos como usuario
+                  {t('gdpr.rightsTitle')}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div className="bg-dark-100 rounded-xl p-4 border border-scale-purple/20">
                     <ul className="space-y-2">
-                      <li><span className="font-bold text-scale-blue">Acceso:</span> Puedes solicitar qué datos tuyos tenemos y cómo los usamos.</li>
-                      <li><span className="font-bold text-scale-blue">Rectificación:</span> Puedes corregir datos inexactos o incompletos.</li>
-                      <li><span className="font-bold text-scale-blue">Supresión:</span> Puedes pedir que eliminemos tus datos cuando ya no sean necesarios.</li>
+                      <li>
+                        <span className="font-bold text-scale-blue">{t('gdpr.right1')}</span>{' '}
+                        {t('gdpr.right1Text')}
+                      </li>
+                      <li>
+                        <span className="font-bold text-scale-blue">{t('gdpr.right2')}</span>{' '}
+                        {t('gdpr.right2Text')}
+                      </li>
+                      <li>
+                        <span className="font-bold text-scale-blue">{t('gdpr.right3')}</span>{' '}
+                        {t('gdpr.right3Text')}
+                      </li>
                     </ul>
                   </div>
                   <div className="bg-dark-100 rounded-xl p-4 border border-scale-blue/20">
                     <ul className="space-y-2">
-                      <li><span className="font-bold text-scale-blue">Limitación:</span> Puedes solicitar que limitemos el tratamiento de tus datos en ciertos casos.</li>
-                      <li><span className="font-bold text-scale-blue">Portabilidad:</span> Puedes recibir tus datos en formato electrónico y transferirlos a otro proveedor.</li>
-                      <li><span className="font-bold text-scale-blue">Oposición:</span> Puedes oponerte al tratamiento de tus datos para fines específicos.</li>
+                      <li>
+                        <span className="font-bold text-scale-blue">{t('gdpr.right4')}</span>{' '}
+                        {t('gdpr.right4Text')}
+                      </li>
+                      <li>
+                        <span className="font-bold text-scale-blue">{t('gdpr.right5')}</span>{' '}
+                        {t('gdpr.right5Text')}
+                      </li>
+                      <li>
+                        <span className="font-bold text-scale-blue">{t('gdpr.right6')}</span>{' '}
+                        {t('gdpr.right6Text')}
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -80,23 +127,40 @@ export default function Gdpr() {
 
               <div className="bg-dark-100 rounded-xl p-4 mb-6 border border-scale-purple/30">
                 <h2 className="text-xl sm:text-2xl font-semibold text-scale-purple mt-6 mb-3 sm:mt-8 sm:mb-4">
-                  Medidas de seguridad
+                  {t('gdpr.securityTitle')}
                 </h2>
-                <p>En Netovate OU aplicamos <span className="font-semibold text-scale-purple">medidas técnicas y organizativas avanzadas</span> para proteger tus datos: encriptación, acceso restringido, auditorías periódicas y formación continua de nuestro equipo.</p>
+                <p>
+                  {t('gdpr.securityText')}{' '}
+                  <span className="font-semibold text-scale-purple">
+                    {t('gdpr.securityHighlight')}
+                  </span>{' '}
+                  {t('gdpr.securityText2')}
+                </p>
               </div>
 
               <div className="bg-dark-100 rounded-xl p-4 mb-6 border border-scale-blue/30">
                 <h2 className="text-xl sm:text-2xl font-semibold text-scale-purple mt-6 mb-3 sm:mt-8 sm:mb-4">
-                  Contacto y reclamaciones
+                  {t('gdpr.contactTitle')}
                 </h2>
-                <p>Si tienes dudas, deseas ejercer tus derechos o presentar una reclamación, puedes contactarnos en <a href="mailto:privacidad@netovateou.com" className="text-scale-purple hover:underline">privacidad@netovateou.com</a>.<br />
-                También puedes dirigirte a la Agencia Española de Protección de Datos (AEPD) si consideras que tus derechos no han sido respetados.</p>
+                <p>
+                  {t('gdpr.contactText')}{' '}
+                  <a 
+                    href={`mailto:${t('gdpr.contactEmail')}`}
+                    className="text-scale-purple hover:underline"
+                  >
+                    {t('gdpr.contactEmail')}
+                  </a>
+                  {t('gdpr.contactText2')}
+                </p>
               </div>
 
               <hr />
               <p className="mt-8 text-center text-gray-400">
-                Última actualización: <span className="text-scale-purple font-semibold">01/10/2025</span><br />
-                <span className="font-bold text-scale-blue">Netovate OU</span> &mdash; Comprometidos con tu privacidad.
+                {t('gdpr.lastUpdateLabel')}{' '}
+                <span className="text-scale-purple font-semibold">01/10/2025</span>
+                <br />
+                <span className="font-bold text-scale-blue">Netovate OÜ</span> &mdash;{' '}
+                {t('gdpr.companyCommitment')}
               </p>
             </section>
           </motion.div>

@@ -1,9 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ShieldCheckIcon } from '@heroicons/react/24/outline';
 
 export default function Privacy() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-black py-24 px-4">
       <Header />
@@ -13,131 +16,149 @@ export default function Privacy() {
             <ShieldCheckIcon className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Política de Privacidad
+            {t('privacy.title')}
           </h1>
           <p className="text-gray-400">
-            Última actualización: {new Date().toLocaleDateString('es-ES')}
+            {t('privacy.lastUpdate')} {new Date().toLocaleDateString()}
           </p>
         </div>
 
         <div className="bg-dark-100 rounded-2xl shadow-sm p-8 md:p-12 space-y-8">
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">1. Información que Recopilamos</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {t('privacy.section1Title')}
+            </h2>
             <p className="text-gray-400 leading-relaxed mb-4">
-              En Netovate OÜ (operado por Netovate OU), recopilamos la siguiente información:
+              {t('privacy.section1Text')}
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-400 ml-4">
-              <li>Información de contacto: nombre, email, teléfono, empresa</li>
-              <li>Información de uso: páginas visitadas, tiempo en el sitio, clics</li>
-              <li>Información técnica: dirección IP, navegador, sistema operativo</li>
-              <li>Cookies y tecnologías similares para mejorar la experiencia</li>
+              <li>{t('privacy.section1Point1')}</li>
+              <li>{t('privacy.section1Point2')}</li>
+              <li>{t('privacy.section1Point3')}</li>
+              <li>{t('privacy.section1Point4')}</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">2. Cómo Usamos tu Información</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {t('privacy.section2Title')}
+            </h2>
             <p className="text-gray-400 leading-relaxed mb-4">
-              Utilizamos tu información para:
+              {t('privacy.section2Text')}
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-400 ml-4">
-              <li>Proporcionar y mejorar nuestros servicios</li>
-              <li>Comunicarnos contigo sobre tu cuenta y actualizaciones</li>
-              <li>Enviar información de marketing (con tu consentimiento)</li>
-              <li>Analizar el uso del sitio para mejorarlo</li>
-              <li>Cumplir con obligaciones legales</li>
+              <li>{t('privacy.section2Point1')}</li>
+              <li>{t('privacy.section2Point2')}</li>
+              <li>{t('privacy.section2Point3')}</li>
+              <li>{t('privacy.section2Point4')}</li>
+              <li>{t('privacy.section2Point5')}</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">3. Base Legal (GDPR)</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {t('privacy.section3Title')}
+            </h2>
             <p className="text-gray-400 leading-relaxed mb-4">
-              Procesamos tus datos personales basándonos en:
+              {t('privacy.section3Text')}
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-400 ml-4">
-              <li><strong>Consentimiento:</strong> Para comunicaciones de marketing</li>
-              <li><strong>Ejecución de contrato:</strong> Para proporcionar servicios</li>
-              <li><strong>Interés legítimo:</strong> Para análisis y mejoras</li>
-              <li><strong>Obligación legal:</strong> Para cumplir con la ley</li>
+              <li><strong>{t('privacy.section3Point1')}</strong></li>
+              <li><strong>{t('privacy.section3Point2')}</strong></li>
+              <li><strong>{t('privacy.section3Point3')}</strong></li>
+              <li><strong>{t('privacy.section3Point4')}</strong></li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">4. Compartir Información</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {t('privacy.section4Title')}
+            </h2>
             <p className="text-gray-400 leading-relaxed">
-              No vendemos tu información personal. Podemos compartirla con:
+              {t('privacy.section4Text')}
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-400 ml-4 mt-4">
-              <li>Proveedores de servicios (hosting, analytics, CRM)</li>
-              <li>Autoridades legales cuando sea requerido por ley</li>
-              <li>Socios comerciales con tu consentimiento explícito</li>
+              <li>{t('privacy.section4Point1')}</li>
+              <li>{t('privacy.section4Point2')}</li>
+              <li>{t('privacy.section4Point3')}</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">5. Tus Derechos (GDPR)</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {t('privacy.section5Title')}
+            </h2>
             <p className="text-gray-400 leading-relaxed mb-4">
-              Tienes derecho a:
+              {t('privacy.section5Text')}
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-400 ml-4">
-              <li><strong>Acceso:</strong> Solicitar una copia de tus datos</li>
-              <li><strong>Rectificación:</strong> Corregir datos inexactos</li>
-              <li><strong>Eliminación:</strong> Solicitar la eliminación de tus datos</li>
-              <li><strong>Portabilidad:</strong> Recibir tus datos en formato estructurado</li>
-              <li><strong>Oposición:</strong> Oponerte al procesamiento de tus datos</li>
-              <li><strong>Restricción:</strong> Limitar el uso de tus datos</li>
+              <li><strong>{t('privacy.section5Point1')}</strong></li>
+              <li><strong>{t('privacy.section5Point2')}</strong></li>
+              <li><strong>{t('privacy.section5Point3')}</strong></li>
+              <li><strong>{t('privacy.section5Point4')}</strong></li>
+              <li><strong>{t('privacy.section5Point5')}</strong></li>
+              <li><strong>{t('privacy.section5Point6')}</strong></li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">6. Seguridad de Datos</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {t('privacy.section6Title')}
+            </h2>
             <p className="text-gray-400 leading-relaxed">
-              Implementamos medidas técnicas y organizativas para proteger tus datos, incluyendo:
-              encriptación SSL/TLS, acceso restringido, auditorías regulares y cumplimiento ISO 27001.
+              {t('privacy.section6Text')}
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">7. Cookies</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {t('privacy.section7Title')}
+            </h2>
             <p className="text-gray-400 leading-relaxed">
-              Utilizamos cookies esenciales, analíticas y de marketing. Puedes gestionar tus preferencias
-              en nuestro banner de cookies.
+              {t('privacy.section7Text')}
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">8. Retención de Datos</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {t('privacy.section8Title')}
+            </h2>
             <p className="text-gray-300 leading-relaxed">
-              Conservamos tus datos solo durante el tiempo necesario para cumplir con los propósitos
-              descritos, o según lo requiera la ley (generalmente 5-7 años para datos fiscales).
+              {t('privacy.section8Text')}
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">9. Transferencias Internacionales</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {t('privacy.section9Title')}
+            </h2>
             <p className="text-gray-300 leading-relaxed">
-              Algunos proveedores pueden estar fuera de la UE. En estos casos, aseguramos protecciones
-              adecuadas mediante cláusulas contractuales estándar aprobadas por la UE.
+              {t('privacy.section9Text')}
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">10. Contacto</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {t('privacy.section10Title')}
+            </h2>
             <p className="text-gray-300 leading-relaxed mb-4">
-              Para ejercer tus derechos o hacer preguntas sobre esta política:
+              {t('privacy.section10Text')}
             </p>
             <div className="bg-dark-200 rounded-lg p-6 border border-gray-800">
-              <p className="text-white font-semibold mb-2">Netovate OU</p>
-              <p className="text-gray-300 mb-1">Email: privacy@netovate.eu</p>
-              <p className="text-gray-300 mb-1">Dirección: Tallin, Estonia</p>
+              <p className="text-white font-semibold mb-2">
+                {t('privacy.contactCompany')}
+              </p>
+              <p className="text-gray-300 mb-1">{t('privacy.contactEmail')}</p>
+              <p className="text-gray-300 mb-1">{t('privacy.contactAddress')}</p>
             </div>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">11. Cambios a esta Política</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {t('privacy.section11Title')}
+            </h2>
             <p className="text-gray-300 leading-relaxed">
-              Podemos actualizar esta política ocasionalmente. Te notificaremos de cambios significativos
-              por email o mediante un aviso en el sitio web. La fecha de última actualización se muestra
-              al inicio del documento.
+              {t('privacy.section11Text')}
             </p>
           </section>
         </div>
@@ -147,7 +168,7 @@ export default function Privacy() {
             href="/"
             className="inline-flex items-center text-scale-purple hover:text-scale-blue font-semibold transition-colors"
           >
-            ← Volver al Inicio
+            ← {t('privacy.backHome')}
           </a>
         </div>
       </div>
