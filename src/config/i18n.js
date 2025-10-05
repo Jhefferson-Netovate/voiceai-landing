@@ -95,6 +95,9 @@ const resources = {
         annual: 'Anual',
         discount: '-20%',
         perMonth: '/mes',
+        mostPopular: 'Más Popular',
+        saveAnnually: 'Ahorra',
+        perYear: 'al año',
         
         starterName: 'Starter',
         starterDesc: 'Perfecto para pequeñas empresas',
@@ -224,6 +227,22 @@ const resources = {
         hoursText: 'Lunes a Viernes: 9:00 - 18:00 CET'
       },
 
+      // BLOG PAGE
+      blog: {
+        title: 'Blog',
+        subtitle: 'Artículos y noticias sobre automatización e IA.',
+        postTag: 'Post',
+        date: '01/10/2025',
+        post1Title: 'El Futuro de la IA en Agentes Telefónicos: 2025',
+        post1Desc: 'Descubre cómo la inteligencia artificial está revolucionando la atención telefónica, automatizando procesos y mejorando la experiencia del cliente en empresas de todo el mundo.',
+        post1Point1: 'Conversaciones naturales y personalizadas.',
+        post1Point2: 'Automatización total de procesos.',
+        post1Point3: 'Integración omnicanal con CRM y redes sociales.',
+        post1Point4: 'Aprendizaje continuo y análisis avanzado.',
+        post1Point5: 'Desafíos éticos y oportunidades de negocio.',
+        readMore: 'Leer artículo completo'
+      },
+
       // BLOGPOST PAGE
       blogpost: {
         title: 'El Futuro de la IA en Agentes Telefónicos: 2025',
@@ -245,23 +264,7 @@ const resources = {
         cta: 'Prueba Netovate Gratis'
       },
 
-      // BLOG PAGE - PUNTOS ADICIONALES
-      blog: {
-        title: 'Blog',
-        subtitle: 'Artículos y noticias sobre automatización e IA.',
-        postTag: 'Post',
-        date: '01/10/2025',
-        post1Title: 'El Futuro de la IA en Agentes Telefónicos: 2025',
-        post1Desc: 'Descubre cómo la inteligencia artificial está revolucionando la atención telefónica, automatizando procesos y mejorando la experiencia del cliente en empresas de todo el mundo.',
-        post1Point1: 'Conversaciones naturales y personalizadas.',
-        post1Point2: 'Automatización total de procesos.',
-        post1Point3: 'Integración omnicanal con CRM y redes sociales.',
-        post1Point4: 'Aprendizaje continuo y análisis avanzado.',
-        post1Point5: 'Desafíos éticos y oportunidades de negocio.',
-        readMore: 'Leer artículo completo'
-      },
-
-      // CHANGELOG PAGE - FEATURES
+      // CHANGELOG PAGE
       changelog: {
         title: 'Changelog',
         subtitle: 'Novedades y actualizaciones de la plataforma.',
@@ -282,25 +285,52 @@ const resources = {
 
       // ROI CALCULATOR
       roi: {
-        title: 'Calcula tu ROI con Netovate',
-        subtitle: 'Descubre cuánto puedes ahorrar automatizando tus llamadas',
-        inputsTitle: 'Tu Situación Actual',
-        employeesLabel: 'Número de empleados',
-        hourlyRateLabel: 'Coste por hora (€)',
-        hoursPerDayLabel: 'Horas dedicadas/día',
-        workDaysLabel: 'Días laborables/mes',
-        resultsTitle: 'Tu Ahorro Potencial',
-        currentCostLabel: 'Coste actual mensual',
-        netovatePriceLabel: 'Con Netovate',
-        savingsLabel: 'Ahorro mensual',
-        roiLabel: 'ROI',
+        // Header
+        titlePart1: 'Calcula tu',
+        titlePart2: 'ROI',
+        subtitle: 'Descubre cuánto puedes ahorrar con Netovate OU',
+
+        // Inputs Section
+        inputsTitle: 'Tus datos actuales',
+        employeesLabel: 'Empleados en tareas manuales',
+        hourlyRateLabel: 'Coste por hora del empleado',
+        hoursPerDayLabel: 'Horas diarias en tareas automatizables',
+        workDaysLabel: 'Días laborables al mes',
+
+        // Results Section
+        resultsTitle: 'Tus Resultados',
+
+        // Alert
+        alertTitle: 'Ajusta los parámetros',
+        alertText: 'Con los valores actuales, el coste de Netovate es mayor que tu inversión actual en tareas manuales.',
+
+        // Current Cost
+        currentCostLabel: 'Coste Actual Mensual',
+        currentCostFormula: 'empleados × {hoursPerDay}h/día × {hourlyRate}€/h',
+
+        // Netovate Price
+        netovatePriceLabel: 'Con Netovate OU',
+        netovatePlan: 'Plan Professional • Sin límites',
+
+        // Savings
+        savingsPositive: '✅ Ahorro Mensual',
+        savingsNegative: '⚠️ Diferencia Mensual',
+        annualSavings: '{amount}€ al año',
+
+        // Metrics
+        roiLabel: 'ROI Anual',
         paybackLabel: 'Meses recuperación',
-        timeSavedLabel: 'Tiempo ahorrado mensual',
-        hoursLabel: 'horas',
+        timeSavedLabel: '⏱️ Tiempo ahorrado mensual',
+        timeSavedHours: 'horas',
+        timeSavedDays: '{days} días laborables equivalentes',
+
+        // CTA
         ctaButton: 'Comenzar Ahora →',
         ctaSubtext: '14 días de prueba gratis • Sin tarjeta',
+
+        // Note
         noteTitle: 'Nota:',
-        noteText: 'Esta calculadora proporciona estimaciones basadas en promedios de la industria. Los resultados reales pueden variar según tu caso específico.'
+        noteText: 'Esta calculadora proporciona estimaciones basadas en promedios de la industria. Los resultados reales pueden variar según tu caso específico. El ROI se calcula sobre base anual considerando una inversión de {amount}€/año.'
       },
 
       // COOKIE BANNER
@@ -550,12 +580,95 @@ const resources = {
       companyCommitment: 'Comprometidos con tu privacidad.'
     },
 
-    // FOOTER (actualización)
+    // COOKIES PAGE
+    cookies: {
+      title: 'Política de Cookies',
+      lastUpdate: 'Última actualización: 01/10/2025',
+
+      whatAreTitle: '¿Qué son las cookies?',
+      whatAreText: 'Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas nuestro sitio web. Nos ayudan a mejorar tu experiencia, recordar tus preferencias y analizar cómo utilizas nuestro sitio.',
+
+      typesTitle: 'Tipos de cookies que utilizamos',
+
+      necessaryTitle: '🔒 Cookies Necesarias',
+      necessaryDesc: 'Esenciales para el funcionamiento del sitio web. No se pueden desactivar.',
+      necessaryItem1: 'Sesión de usuario',
+      necessaryItem2: 'Preferencias de idioma',
+      necessaryItem3: 'Consentimiento de cookies',
+
+      analyticsTitle: '📊 Cookies Analíticas',
+      analyticsDesc: 'Nos ayudan a entender cómo los visitantes interactúan con el sitio.',
+      analyticsItem1: 'Google Analytics',
+      analyticsItem2: 'Métricas de rendimiento',
+      analyticsItem3: 'Análisis de tráfico',
+
+      marketingTitle: '🎯 Cookies de Marketing',
+      marketingDesc: 'Utilizadas para mostrarte anuncios relevantes en otros sitios.',
+      marketingItem1: 'Seguimiento de conversiones',
+      marketingItem2: 'Remarketing',
+      marketingItem3: 'Publicidad personalizada',
+
+      managementTitle: 'Gestión de cookies',
+      managementText: 'Puedes gestionar tus preferencias de cookies en cualquier momento:',
+      managementItem1: 'Usando nuestro banner de cookies en la parte inferior de la página',
+      managementItem2: 'Configurando tu navegador para bloquear o eliminar cookies',
+      managementItem3: 'Contactándonos en',
+      managementEmail: 'privacy@netovate.com',
+
+      noteLabel: 'Nota:',
+      noteText: 'Bloquear ciertas cookies puede afectar la funcionalidad del sitio web.'
+    },
+
+    // COMING SOON PAGE
+    comingSoon: {
+      title: 'Próximamente',
+      description: 'está en construcción. Estamos trabajando duro para traerte algo increíble.',
+      backHome: 'Volver al Inicio',
+      contact: 'Contáctanos',
+      question: '¿Tienes preguntas? Escríbenos a',
+      email: 'info@netovateou.com'
+    },
+
+    // HEADER
+    header: {
+      companyName: 'Netovate OU'
+    },
+
+    // FOOTER
     footer: {
-      // ... (mantén las traducciones existentes)
       companyName: 'Netovate OU',
+      tagline: 'Automatización empresarial impulsada por IA. Transformamos la forma en que las empresas operan y escalan.',
       rightsReserved: 'Todos los derechos reservados.',
-      emailContact: 'info@netovate.com'
+      emailContact: 'info@netovateou.com',
+
+      // Categorías
+      categoryProduct: 'Producto',
+      categoryCompany: 'Empresa',
+      categoryResources: 'Recursos',
+      categoryLegal: 'Legal',
+
+      // Links de Producto
+      features: 'Características',
+      pricing: 'Precios',
+      changelog: 'Changelog',
+
+      // Links de Empresa
+      aboutUs: 'Sobre Nosotros',
+      blog: 'Blog',
+      contact: 'Contacto',
+
+      // Links de Recursos
+      documentation: 'Documentación',
+      guides: 'Guías',
+      api: 'API',
+      helpCenter: 'Centro de Ayuda',
+      systemStatus: 'Estado del Sistema',
+
+      // Links de Legal
+      privacy: 'Privacidad',
+      terms: 'Términos',
+      cookies: 'Cookies',
+      gdpr: 'GDPR'
     }
   }
 },
@@ -646,6 +759,9 @@ const resources = {
         annual: 'Annual',
         discount: '-20%',
         perMonth: '/month',
+        mostPopular: 'Most Popular',
+        saveAnnually: 'Save',
+        perYear: 'per year',
         
         starterName: 'Starter',
         starterDesc: 'Perfect for small businesses',
@@ -775,6 +891,22 @@ const resources = {
         hoursText: 'Monday to Friday: 9:00 - 18:00 CET'
       },
 
+      // BLOG PAGE
+      blog: {
+        title: 'Blog',
+        subtitle: 'Articles and news about automation and AI.',
+        postTag: 'Post',
+        date: '10/01/2025',
+        post1Title: 'The Future of AI in Phone Agents: 2025',
+        post1Desc: 'Discover how artificial intelligence is revolutionizing phone support, automating processes and improving customer experience in companies worldwide.',
+        post1Point1: 'Natural and personalized conversations.',
+        post1Point2: 'Total process automation.',
+        post1Point3: 'Omnichannel integration with CRM and social networks.',
+        post1Point4: 'Continuous learning and advanced analysis.',
+        post1Point5: 'Ethical challenges and business opportunities.',
+        readMore: 'Read full article'
+      },
+
       // BLOGPOST PAGE
       blogpost: {
         title: 'The Future of AI in Phone Agents: 2025',
@@ -796,23 +928,7 @@ const resources = {
         cta: 'Try Netovate Free'
       },
 
-      // BLOG PAGE - ADDITIONAL POINTS
-      blog: {
-        title: 'Blog',
-        subtitle: 'Articles and news about automation and AI.',
-        postTag: 'Post',
-        date: '10/01/2025',
-        post1Title: 'The Future of AI in Phone Agents: 2025',
-        post1Desc: 'Discover how artificial intelligence is revolutionizing phone support, automating processes and improving customer experience in companies worldwide.',
-        post1Point1: 'Natural and personalized conversations.',
-        post1Point2: 'Total process automation.',
-        post1Point3: 'Omnichannel integration with CRM and social networks.',
-        post1Point4: 'Continuous learning and advanced analysis.',
-        post1Point5: 'Ethical challenges and business opportunities.',
-        readMore: 'Read full article'
-      },
-
-      // CHANGELOG PAGE - FEATURES
+      // CHANGELOG PAGE
       changelog: {
         title: 'Changelog',
         subtitle: 'Platform news and updates.',
@@ -833,25 +949,52 @@ const resources = {
 
       // ROI CALCULATOR
       roi: {
-        title: 'Calculate your ROI with Netovate',
-        subtitle: 'Discover how much you can save by automating your calls',
-        inputsTitle: 'Your Current Situation',
-        employeesLabel: 'Number of employees',
-        hourlyRateLabel: 'Cost per hour (€)',
-        hoursPerDayLabel: 'Hours dedicated/day',
-        workDaysLabel: 'Working days/month',
-        resultsTitle: 'Your Potential Savings',
-        currentCostLabel: 'Current monthly cost',
-        netovatePriceLabel: 'With Netovate',
-        savingsLabel: 'Monthly savings',
-        roiLabel: 'ROI',
+        // Header
+        titlePart1: 'Calculate your',
+        titlePart2: 'ROI',
+        subtitle: 'Discover how much you can save with Netovate OU',
+
+        // Inputs Section
+        inputsTitle: 'Your current data',
+        employeesLabel: 'Employees in manual tasks',
+        hourlyRateLabel: 'Cost per hour per employee',
+        hoursPerDayLabel: 'Daily hours in automatable tasks',
+        workDaysLabel: 'Working days per month',
+
+        // Results Section
+        resultsTitle: 'Your Results',
+
+        // Alert
+        alertTitle: 'Adjust parameters',
+        alertText: 'With current values, Netovate\'s cost is higher than your current investment in manual tasks.',
+
+        // Current Cost
+        currentCostLabel: 'Current Monthly Cost',
+        currentCostFormula: 'employees × {hoursPerDay}h/day × {hourlyRate}€/h',
+
+        // Netovate Price
+        netovatePriceLabel: 'With Netovate OU',
+        netovatePlan: 'Professional Plan • Unlimited',
+
+        // Savings
+        savingsPositive: '✅ Monthly Savings',
+        savingsNegative: '⚠️ Monthly Difference',
+        annualSavings: '{amount}€ per year',
+
+        // Metrics
+        roiLabel: 'Annual ROI',
         paybackLabel: 'Payback months',
-        timeSavedLabel: 'Monthly time saved',
-        hoursLabel: 'hours',
+        timeSavedLabel: '⏱️ Monthly time saved',
+        timeSavedHours: 'hours',
+        timeSavedDays: '{days} equivalent working days',
+
+        // CTA
         ctaButton: 'Start Now →',
         ctaSubtext: '14-day free trial • No card required',
+
+        // Note
         noteTitle: 'Note:',
-        noteText: 'This calculator provides estimates based on industry averages. Actual results may vary depending on your specific case.'
+        noteText: 'This calculator provides estimates based on industry averages. Actual results may vary depending on your specific case. ROI is calculated on an annual basis considering an investment of {amount}€/year.'
       },
 
       // COOKIE BANNER
@@ -1099,12 +1242,95 @@ const resources = {
       companyCommitment: 'Committed to your privacy.'
     },
 
-    // FOOTER (update)
+    // COOKIES PAGE
+    cookies: {
+      title: 'Cookie Policy',
+      lastUpdate: 'Last update: 10/01/2025',
+
+      whatAreTitle: 'What are cookies?',
+      whatAreText: 'Cookies are small text files stored on your device when you visit our website. They help us improve your experience, remember your preferences, and analyze how you use our site.',
+
+      typesTitle: 'Types of cookies we use',
+
+      necessaryTitle: '🔒 Necessary Cookies',
+      necessaryDesc: 'Essential for the website to function. Cannot be disabled.',
+      necessaryItem1: 'User session',
+      necessaryItem2: 'Language preferences',
+      necessaryItem3: 'Cookie consent',
+
+      analyticsTitle: '📊 Analytics Cookies',
+      analyticsDesc: 'Help us understand how visitors interact with the site.',
+      analyticsItem1: 'Google Analytics',
+      analyticsItem2: 'Performance metrics',
+      analyticsItem3: 'Traffic analysis',
+
+      marketingTitle: '🎯 Marketing Cookies',
+      marketingDesc: 'Used to show you relevant ads on other sites.',
+      marketingItem1: 'Conversion tracking',
+      marketingItem2: 'Remarketing',
+      marketingItem3: 'Personalized advertising',
+
+      managementTitle: 'Cookie management',
+      managementText: 'You can manage your cookie preferences at any time:',
+      managementItem1: 'Using our cookie banner at the bottom of the page',
+      managementItem2: 'Configuring your browser to block or delete cookies',
+      managementItem3: 'Contacting us at',
+      managementEmail: 'privacy@netovate.com',
+
+      noteLabel: 'Note:',
+      noteText: 'Blocking certain cookies may affect website functionality.'
+    },
+
+    // COMING SOON PAGE
+    comingSoon: {
+      title: 'Coming Soon',
+      description: 'is under construction. We\'re working hard to bring you something amazing.',
+      backHome: 'Back to Home',
+      contact: 'Contact Us',
+      question: 'Have questions? Write to us at',
+      email: 'info@netovateou.com'
+    },
+
+    // HEADER
+    header: {
+      companyName: 'Netovate OU'
+    },
+
+    // FOOTER
     footer: {
-      // ... (mantén las traducciones existentes)
       companyName: 'Netovate OU',
+      tagline: 'AI-powered business automation. Transforming the way companies operate and scale.',
       rightsReserved: 'All rights reserved.',
-      emailContact: 'info@netovate.com'
+      emailContact: 'info@netovateou.com',
+
+      // Categories
+      categoryProduct: 'Product',
+      categoryCompany: 'Company',
+      categoryResources: 'Resources',
+      categoryLegal: 'Legal',
+
+      // Product Links
+      features: 'Features',
+      pricing: 'Pricing',
+      changelog: 'Changelog',
+
+      // Company Links
+      aboutUs: 'About Us',
+      blog: 'Blog',
+      contact: 'Contact',
+
+      // Resource Links
+      documentation: 'Documentation',
+      guides: 'Guides',
+      api: 'API',
+      helpCenter: 'Help Center',
+      systemStatus: 'System Status',
+
+      // Legal Links
+      privacy: 'Privacy',
+      terms: 'Terms',
+      cookies: 'Cookies',
+      gdpr: 'GDPR'
     }
   }
   }

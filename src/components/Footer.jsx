@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from './ThemeProvider';
-import { useScrollAnimation } from '../hooks/useOptimizedAnimation';
 
 /**
  * FOOTER COMPONENT - NETOVATE OU
@@ -15,38 +14,31 @@ import { useScrollAnimation } from '../hooks/useOptimizedAnimation';
  */
 
 const Footer = () => {
+  const { t } = useTranslation();
   const { prefersReducedMotion } = useTheme();
   const currentYear = new Date().getFullYear();
-  const animation = useScrollAnimation({ type: 'fade' });
 
   // Links organizados por categorías
   const footerLinks = {
-    Producto: [
-      { name: 'Características', href: '/#caracteristicas' },
-      { name: 'Casos de Uso', href: '/#casos' },
-      { name: 'Precios', href: '/#precios' },
-      { name: 'Integraciones', href: '/integraciones' },
-      { name: 'Changelog', href: '/changelog' },
+    [t('footer.categoryProduct')]: [
+      { name: t('footer.features'), href: '/#caracteristicas' },
+      { name: t('footer.pricing'), href: '/#precios' },
+      { name: t('footer.changelog'), href: '/changelog' },
     ],
-    Empresa: [
-      { name: 'Sobre Nosotros', href: '/about' },
-      { name: 'Blog', href: '/blog' },
-      { name: 'Carreras', href: '/carreras' },
-      { name: 'Prensa', href: '/prensa' },
-      { name: 'Contacto', href: '/contacto' },
+    [t('footer.categoryCompany')]: [
+      { name: t('footer.aboutUs'), href: '/about' },
+      { name: t('footer.blog'), href: '/blog' },
+      { name: t('footer.contact'), href: '/contacto' },
     ],
-    Recursos: [
-      { name: 'Documentación', href: '/docs' },
-      { name: 'Guías', href: '/guias' },
-      { name: 'API', href: '/api' },
-      { name: 'Centro de Ayuda', href: '/ayuda' },
-      { name: 'Estado del Sistema', href: '/status' },
+    [t('footer.categoryResources')]: [
+      { name: t('footer.blog'), href: '/blog' },
+      { name: t('footer.changelog'), href: '/changelog' },
     ],
-    Legal: [
-      { name: 'Privacidad', href: '/privacidad' },
-      { name: 'Términos', href: '/terminos' },
-      { name: 'Cookies', href: '/cookies' },
-      { name: 'GDPR', href: '/gdpr' },
+    [t('footer.categoryLegal')]: [
+      { name: t('footer.privacy'), href: '/privacidad' },
+      { name: t('footer.terms'), href: '/terminos' },
+      { name: t('footer.gdpr'), href: '/gdpr' },
+      { name: t('footer.cookies'), href: '/cookies' },
     ],
   };
 
@@ -125,12 +117,12 @@ const Footer = () => {
                     <span className="text-white font-bold text-xl">N</span>
                   </div>
                   <span className="text-xl font-bold text-white">
-                    Netovate OU
+                    {t('footer.companyName')}
                   </span>
                 </Link>
 
                 <p className="text-gray-400 mb-6 leading-relaxed max-w-sm">
-                  Automatización empresarial impulsada por IA. Transformamos la forma en que las empresas operan y escalan.
+                  {t('footer.tagline')}
                 </p>
 
                 {/* Redes sociales */}
@@ -194,24 +186,24 @@ const Footer = () => {
           <div className="container-scale py-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
               <p>
-                © {currentYear} Netovate OU. Todos los derechos reservados.
+                © {currentYear} {t('footer.companyName')}. {t('footer.rightsReserved')}
               </p>
 
               <div className="flex flex-wrap items-center justify-center gap-6">
                 <Link to="/privacidad" className="hover:text-white transition-colors">
-                  Privacidad
+                  {t('footer.privacy')}
                 </Link>
                 <Link to="/terminos" className="hover:text-white transition-colors">
-                  Términos
+                  {t('footer.terms')}
                 </Link>
                 <Link to="/cookies" className="hover:text-white transition-colors">
-                  Cookies
+                  {t('footer.cookies')}
                 </Link>
-                <a 
-                  href="mailto:info@netovateou.com" 
+                <a
+                  href={`mailto:${t('footer.emailContact')}`}
                   className="hover:text-white transition-colors"
                 >
-                  info@netovateou.com
+                  {t('footer.emailContact')}
                 </a>
               </div>
             </div>

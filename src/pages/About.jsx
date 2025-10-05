@@ -1,19 +1,16 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Button from '../components/Button';
 import { StatCard } from '../components/Card';
-import { DottedPattern, GradientOrb, FloatingShapes } from '../components/SVGShapes';
+import { DottedPattern, GradientOrb } from '../components/SVGShapes';
 import { useTheme } from '../components/ThemeProvider';
-import { 
-  UsersIcon, 
-  RocketLaunchIcon, 
+import {
+  UsersIcon,
+  RocketLaunchIcon,
   GlobeAltIcon,
-  HeartIcon 
+  HeartIcon
 } from '@heroicons/react/24/outline';
-import { useScrollAnimation } from '../hooks/useOptimizedAnimation';
 
 export default function About() {
   const { prefersReducedMotion } = useTheme();
@@ -121,14 +118,17 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {stats.map((stat, index) => {
-            const animation = useScrollAnimation({ type: 'slide', delay: index * 0.1 });
-             return (
-            <motion.div key={index} {...animation}>
-            <StatCard {...stat} />
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <StatCard {...stat} />
             </motion.div>
-            );
-          })}
+          ))}
           </div>
 
           <motion.div 

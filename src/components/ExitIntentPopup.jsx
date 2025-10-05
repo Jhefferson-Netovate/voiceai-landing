@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Button from './Button';
@@ -200,4 +200,4 @@ export default function ExitIntentPopup() {
       )}
     </AnimatePresence>
   );
-  }
+}

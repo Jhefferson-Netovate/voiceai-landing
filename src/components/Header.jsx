@@ -121,7 +121,7 @@ const Header = () => {
               <span className={`text-xl font-bold transition-colors duration-300 ${
                 isScrolled ? 'text-white' : 'text-white'
               } group-hover:text-purple-400`}>
-                Netovate OU
+                {t('header.companyName')}
               </span>
             </Link>
 

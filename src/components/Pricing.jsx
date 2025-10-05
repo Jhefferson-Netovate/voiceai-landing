@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { CheckIcon, StarIcon } from '@heroicons/react/24/solid';
-import { useTranslation } from 'react-i18next'; // ⬅️ AÑADIR
+import { useTranslation } from 'react-i18next';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 
 export default function Pricing() {
@@ -141,7 +141,7 @@ export default function Pricing() {
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
                     <StarIcon className="w-4 h-4" />
-                    Más Popular
+                    {t('pricing.mostPopular')}
                   </div>
                 </div>
               )}
@@ -165,7 +165,7 @@ export default function Pricing() {
                       </div>
                       {billingPeriod === 'annual' && (
                         <p className="text-sm text-green-400 mt-2">
-                          Ahorra €{(plan.priceMonthly - plan.priceAnnual) * 12} al año
+                          {t('pricing.saveAnnually')} €{(plan.priceMonthly - plan.priceAnnual) * 12} {t('pricing.perYear')}
                         </p>
                       )}
                     </>

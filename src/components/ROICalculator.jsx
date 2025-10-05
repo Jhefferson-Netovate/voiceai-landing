@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChartBarIcon, CurrencyEuroIcon, ClockIcon, UserGroupIcon, CheckCircleIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { useTranslation } from 'react-i18next';
+import { ChartBarIcon, CurrencyEuroIcon, ClockIcon, UserGroupIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 import Button from './Button';
 import { GAEvents } from '../config/analytics';
 
@@ -18,6 +19,8 @@ import { GAEvents } from '../config/analytics';
  */
 
 export default function ROICalculator() {
+  const { t } = useTranslation();
+
   // Estados para inputs del usuario
   const [employees, setEmployees] = useState(10);
   const [hourlyRate, setHourlyRate] = useState(25);
@@ -43,11 +46,20 @@ export default function ROICalculator() {
 
   const calculateROI = () => {
     // ========================================
+    // VALIDACIÓN DE INPUTS
+    // ========================================
+    // Prevenir valores inválidos
+    const validEmployees = Math.max(1, employees || 1);
+    const validHourlyRate = Math.max(1, hourlyRate || 1);
+    const validHoursPerDay = Math.max(1, hoursPerDay || 1);
+    const validWorkDays = Math.max(1, workDays || 1);
+
+    // ========================================
     // CÁLCULO DEL COSTE ACTUAL MENSUAL
     // ========================================
-    const hoursPerMonth = hoursPerDay * workDays;
-    const costPerEmployee = hoursPerMonth * hourlyRate;
-    const totalCurrentCost = costPerEmployee * employees;
+    const hoursPerMonth = validHoursPerDay * validWorkDays;
+    const costPerEmployee = hoursPerMonth * validHourlyRate;
+    const totalCurrentCost = costPerEmployee * validEmployees;
 
     // ========================================
     // PRECIO DE NETOVATE
@@ -69,22 +81,24 @@ export default function ROICalculator() {
     // ========================================
     // ROI = ((Beneficio Anual - Inversión Anual) / Inversión Anual) × 100
     const annualInvestment = netovatePrice * 12; // 5,988€ al año
-    const roiPercentage = annualInvestment > 0 
+    const roiPercentage = annualInvestment > 0
       ? ((annualSavings - annualInvestment) / annualInvestment * 100).toFixed(0)
       : 0;
 
     // ========================================
     // PERÍODO DE RECUPERACIÓN (Payback)
     // ========================================
-    // Solo calcular si hay ahorro positivo
-    const paybackMonths = monthlySavings > 0 
+    // Solo calcular si hay ahorro positivo y evitar división por cero
+    const paybackMonths = monthlySavings > 0
       ? (netovatePrice / monthlySavings).toFixed(1)
-      : 0;
+      : monthlySavings === 0
+        ? 999 // Si no hay ahorro, nunca se recupera
+        : 0; // Si hay pérdida, mostrar 0
 
     // ========================================
     // TIEMPO AHORRADO EN HORAS
     // ========================================
-    const timeSaved = hoursPerMonth * employees;
+    const timeSaved = hoursPerMonth * validEmployees;
 
     // ========================================
     // VALIDACIÓN: ¿Es rentable?
@@ -119,16 +133,16 @@ export default function ROICalculator() {
         
         {/* Header */}
         <div className="text-center mb-8">
-          <motion.h2 
+          <motion.h2
             className="text-3xl md:text-4xl font-bold text-white mb-3"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Calcula tu <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">ROI</span>
+            {t('roi.titlePart1')} <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">{t('roi.titlePart2')}</span>
           </motion.h2>
           <p className="text-gray-400 text-lg">
-            Descubre cuánto puedes ahorrar con Netovate OU
+            {t('roi.subtitle')}
           </p>
         </div>
 
@@ -141,14 +155,14 @@ export default function ROICalculator() {
           <div className="space-y-6">
             <h3 className="font-semibold text-white text-xl mb-6 flex items-center">
               <ChartBarIcon className="w-6 h-6 mr-2 text-purple-400" />
-              Tus datos actuales
+              {t('roi.inputsTitle')}
             </h3>
 
             {/* Número de empleados */}
             <div className="space-y-3">
               <label className="flex items-center text-sm font-medium text-gray-300">
                 <UserGroupIcon className="w-5 h-5 mr-2 text-purple-400" />
-                Empleados en tareas manuales
+                {t('roi.employeesLabel')}
               </label>
               <div className="relative">
                 <input
@@ -174,7 +188,7 @@ export default function ROICalculator() {
             <div className="space-y-3">
               <label className="flex items-center text-sm font-medium text-gray-300">
                 <CurrencyEuroIcon className="w-5 h-5 mr-2 text-blue-400" />
-                Coste por hora del empleado
+                {t('roi.hourlyRateLabel')}
               </label>
               <div className="relative">
                 <input
@@ -200,7 +214,7 @@ export default function ROICalculator() {
             <div className="space-y-3">
               <label className="flex items-center text-sm font-medium text-gray-300">
                 <ClockIcon className="w-5 h-5 mr-2 text-cyan-400" />
-                Horas diarias en tareas automatizables
+                {t('roi.hoursPerDayLabel')}
               </label>
               <div className="relative">
                 <input
@@ -226,7 +240,7 @@ export default function ROICalculator() {
             <div className="space-y-3">
               <label className="flex items-center text-sm font-medium text-gray-300">
                 <ChartBarIcon className="w-5 h-5 mr-2 text-pink-400" />
-                Días laborables al mes
+                {t('roi.workDaysLabel')}
               </label>
               <div className="relative">
                 <input
@@ -254,7 +268,7 @@ export default function ROICalculator() {
               ======================================== */}
           <div className="space-y-6">
             <h3 className="font-semibold text-white text-xl mb-6">
-              Tus Resultados
+              {t('roi.resultsTitle')}
             </h3>
 
             {/* Alerta si no es rentable */}
@@ -267,9 +281,9 @@ export default function ROICalculator() {
                 <div className="flex items-start">
                   <ExclamationTriangleIcon className="w-5 h-5 text-yellow-400 mr-2 mt-0.5" />
                   <div>
-                    <p className="text-sm font-semibold text-yellow-400">Ajusta los parámetros</p>
+                    <p className="text-sm font-semibold text-yellow-400">{t('roi.alertTitle')}</p>
                     <p className="text-xs text-yellow-300/80 mt-1">
-                      Con los valores actuales, el coste de Netovate es mayor que tu inversión actual en tareas manuales.
+                      {t('roi.alertText')}
                     </p>
                   </div>
                 </div>
@@ -283,12 +297,12 @@ export default function ROICalculator() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <p className="text-sm text-red-400 mb-2 font-medium">Coste Actual Mensual</p>
+              <p className="text-sm text-red-400 mb-2 font-medium">{t('roi.currentCostLabel')}</p>
               <p className="text-4xl font-bold text-white">
                 {results.currentCost.toLocaleString('es-ES')}€
               </p>
               <p className="text-xs text-red-300/70 mt-1">
-                {employees} empleados × {hoursPerDay}h/día × {hourlyRate}€/h
+                {employees} {t('roi.employeesLabel')} × {hoursPerDay}h/{t('roi.hoursPerDayLabel')} × {hourlyRate}€/h
               </p>
             </motion.div>
 
@@ -299,18 +313,18 @@ export default function ROICalculator() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: 0.1 }}
             >
-              <p className="text-sm text-blue-400 mb-2 font-medium">Con Netovate OU</p>
+              <p className="text-sm text-blue-400 mb-2 font-medium">{t('roi.netovatePriceLabel')}</p>
               <p className="text-4xl font-bold text-white">
                 {results.netovatePrice}€
               </p>
-              <p className="text-xs text-blue-300/70 mt-1">Plan Professional • Sin límites</p>
+              <p className="text-xs text-blue-300/70 mt-1">{t('roi.netovatePlan')}</p>
             </motion.div>
 
             {/* Ahorro mensual */}
             <motion.div
               className={`p-5 rounded-xl border ${
-                results.isPositive 
-                  ? 'bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20' 
+                results.isPositive
+                  ? 'bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20'
                   : 'bg-gradient-to-br from-gray-500/10 to-gray-600/10 border-gray-500/20'
               }`}
               initial={{ opacity: 0, x: -20 }}
@@ -318,14 +332,14 @@ export default function ROICalculator() {
               transition={{ duration: 0.3, delay: 0.2 }}
             >
               <p className={`text-sm mb-2 font-medium ${results.isPositive ? 'text-green-400' : 'text-gray-400'}`}>
-                {results.isPositive ? '✅ Ahorro Mensual' : '⚠️ Diferencia Mensual'}
+                {results.isPositive ? t('roi.savingsPositive') : t('roi.savingsNegative')}
               </p>
               <p className={`text-4xl font-bold ${results.isPositive ? 'text-white' : 'text-gray-400'}`}>
                 {results.savings > 0 ? '+' : ''}{results.savings.toLocaleString('es-ES')}€
               </p>
               {results.isPositive && (
                 <p className="text-xs text-green-300/70 mt-1">
-                  💰 {results.annualSavings.toLocaleString('es-ES')}€ al año
+                  💰 {t('roi.annualSavings').replace('{amount}', results.annualSavings.toLocaleString('es-ES'))}
                 </p>
               )}
             </motion.div>
@@ -337,25 +351,25 @@ export default function ROICalculator() {
                   <p className="text-3xl font-bold text-white">
                     {results.roi > 0 ? '+' : ''}{results.roi}%
                   </p>
-                  <p className="text-xs text-purple-300 mt-1">ROI Anual</p>
+                  <p className="text-xs text-purple-300 mt-1">{t('roi.roiLabel')}</p>
                 </div>
                 <div className="p-4 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/20 text-center">
                   <p className="text-3xl font-bold text-white">
                     {results.paybackMonths}
                   </p>
-                  <p className="text-xs text-cyan-300 mt-1">Meses recuperación</p>
+                  <p className="text-xs text-cyan-300 mt-1">{t('roi.paybackLabel')}</p>
                 </div>
               </div>
             )}
 
             {/* Tiempo ahorrado */}
             <div className="p-4 bg-gradient-to-br from-orange-500/10 to-yellow-500/10 rounded-xl border border-orange-500/20 text-center">
-              <p className="text-sm text-orange-300 mb-1">⏱️ Tiempo ahorrado mensual</p>
+              <p className="text-sm text-orange-300 mb-1">{t('roi.timeSavedLabel')}</p>
               <p className="text-3xl font-bold text-white">
-                {results.timeSaved.toLocaleString('es-ES')} horas
+                {results.timeSaved.toLocaleString('es-ES')} {t('roi.timeSavedHours')}
               </p>
               <p className="text-xs text-orange-300/70 mt-1">
-                {(results.timeSaved / 8).toFixed(1)} días laborables equivalentes
+                {t('roi.timeSavedDays').replace('{days}', (results.timeSaved / 8).toFixed(1))}
               </p>
             </div>
 
@@ -375,10 +389,10 @@ export default function ROICalculator() {
                     window.location.href = '#contacto';
                   }}
                 >
-                  Comenzar Ahora →
+                  {t('roi.ctaButton')}
                 </Button>
                 <p className="text-xs text-gray-500 text-center mt-2">
-                  14 días de prueba gratis • Sin tarjeta
+                  {t('roi.ctaSubtext')}
                 </p>
               </div>
             )}
@@ -388,9 +402,7 @@ export default function ROICalculator() {
         {/* Nota informativa */}
         <div className="mt-8 p-4 bg-blue-500/10 rounded-xl border border-blue-500/20">
           <p className="text-sm text-blue-300">
-            <strong>💡 Nota:</strong> Esta calculadora proporciona estimaciones basadas en 
-            promedios de la industria. Los resultados reales pueden variar según tu caso específico. 
-            El ROI se calcula sobre base anual considerando una inversión de {results.netovatePrice * 12}€/año.
+            <strong>💡 {t('roi.noteTitle')}</strong> {t('roi.noteText').replace('{amount}', (results.netovatePrice * 12).toString())}
           </p>
         </div>
       </div>

@@ -10,6 +10,8 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import NotFound from './pages/NotFound';
 import Gdpr from './pages/Gdpr';
+import Cookies from './pages/Cookies';
+import ComingSoon from './pages/ComingSoon';
 
 // Componente para hacer scroll al top en cada cambio de ruta
 function ScrollToTop() {
@@ -40,16 +42,26 @@ export default function Router() {
         <Route path="/privacidad" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/terminos" element={<Terms />} />
-  {/* Página de Blog */}
-  <Route path="/blog" element={<Blog />} />
-  {/* Página de BlogPost */}
-  <Route path="/blogpost" element={<BlogPost />} />
-  {/* Página de Changelog */}
-  <Route path="/changelog" element={<Changelog />} />
-          {/* Página de GDPR */}
-          <Route path="/gdpr" element={<Gdpr />} />
-  {/* Página 404 - debe ir al final */}
-  <Route path="*" element={<NotFound />} />
+        <Route path="/gdpr" element={<Gdpr />} />
+        <Route path="/cookies" element={<Cookies />} />
+
+        {/* Páginas de contenido */}
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blogpost" element={<BlogPost />} />
+        <Route path="/changelog" element={<Changelog />} />
+
+        {/* Páginas "Próximamente" */}
+        <Route path="/integraciones" element={<ComingSoon pageName="Integraciones" />} />
+        <Route path="/carreras" element={<ComingSoon pageName="Carreras" />} />
+        <Route path="/prensa" element={<ComingSoon pageName="Prensa" />} />
+        <Route path="/docs" element={<ComingSoon pageName="Documentación" />} />
+        <Route path="/guias" element={<ComingSoon pageName="Guías" />} />
+        <Route path="/api" element={<ComingSoon pageName="API" />} />
+        <Route path="/ayuda" element={<ComingSoon pageName="Centro de Ayuda" />} />
+        <Route path="/status" element={<ComingSoon pageName="Estado del Sistema" />} />
+
+        {/* Página 404 - debe ir al final */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
