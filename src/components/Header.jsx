@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Bars3Icon, 
+import {
+  Bars3Icon,
   XMarkIcon,
   ChevronDownIcon,
   GlobeAltIcon,
@@ -11,6 +11,7 @@ import {
 import Button from './Button';
 import { useTheme } from './ThemeProvider';
 import { useTranslation } from 'react-i18next';
+import { handleHashNavigation, scrollToSection } from '../utils/navigation';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,6 +20,7 @@ const Header = () => {
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
   const { prefersReducedMotion } = useTheme();
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
 
   // Idiomas disponibles
   const languages = [
@@ -160,7 +162,10 @@ const Header = () => {
                                 key={item.name}
                                 to={item.href}
                                 className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors duration-150 text-gray-300 hover:text-white"
-                                onClick={handleLinkClick}
+                                onClick={(e) => {
+                                  handleHashNavigation(e, item.href, navigate);
+                                  handleLinkClick();
+                                }}
                               >
                                 <span className="text-2xl">{item.icon}</span>
                                 <span className="font-medium">
@@ -177,11 +182,14 @@ const Header = () => {
                     <Link
                       to={link.href}
                       className={`px-4 py-2 font-medium transition-all duration-200 relative group ${
-                        isScrolled 
-                          ? 'text-gray-300 hover:text-white' 
+                        isScrolled
+                          ? 'text-gray-300 hover:text-white'
                           : 'text-white/90 hover:text-white'
                       }`}
-                      onClick={handleLinkClick}
+                      onClick={(e) => {
+                        handleHashNavigation(e, link.href, navigate);
+                        handleLinkClick();
+                      }}
                     >
                       {link.name}
                       <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200" />
@@ -199,14 +207,14 @@ const Header = () => {
                     ? 'text-gray-300 hover:text-white hover:bg-white/5'
                     : 'text-white/90 hover:text-white hover:bg-white/10'
                 }`}
-                onClick={() => window.location.href = '/#contacto'}
+                onClick={() => scrollToSection('contacto', navigate)}
               >
                 {t('nav.contact')}
               </button>
-              
+
               <button
                 className="px-6 py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow-lg hover:shadow-xl"
-                onClick={() => window.location.href = '/#precios'}
+                onClick={() => scrollToSection('precios', navigate)}
               >
                 {t('nav.tryfree')}
               </button>
@@ -359,7 +367,10 @@ const Header = () => {
                                     key={item.name}
                                     to={item.href}
                                     className="flex items-center gap-3 px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-                                    onClick={handleLinkClick}
+                                    onClick={(e) => {
+                                      handleHashNavigation(e, item.href, navigate);
+                                      handleLinkClick();
+                                    }}
                                   >
                                     <span className="text-xl">{item.icon}</span>
                                     <span>{item.name}</span>
@@ -373,7 +384,10 @@ const Header = () => {
                         <Link
                           to={link.href}
                           className="block px-4 py-3 text-white font-medium hover:bg-white/5 rounded-lg transition-colors"
-                          onClick={handleLinkClick}
+                          onClick={(e) => {
+                            handleHashNavigation(e, link.href, navigate);
+                            handleLinkClick();
+                          }}
                         >
                           {link.name}
                         </Link>
@@ -419,7 +433,7 @@ const Header = () => {
                   <button
                     className="w-full px-4 py-3 text-white font-medium hover:bg-white/5 rounded-lg transition-colors border border-white/10"
                     onClick={() => {
-                      window.location.href = '/#contacto';
+                      scrollToSection('contacto', navigate);
                       handleLinkClick();
                     }}
                   >
@@ -428,7 +442,7 @@ const Header = () => {
                   <button
                     className="w-full px-4 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all shadow-lg"
                     onClick={() => {
-                      window.location.href = '/#precios';
+                      scrollToSection('precios', navigate);
                       handleLinkClick();
                     }}
                   >
