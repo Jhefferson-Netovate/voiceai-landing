@@ -1,15 +1,17 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next'; // ⬅️ AÑADIR ESTO
+import { useTranslation } from 'react-i18next';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import FeatureCard from './components/FeatureCard';
+import Testimonials from './components/Testimonials';
+import UseCase from './components/UseCase';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
 import ROICalculator from './components/ROICalculator';
 import CookieBanner from './components/CookieBanner';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import ContactForm from './components/ContactForm';
-import { GlowOrb, GridPattern } from './components/SVGShapes';
+import { GlowDivider, AnimatedLineDivider, SparkleDivider } from './components/SectionDivider';
 
 // Iconos
 import { 
@@ -72,19 +74,14 @@ function App() {
       {/* Hero Section */}
       <Hero />
 
+      {/* Separador Hero -> Características */}
+      <GlowDivider />
+
       {/* Sección de Características */}
-      <section 
-  id="caracteristicas" 
-  className="relative py-12 sm:py-16 md:py-20 bg-black overflow-hidden"
+      <section
+  id="caracteristicas"
+  className="section-padding section-bg-dark section-dot-pattern"
 >
-  {/* Elementos decorativos de fondo */}
-  <GridPattern opacity={0.05} />
-  <GlowOrb 
-    size={500} 
-    color="blue" 
-    opacity={0.15}
-    className="top-0 right-1/4" 
-  />
   
   <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
     {/* Título de la sección - RESPONSIVE + i18n */}
@@ -139,18 +136,43 @@ function App() {
   </div>
 </section>
 
+      {/* Separador Características -> Testimonios */}
+      <AnimatedLineDivider />
+
+      {/* Sección de Testimonios */}
+      <section className="section-padding section-bg-purple-glow">
+        <Testimonials />
+      </section>
+
+      {/* Separador Testimonios -> Caso de Uso */}
+      <AnimatedLineDivider />
+
+      {/* Sección de Caso de Uso */}
+      <section className="section-padding section-bg-dark">
+        <UseCase />
+      </section>
+
+      {/* Separador Caso de Uso -> Precios */}
+      <SparkleDivider />
+
       {/* Sección de Precios */}
-      <section id="precios" className="py-20 bg-black">
+      <section id="precios" className="section-padding section-bg-dark section-grid-pattern">
         <Pricing />
       </section>
 
+      {/* Separador Precios -> ROI */}
+      <SparkleDivider />
+
       {/* Calculadora ROI */}
-      <section className="py-20 bg-black">
+      <section className="section-padding section-bg-blue-glow">
         <ROICalculator />
       </section>
 
+      {/* Separador ROI -> Contacto */}
+      <AnimatedLineDivider />
+
       {/* Formulario de Contacto */}
-      <section id="contacto" className="py-20 bg-black">
+      <section id="contacto" className="section-padding section-bg-dark">
         <ContactForm />
       </section>
 

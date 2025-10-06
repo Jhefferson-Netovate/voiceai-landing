@@ -44,15 +44,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section 
-      id="contacto" 
-      className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-black"
-      style={{ minHeight: '100vh' }}
-    >
-      {/* Background effects - Simplificado */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-transparent to-purple-900/10 pointer-events-none" />
-      
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10 md:mb-12">
@@ -216,7 +208,6 @@ export default function ContactForm() {
             info@netovateou.com
           </a>
         </div>
-      </div>
-    </section>
+    </div>
   );
 }

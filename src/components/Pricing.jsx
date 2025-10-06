@@ -66,12 +66,7 @@ export default function Pricing() {
   ];
   
   return (
-    <section id="precios" className="section-padding bg-black relative overflow-hidden">
-      {/* Efectos de fondo */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-transparent to-blue-900/10" />
-      <div className="absolute inset-0 opacity-5 dot-pattern" />
-      
-      <div className="container-scale relative z-10">
+    <div className="container-scale">
         {/* Header */}
         <motion.div
           className="text-center mb-16"
@@ -216,7 +211,6 @@ export default function Pricing() {
             </a>
           </p>
         </motion.div>
-      </div>
-    </section>
+    </div>
   );
 }
